@@ -1,3 +1,4 @@
+/*
 package com.bitacademy.wannavegan;
 
 import org.springframework.stereotype.Controller;
@@ -13,3 +14,4 @@ public class HelloController {
         return "hello";
     }
 }
+*/
