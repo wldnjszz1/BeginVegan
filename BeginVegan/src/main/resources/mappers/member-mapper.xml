@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member.dao.MemberDAO">
+    <!-- TODO: MemberVO를 알리아스로 등록-->
+    <insert id="insert" parameterType="com.bitacademy.wannavegan.vo.MemberVO">
+        insert into users(id, user_id, password, type, email)
+        values (seq_usr_pk.nextval, #{user_id}, #{password}, #{type}, #{email})
+    </insert>
+</mapper>
