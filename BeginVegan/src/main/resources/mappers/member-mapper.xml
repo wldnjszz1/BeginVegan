@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member.mapper.MemberMapper">
+    <!-- 회원가입에 필요한 insert문 -->
+    <insert id="insert" parameterType="MemberVO">
+        insert into users(id, user_id, password, email)
+        values (seq_usr_pk.nextval, #{user_id}, #{password}, #{email})
+    </insert>
+
+    <!-- 회원관리에 필요한 전체회원 조회 -->
+    <select id="selectAll" resultType="MemberVO">
+        select id, user_id, password, type, email
+        from users
+    </select>
+
+</mapper>
