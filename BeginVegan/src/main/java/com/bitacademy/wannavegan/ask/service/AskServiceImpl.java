@@ -23,4 +23,10 @@ public class AskServiceImpl implements AskService {
     public void insertBoard(AskVO askVO) {
         askMapper.insert(askVO);
     }
+
+    @Override
+    public AskVO selectByIdBoard(int id) {
+        AskVO askid = askMapper.selectById(id);
+        return askid;
+    }
 }
