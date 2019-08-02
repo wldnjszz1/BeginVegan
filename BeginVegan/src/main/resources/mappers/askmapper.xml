@@ -12,26 +12,18 @@
     <!--문의 게시판 전체 게시글 조회-->
     <select id="selectAll" resultMap="askUser">
         <![CDATA[
-                    SELECT ask_boards.id, ask_boards.title, users.user_id, to_char(created, 'yyyy-mm-dd') as created
-                    FROM ask_boards, users
-                    WHERE ask_boards.author=users.id
-                    ORDER BY id DESC
+            SELECT ask_boards.id, ask_boards.title, users.user_id, to_char(created, 'yyyy-mm-dd') as created
+            FROM ask_boards, users
+            WHERE ask_boards.author=users.id
+            ORDER BY id DESC
         ]]>
     </select>
 
     <!--문의 게시판 글 쓰기-->
     <insert id="insert" parameterType="com.bitacademy.wannavegan.ask.vo.AskVO">
         <![CDATA[
-                    INSERT INTO ask_boards(id, author, title, content, created)
-                    VALUES (seq_ask_pk.nextval, 2, #{title}, #{content}, sysdate)
+            INSERT INTO ask_boards(id, author, title, content, created)
+            VALUES (seq_ask_pk.nextval, 2, #{title}, #{content}, sysdate)
         ]]>
-    </insert>
-
-    <!--게시물 상세 조회-->
-    <select id="selectById" parameterType="int" resultType="com.bitacademy.wannavegan.ask.vo.AskVO">
-        SELECT ask_boards.id, ask_boards.title, users.user_id as userId, ask_boards.content, to_char(created, 'yyyy-mm-dd') as created
-		FROM ask_boards, users
-		WHERE ask_boards.author=users.id and ask_boards.id=#{id}
-    </select>
-
+            </insert>
 </mapper>
