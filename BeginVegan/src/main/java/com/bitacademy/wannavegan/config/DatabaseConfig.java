@@ -17,6 +17,7 @@ public class DatabaseConfig {
     public SqlSessionFactory sqlSessionFatory(@Qualifier("dataSource") DataSource datasource) throws Exception{
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setDataSource(datasource);
+        sqlSessionFactory.setTypeAliasesPackage("com.bitacademy.wannavegan.member.vo");
         sqlSessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mappers/*.xml"));
         return (SqlSessionFactory) sqlSessionFactory.getObject();
     }
