@@ -1,4 +1,4 @@
-package com.bitacademy.wannavegan.askVO;
+package com.bitacademy.wannavegan.ask.vo;
 
 public class AskVO {
     private int id;

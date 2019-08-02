@@ -1,6 +1,6 @@
-package com.bitacademy.wannavegan.askMapper;
+package com.bitacademy.wannavegan.ask.mapper;
 
-import com.bitacademy.wannavegan.askVO.AskVO;
+import com.bitacademy.wannavegan.ask.vo.AskVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,5 +21,10 @@ public class AskMapperImpl implements AskMapper {
         List<AskVO> askVO = session.selectList("askMapper.selectAll");
 
         return askVO;
+    }
+
+    @Override
+    public void insert(AskVO askVO) {
+        session.insert("askMapper.insert", askVO);
     }
 }

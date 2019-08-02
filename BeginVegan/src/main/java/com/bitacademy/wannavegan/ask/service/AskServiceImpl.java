@@ -1,7 +1,7 @@
-package com.bitacademy.wannavegan.askService;
+package com.bitacademy.wannavegan.ask.service;
 
-import com.bitacademy.wannavegan.askMapper.AskMapper;
-import com.bitacademy.wannavegan.askVO.AskVO;
+import com.bitacademy.wannavegan.ask.mapper.AskMapper;
+import com.bitacademy.wannavegan.ask.vo.AskVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +17,10 @@ public class AskServiceImpl implements AskService {
     public List<AskVO> selectAllBoard() {
         List<AskVO> askBoardList = askMapper.selectAll();
         return askBoardList;
+    }
+
+    @Override
+    public void insertBoard(AskVO askVO) {
+        askMapper.insert(askVO);
     }
 }
