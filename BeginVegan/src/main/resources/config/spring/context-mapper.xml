@@ -10,4 +10,3 @@
         <constructor-arg index="0" ref="sqlSession"/>
     </bean>
 </beans>
-

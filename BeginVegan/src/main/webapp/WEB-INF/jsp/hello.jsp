@@ -9,6 +9,8 @@
 <body>
 <h2 class="hello-title">Hello ${name}!</h2>
 <script src="/js/main.js"></script>
-<h2>한</h2>
+<h2>한112233</h2>
+<a href="${ pageContext.request.contextPath }/diet">DIET 게시판</a><br>
+<a href="${ pageContext.request.contextPath }/diet/write">DIET 글쓰기</a><br>
 </body>
 </html>

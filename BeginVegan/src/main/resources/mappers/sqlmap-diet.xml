@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="diet.mapper.DietMapper">
+
+
+
+
+    <!--식단게시글 조회-->
+    <select id="selectAll" resultType="com.bitacademy.wannavegan.diet.vo.DietVO">
+        <![CDATA[ SELECT id,author,content,created,image FROM diet_boards
+                  ORDER BY id DESC]]>
+    </select>
+
+    <!--식단게시글 삽입 -->
+    <insert id="insert" parameterType="com.bitacademy.wannavegan.diet.vo.DietVO">
+        <![CDATA[ INSERT INTO diet_boards(id,author,content,created,image)
+                  VALUES(#{id}, #{author}, #{content}, sysdate, image) ]]>
+    </insert>
+
+
+    <!-- 특정번호 식단게시글 조회 -->
+    <select id="selectByID" parameterType="int" resultType="com.bitacademy.wannavegan.diet.vo.DietVO">
+        <![CDATA[ SELECT id, author, content, created, image FROM diet_boards
+  	              WHERE id = #{id} ]]>
+    </select>
+
+    <!-- 특정번호 식단게시글 삭제 -->
+    <delete id="deleteByID" parameterType="int">
+        <![CDATA[ DELETE FROM diet_boards WHERE id = #{id} ]]>
+	</delete>
+
+
+</mapper>
+
