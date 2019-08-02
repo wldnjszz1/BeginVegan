@@ -4,6 +4,7 @@ import com.bitacademy.wannavegan.ask.service.AskService;
 import com.bitacademy.wannavegan.ask.vo.AskVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,6 +43,21 @@ public class AskController {
         //System.out.println(askVO);
 
         return "redirect:/askBoard";
+    }
+
+    /*게시글 상세 보기*/
+
+    @RequestMapping(value = "/askBoard/{id}", method = RequestMethod.GET)
+    public ModelAndView detail(@PathVariable ("id")int id){
+        AskVO askId = askService.selectByIdBoard(id);
+
+        /*한번 찍어보기*/
+        //System.out.println("조회할 번호: " + askId);
+
+        ModelAndView mav = new ModelAndView("askBoard/askdetail");
+        mav.addObject("ask", askId);
+
+        return mav;
     }
 
 }
