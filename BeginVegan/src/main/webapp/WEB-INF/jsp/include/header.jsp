@@ -49,11 +49,14 @@
                 <li class="nav-item px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/../../about.jsp">About</a>
                 </li>
-                <li class="nav-item px-lg-4">
+                <!-- <li class="nav-item px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/../../products.jsp">Products</a>
                 </li>
                 <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/.././store.jsp">Store</a>
+                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/../../store.jsp">Store</a>
+                </li> -->
+                <li class="nav-item px-lg-4">
+                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/manageMember">Manage Member</a>
                 </li>
             </ul>
         </div>

@@ -58,7 +58,7 @@
                             <td class="cell100 column3">${member.password}</td>
                             <td class="cell100 column4">${member.email}</td>
                             <td class="cell100 column5">${member.type}</td>
-                            <td class="cell100 column6">수정</td>
+                            <td class="cell100 column6" style="cursor:pointer;" onClick = "location.href='http://naver.com'">  수정  </td>
                         </tr>
                         </c:forEach>
                         </tbody>

@@ -22,4 +22,14 @@ public class MemberMapperImpl implements MemberMapper {
         List<MemberVO> members = session.selectList("member.mapper.MemberMapper.selectAll");
         return members;
     }
+
+    @Override
+    public void update(MemberVO member) {
+        session.update("member.mapper.MemberMapper.update", member);
+    }
+
+    @Override
+    public void delete(int id) {
+        session.delete("member.mapper.MemberMapper.delete", id);
+    }
 }
