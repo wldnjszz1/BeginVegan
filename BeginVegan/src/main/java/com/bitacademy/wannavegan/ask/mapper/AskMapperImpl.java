@@ -33,4 +33,9 @@ public class AskMapperImpl implements AskMapper {
         AskVO askId = session.selectOne("askMapper.selectById", id);
         return askId;
     }
+
+    @Override
+    public void delete(int id) {
+        session.delete("askMapper.deleteById", id);
+    }
 }

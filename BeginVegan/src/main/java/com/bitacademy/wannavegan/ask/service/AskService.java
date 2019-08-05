@@ -12,4 +12,5 @@ public interface AskService {
     List<AskVO> selectAllBoard();
     void insertBoard(AskVO askVO);
     AskVO selectByIdBoard(int id);
+    void deleteByIdBoard(int id);
 }

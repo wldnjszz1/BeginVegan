@@ -29,4 +29,9 @@ public class AskServiceImpl implements AskService {
         AskVO askid = askMapper.selectById(id);
         return askid;
     }
+
+    @Override
+    public void deleteByIdBoard(int id) {
+        askMapper.delete(id);
+    }
 }
