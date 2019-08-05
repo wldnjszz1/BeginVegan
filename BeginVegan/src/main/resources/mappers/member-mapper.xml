@@ -13,4 +13,16 @@
         from users
     </select>
 
+    <!-- 회원관리에 필요한 회원 정보 수정 -->
+    <update id="update" parameterType="MemberVO">
+        UPDATE users
+        SET password = #{password}, email = #{email}, type = #{type}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 회원관리에 필요한 회원 삭제 -->
+    <delete id="delete" parameterType="int">
+        delete from usere where id = #{id}
+    </delete>
+
 </mapper>
