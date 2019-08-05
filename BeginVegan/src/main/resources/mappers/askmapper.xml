@@ -33,4 +33,11 @@
         FROM ask_boards, users
         WHERE ask_boards.author=users.id and ask_boards.id=#{id}
     </select>
+
+    <!--게시글 삭제-->
+    <delete id="deleteById" parameterType="int">
+        DELETE
+        FROM ask_boards
+        WHERE id=#{id}
+    </delete>
 </mapper>

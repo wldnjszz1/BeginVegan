@@ -9,6 +9,17 @@
 
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            $('#delBtn').click(function() {
+                if(confirm("${ask.id}번 게시물을 삭제하시겠습니까?")){
+                    // 동기식 삭제
+                    location.href = "${ pageContext.request.contextPath }/askBoard/remove/${ask.id}";
+            }
+            });
+        });
+    </script>
+
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
