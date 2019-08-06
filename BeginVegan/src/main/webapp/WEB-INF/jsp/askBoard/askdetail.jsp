@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}../resources/css/business-casual.css">
 <!DOCTYPE html>
 <html>
@@ -10,12 +10,18 @@
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#delBtn').click(function() {
-                if(confirm("${ask.id}번 게시물을 삭제하시겠습니까?")){
+        $(document).ready(function () {
+            $('#delBtn').click(function () {
+                if (confirm("${ask.id}번 게시물을 삭제하시겠습니까?")) {
                     // 동기식 삭제
                     location.href = "${ pageContext.request.contextPath }/askBoard/remove/${ask.id}";
-            }
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $('#updateBtn').click(function () {
+                location.href = "${pageContext.request.contextPath}/askBoard/askupdate/${ask.id}";
             });
         });
     </script>
@@ -52,10 +58,11 @@
                 <th width="25%">등록일</th>
                 <td>${ask.created }</td>
             </tr>
+
         </table>
         <br>
+
         <button id="updateBtn">수정</button>
-        &nbsp;&nbsp;&nbsp;
         <button id="delBtn">삭제</button>
         &nbsp;&nbsp;&nbsp;
     </div>

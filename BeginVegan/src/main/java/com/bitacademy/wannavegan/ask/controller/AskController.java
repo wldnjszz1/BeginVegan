@@ -1,18 +1,17 @@
 package com.bitacademy.wannavegan.ask.controller;
 
+import com.bitacademy.wannavegan.ask.mapper.AskMapper;
 import com.bitacademy.wannavegan.ask.service.AskService;
 import com.bitacademy.wannavegan.ask.vo.AskVO;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import sun.font.EAttribute;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class AskController {
@@ -73,5 +72,29 @@ public class AskController {
         return "redirect:/askBoard";
     }
 
+    /* 수정 글쓰기 폼으로 넘겨줌*/
+    @RequestMapping(value = "/askBoard/askupdate/{id}", method ={RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView updateForm(@PathVariable("id") int id) {
+
+        AskVO askId = askService.selectByIdBoard(id);
+        ModelAndView mav = new ModelAndView("askBoard/askupdate");
+        mav.addObject("askVO", askId);
+
+        //한번 찍어봄
+        //System.out.println(askId);
+
+        return mav;
+    }
+
+    /*수정된 데이터들을 저장하고 목록으로 돌아감*/
+    @RequestMapping(value = "/askBoard/askupdate", method = RequestMethod.POST)
+    public String update(AskVO askVO) {
+        askService.updateByIdBoard(askVO);
+
+        //한번 찍어봄
+        //System.out.println(askVO);
+
+        return "redirect:/askBoard";
+    }
 
 }
