@@ -38,4 +38,9 @@ public class AskMapperImpl implements AskMapper {
     public void delete(int id) {
         session.delete("askMapper.deleteById", id);
     }
+
+    @Override
+    public void update(AskVO askVO) {
+        session.update("askMapper.update", askVO);
+    }
 }

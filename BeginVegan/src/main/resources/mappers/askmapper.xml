@@ -40,4 +40,11 @@
         FROM ask_boards
         WHERE id=#{id}
     </delete>
+
+    <!--게시글 수정-->
+    <update id="update" parameterType="com.bitacademy.wannavegan.ask.vo.AskVO">
+        UPDATE ask_boards
+        SET title=#{title}, content=#{content}
+        WHERE id=#{id}
+    </update>
 </mapper>

@@ -16,4 +16,7 @@ public interface AskMapper {
 
     /*게시글 삭제, 삭제할 게시글 번호*/
     public void delete(int id);
+
+    /*게시글 수정, 수정할 게시글 번호*/
+    public void update(AskVO askVO);
 }

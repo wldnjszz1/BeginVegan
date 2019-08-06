@@ -34,4 +34,9 @@ public class AskServiceImpl implements AskService {
     public void deleteByIdBoard(int id) {
         askMapper.delete(id);
     }
+
+    @Override
+    public void updateByIdBoard(AskVO askVO) {
+        askMapper.update(askVO);
+    }
 }
