@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -50,7 +52,7 @@ public class MemberController {
     }
 
     @PostMapping({"/manageMember"})
-    public String memebrUpdate(@Valid  MemberVO member, BindingResult result){
+    public String memberUpdate(@Valid  MemberVO member, BindingResult result){
         if(result.hasErrors()){
             System.out.println("오류발생");
             return "Member/modify";
@@ -61,8 +63,9 @@ public class MemberController {
     }
 
     // TO DO : member delete 구현하기
-    @DeleteMapping({"/manageMember"})
-    public String memberDelete(int id, BindingResult result){
+    @RequestMapping(value="/manageMember/{id}" ,method=RequestMethod.DELETE)
+    public @ResponseBody String memberDelete(@RequestParam("id") int id, BindingResult result){
+        System.out.println(id);
         if(result.hasErrors()){
             System.out.println("오류발생");
             return "Member/modify";
@@ -74,8 +77,44 @@ public class MemberController {
     }
 
     @GetMapping({"/login"})
-    public String login(){
+    public String loginForm() {
         return "Member/login";
+    }
+
+    @PostMapping({"/login"})
+    public String login(MemberVO member, Model model, HttpServletRequest request){
+        MemberVO loginVO = service.login(member);
+        if(loginVO == null){
+            model.addAttribute("msg", "아이디 또는 패스워드가 잘못되었습니다");
+            System.out.println(model);
+            return "Member/login";
+        }else{
+            model.addAttribute("loginVO", loginVO);
+            return "index";
+        }
+    }
+
+    @GetMapping("/logout")
+    public String logout(SessionStatus status){
+        status.setComplete();
+        return "redirect:/";
+    }
+
+    // TO DO : 유저 정보 받아와서 글 띄워주기
+    @GetMapping("/mypage")
+    public String mypage(){
+        return "Member/mypage";
+    }
+
+    @PostMapping("/mypage")
+    public String mypageUpdate(@Valid MemberVO member, BindingResult result){
+        if(result.hasErrors()){
+            System.out.println("오류발생");
+            return "Member/mypage";
+        }
+        service.updateInfo(member);
+        System.out.println(member);
+        return "redirect:/mypage";
     }
 
 }

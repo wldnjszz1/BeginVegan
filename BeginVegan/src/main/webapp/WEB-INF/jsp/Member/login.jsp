@@ -1,7 +1,7 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" contentType="text/html; charset=UTF-8"%>
 <head>
 <style type="text/css">
     :root {
@@ -117,6 +117,12 @@
         }
     }
 </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        if("${msg}"){
+            alert("${msg}")
+        }
+    </script>
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
@@ -129,14 +135,14 @@
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
                             <h3 class="login-heading mb-4">Welcome back!</h3>
-                            <form>
+                            <form method="post" action="${pageContext.request.contextPath}/login" name="loginForm">
                                 <div class="form-label-group">
-                                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                                    <input type="text" name="user_id" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                                     <label for="inputEmail">ID</label>
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
                                     <label for="inputPassword">Password</label>
                                 </div>
                                 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>

@@ -32,4 +32,15 @@ public class MemberMapperImpl implements MemberMapper {
     public void delete(int id) {
         session.delete("member.mapper.MemberMapper.delete", id);
     }
+
+    @Override
+    public MemberVO login(MemberVO member) {
+        MemberVO loginVO = session.selectOne("member.mapper.MemberMapper.login", member);
+        return loginVO;
+    }
+
+    @Override
+    public void updateInfo(MemberVO member) {
+        session.update("member.mapper.memberMapper.updateInfo", member);
+    }
 }

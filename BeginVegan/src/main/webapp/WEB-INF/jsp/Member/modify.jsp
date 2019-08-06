@@ -299,10 +299,10 @@
             <thead>
             <tr>
                 <!--<th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
+                     <span class="custom-checkbox">
+                        <input type="checkbox" id="selectAll">
+                        <label for="selectAll"></label>
+                     </span>
                 </th>-->
                 <th>ID</th>
                 <th>UserID</th>
@@ -317,23 +317,23 @@
                 <form action="delete" method="post">
                     <tbody>
                     <c:forEach items="${members}" var="member">
-                    <tr>
-                        <!-- <td>
+                        <tr>
+                            <!-- <td>
                                     <span class="custom-checkbox">
                                         <input type="checkbox" id="checkbox2" name="options" value="${member.id}">
                                         <label for="checkbox2"></label>
                                     </span>
                         </td> -->
-                        <td>${member.id}</td>
-                        <td>${member.user_id}</td>
-                        <td>${member.password}</td>
-                        <td>${member.email}</td>
-                        <td>${member.type}</td>
-                        <td>
-                            <a href="#editEmployeeModal" class="edit" data-member-id="${member.id}" data-member-userid="${member.user_id}" data-member-password="${member.password}" data-member-email="${member.email}" data-member-type="${member.type}" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-member-id="${member.id}" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                        </td>
-                    </tr>
+                            <td>${member.id}</td>
+                            <td>${member.user_id}</td>
+                            <td>${member.password}</td>
+                            <td>${member.email}</td>
+                            <td>${member.type}</td>
+                            <td>
+                                <a href="#editEmployeeModal" class="edit" data-member-id="${member.id}" data-member-userid="${member.user_id}" data-member-password="${member.password}" data-member-email="${member.email}" data-member-type="${member.type}" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href="#deleteEmployeeModal" class="delete" data-member-id="${member.id}" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            </td>
+                        </tr>
                     </c:forEach>
                     </tbody>
                 </form>
@@ -396,30 +396,30 @@
                     <h4 class="modal-title">Edit Employee</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
-                    <%-- <c:forEach items="${members}" var="member"> --%>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>ID</label>
-                            <input type="text" id="modify_id_field" name="id" class="form-control" required readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>UserID</label>
-                            <input type="text" id="modify_userid_field" name="user_id" class="form-control" required readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="text" id="modify_password_field" name="password" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" id="modify_email_field" name="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Type</label>
-                            <input type="text" id="modify_type_field" name="type" class="form-control" required>
-                        </div>
+                <%-- <c:forEach items="${members}" var="member"> --%>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>ID</label>
+                        <input type="text" id="modify_id_field" name="id" class="form-control" required readonly>
                     </div>
-                    <%-- </c:forEach> --%>
+                    <div class="form-group">
+                        <label>UserID</label>
+                        <input type="text" id="modify_userid_field" name="user_id" class="form-control" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="text" id="modify_password_field" name="password" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="modify_email_field" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <input type="text" id="modify_type_field" name="type" class="form-control" required>
+                    </div>
+                </div>
+                <%-- </c:forEach> --%>
                 <div class="modal-footer">
                     <input id="button" type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                     <input type="submit" class="btn btn-info" value="Save">
@@ -500,7 +500,7 @@
         var member_id = $(button).data("member-id");
 
         var sendInfo = {
-            id: $(button).data("member-id"),
+            id: member_id
         };
 
         $("#btn").click(function() {

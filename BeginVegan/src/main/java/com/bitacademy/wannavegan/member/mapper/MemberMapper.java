@@ -9,4 +9,6 @@ public interface MemberMapper {
     public List<MemberVO> selectAll();
     public void update(MemberVO member);
     public void delete(int id);
+    public MemberVO login(MemberVO member);
+    public void updateInfo(MemberVO member);
 }

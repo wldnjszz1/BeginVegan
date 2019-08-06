@@ -58,6 +58,12 @@
                 <li class="nav-item px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/manageMember">Manage Member</a>
                 </li>
+                <c:if test="${not empty loginVO}">
+                    <div class="id" style="color: white">
+                        <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/manageMember">${loginVO.user_id}님</a>
+                    </div>
+                </c:if>
+
             </ul>
         </div>
     </div>
