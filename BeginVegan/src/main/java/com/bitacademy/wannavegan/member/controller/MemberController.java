@@ -5,6 +5,7 @@ import com.bitacademy.wannavegan.member.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -58,23 +59,30 @@ public class MemberController {
             return "Member/modify";
         }
         service.updateMember(member);
-        System.out.println(member);
         return "redirect:/manageMember";
     }
 
-    // TO DO : member delete 구현하기
-    @RequestMapping(value="/manageMember/{id}" ,method=RequestMethod.DELETE)
-    public @ResponseBody String memberDelete(@RequestParam("id") int id, BindingResult result){
-        System.out.println(id);
-        if(result.hasErrors()){
-            System.out.println("오류발생");
-            return "Member/modify";
-        }
-        System.out.println(id);
+//     TO DO : member delete 구현하기
+    @RequestMapping(value="manageMember/{id}" ,method=RequestMethod.DELETE)
+    public @ResponseBody String memberDelete(@PathVariable("id") int id){
         service.delete(id);
         System.out.println(id);
         return "redirect:/manageMember";
     }
+
+//    @RequestMapping(value = "manageMember/{id}", method = RequestMethod.DELETE)
+//    public ResponseEntity<String> remove(@PathVariable("id") int id) {
+//        System.out.println(id);
+//        ResponseEntity<String> entity = null;
+//        try {
+//            service.delete(id);
+//            entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            entity = new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+//        }
+//        return entity;
+//    }
 
     @GetMapping({"/login"})
     public String loginForm() {
