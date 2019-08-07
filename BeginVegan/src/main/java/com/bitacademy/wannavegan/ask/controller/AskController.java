@@ -1,16 +1,11 @@
 package com.bitacademy.wannavegan.ask.controller;
 
-import com.bitacademy.wannavegan.ask.mapper.AskMapper;
 import com.bitacademy.wannavegan.ask.service.AskService;
 import com.bitacademy.wannavegan.ask.vo.AskVO;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import sun.font.EAttribute;
-
 import java.util.List;
 
 @Controller
@@ -93,6 +88,31 @@ public class AskController {
 
         //한번 찍어봄
         //System.out.println(askVO);
+
+        return "redirect:/askBoard";
+    }
+
+    /* 답글 글쓰기 폼으로 넘겨줌*/
+    @RequestMapping(value = "/askBoard/askreply/{id}", method ={RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView replyForm(@PathVariable("id") int id) {
+
+        AskVO askId = askService.selectByIdBoard(id);
+        ModelAndView mav = new ModelAndView("askBoard/askreply");
+        mav.addObject("askVO", askId);
+
+        //한번 찍어봄
+        //System.out.println("답글 데이터 : " + askId);
+
+        return mav;
+    }
+
+    /* 답글 쓴 데이터를 저장하고 목록으로 돌아감*/
+    @RequestMapping(value = "/askBoard/askreply", method = RequestMethod.POST)
+    public String reply(AskVO askVO) {
+        askService.replyInsertBoard(askVO);
+
+        //한번 찍어봄
+        //System.out.println("넘어가 저장된 데이터: "+ askVO);
 
         return "redirect:/askBoard";
     }

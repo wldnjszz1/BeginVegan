@@ -39,4 +39,9 @@ public class AskServiceImpl implements AskService {
     public void updateByIdBoard(AskVO askVO) {
         askMapper.update(askVO);
     }
+
+    @Override
+    public void replyInsertBoard(AskVO askVO) {
+        askMapper.reply(askVO);
+    }
 }

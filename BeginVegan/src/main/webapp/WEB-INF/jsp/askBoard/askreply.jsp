@@ -18,15 +18,18 @@
         <hr>
         <br>
         <form method="POST"
-              action="/askBoard/askupdate"
+              action="/askBoard/askreply"
               name="inputForm">
             <input type="hidden" name="id" value="${askVO.id}">
             <input type="hidden" name="userId" value="${askVO.userId}">
             <input type="hidden" name="created" value="${askVO.created}">
+            <input type="hidden" name="grono" value="${askVO.grono}">
+            <input type="hidden" name="grpord" value="${askVO.grpord}">
+            <input type="hidden" name="depth" value="${askVO.depth}">
             <table border="1" style="width: 80%;">
                 <tr>
                     <th width="23%">제목</th>
-                    <td><input type="text" name="title" value="${askVO.title}" size="80" autofocus="autofocus"></td>
+                    <td><input type="text" name="title" value="[RE] ${askVO.title}" size="80" autofocus="autofocus"></td>
                 </tr>
                 <tr>
                     <th width="23%">글쓴이</th>
@@ -36,11 +39,12 @@
                 </tr>
                 <tr>
                     <th width="23%">내용</th>
-                    <td><input type="textarea" name="content" value="${askVO.content}" rows="5" cols="80" size="80" height="200"></td>
+                    <td><input type="textarea" rows="5" cols="80" name="content"
+                               value=" ${askVO.content} \n -------------------------------------------- "></td>
                 </tr>
             </table>
             <br>
-            <button>글 수정 </button>
+            <button> 답글 등록 </button>
         </form>
     </div>
 </section>
