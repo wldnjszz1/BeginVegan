@@ -30,7 +30,7 @@
     <!-- TO DO -->
     <!-- 회원관리에 필요한 회원 삭제 -->
     <delete id="delete" parameterType="int">
-        delete from usere where id = #{id}
+        delete from users where id = #{id}
     </delete>
 
     <!-- 회원 로그인 -->

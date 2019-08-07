@@ -499,21 +499,28 @@
         var button = event.relatedTarget;
         var member_id = $(button).data("member-id");
 
-        var sendInfo = {
+        <%--var sendInfo = {
             id: member_id
-        };
+        };--%>
 
         $("#btn").click(function() {
             $.ajax({
                 headers: {
-                    'X-HTTP-Method-Override' : 'delete',
+                    'X-HTTP-Method-Override' : 'DELETE',
                     'Content-Type': 'application/json'
                 },
-                contentType: 'application/x-www-form-urlencoded',
+                <%--contentType: 'application/x-www-form-urlencoded',--%>
                 type:"delete",
-                url:"/manageMember",
+                url:"/manageMember/"+member_id,
                 dataType:"text",
-                data:JSON.stringify(sendInfo)
+                <%--data:JSON.stringify(sendInfo)--%>
+                // success:function(result) {
+                //     console.log("result: " + result);
+                //     if (result == 'SUCCESS') {
+                //         alert("삭제 되었습니다.");
+                //         getPage("/replies/" + member_id + "/" + replyPage);
+                //     }
+                // }
             });
         });
     })
