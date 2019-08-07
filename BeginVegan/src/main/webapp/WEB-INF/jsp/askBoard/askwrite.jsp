@@ -33,6 +33,7 @@
               action="${ pageContext.request.contextPath }/askBoard/askwrite"
               name="inputForm"
               onsubmit="return checkForm()">
+
             <table border="1" style="width: 80%;">
                 <tr>
                     <th width="23%">제목</th>
@@ -51,6 +52,7 @@
             </table>
             <br>
             <button type="submit">등록</button>
+
         </form>
     </div>
 </section>

@@ -10,6 +10,7 @@
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <script>
+        /*삭제 버튼 클릭 이벤트*/
         $(document).ready(function () {
             $('#delBtn').click(function () {
                 if (confirm("${ask.id}번 게시물을 삭제하시겠습니까?")) {
@@ -19,9 +20,24 @@
             });
         });
 
+        /*수정 버튼 클릭 이벤트*/
         $(document).ready(function () {
             $('#updateBtn').click(function () {
                 location.href = "${pageContext.request.contextPath}/askBoard/askupdate/${ask.id}";
+            });
+        });
+
+        /*목록 버튼 클릭 이벤트*/
+        $(document).ready(function () {
+            $('#backBtn').click(function () {
+                location.href="${pageContext.request.contextPath}/askBoard";
+            });
+        });
+
+        /*답글 버튼 클릭 이벤트 */
+        $(document).ready(function () {
+            $('#replyBtn').click(function () {
+                location.href="${pageContext.request.contextPath}/askBoard/askreply/${ask.id}";
             });
         });
     </script>
@@ -63,7 +79,13 @@
         <br>
 
         <button id="updateBtn">수정</button>
+        <br>
         <button id="delBtn">삭제</button>
+        <br>
+        <button id="replyBtn">답글</button>
+        <br>
+        <button id="backBtn">글 목록</button>
+        <br>
         &nbsp;&nbsp;&nbsp;
     </div>
 </section>

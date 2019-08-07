@@ -19,4 +19,7 @@ public interface AskMapper {
 
     /*게시글 수정, 수정할 게시글 번호*/
     public void update(AskVO askVO);
+
+    /*답글 작성*/
+    public void reply(AskVO askVO);
 }

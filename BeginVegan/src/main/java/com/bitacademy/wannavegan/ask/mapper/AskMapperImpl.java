@@ -43,4 +43,10 @@ public class AskMapperImpl implements AskMapper {
     public void update(AskVO askVO) {
         session.update("askMapper.update", askVO);
     }
+
+    @Override
+    public void reply(AskVO askVO) {
+        session.update("askMapper.replyUpdate", askVO);
+        session.insert("askMapper.replyInsert", askVO);
+    }
 }
