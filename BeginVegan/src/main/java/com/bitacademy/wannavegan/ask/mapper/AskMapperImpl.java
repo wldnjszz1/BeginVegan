@@ -27,4 +27,26 @@ public class AskMapperImpl implements AskMapper {
     public void insert(AskVO askVO) {
         session.insert("askMapper.insert", askVO);
     }
+
+    @Override
+    public AskVO selectById(int id) {
+        AskVO askId = session.selectOne("askMapper.selectById", id);
+        return askId;
+    }
+
+    @Override
+    public void delete(int id) {
+        session.delete("askMapper.deleteById", id);
+    }
+
+    @Override
+    public void update(AskVO askVO) {
+        session.update("askMapper.update", askVO);
+    }
+
+    @Override
+    public void reply(AskVO askVO) {
+        session.update("askMapper.replyUpdate", askVO);
+        session.insert("askMapper.replyInsert", askVO);
+    }
 }

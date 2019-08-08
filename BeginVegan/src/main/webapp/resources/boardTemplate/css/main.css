@@ -176,12 +176,12 @@ th, td {
 }
 
 .column1 {
-  width: 33%;
+  width: 10%;
   padding-left: 40px;
 }
 
 .column2 {
-  width: 13%;
+  width: 22%;
 }
 
 .column3 {
@@ -189,11 +189,16 @@ th, td {
 }
 
 .column4 {
-  width: 19%;
+  width: 22%;
 }
 
 .column5 {
-  width: 13%;
+  width: 22%;
+}
+
+.column6:hover{
+  width: 100%;
+  text-decoration: underline;
 }
 
 .table100-head th {

@@ -15,15 +15,47 @@
             SELECT ask_boards.id, ask_boards.title, users.user_id, to_char(created, 'yyyy-mm-dd') as created
             FROM ask_boards, users
             WHERE ask_boards.author=users.id
-            ORDER BY id DESC
+            ORDER BY grono DESC, grpord ASC
         ]]>
     </select>
 
     <!--문의 게시판 글 쓰기-->
     <insert id="insert" parameterType="com.bitacademy.wannavegan.ask.vo.AskVO">
-        <![CDATA[
-            INSERT INTO ask_boards(id, author, title, content, created)
-            VALUES (seq_ask_pk.nextval, 2, #{title}, #{content}, sysdate)
-        ]]>
-            </insert>
+            INSERT INTO ask_boards(id, author, title, content, created, grono)
+            VALUES (seq_ask_pk.nextval, 2, #{title}, #{content}, sysdate, seq_ask_pk.nextval )
+    </insert>
+
+    <!-- 답글 달기1 / 기존 게시물 grpord 증가-->
+    <update id="replyUpdate" parameterType="com.bitacademy.wannavegan.ask.vo.AskVO">
+        UPDATE ask_boards
+        SET grpord = grpord + 1
+        WHERE grono = #{grono} and grpord > #{grpord}
+    </update>
+
+    <!--답글 달기2 / 답글 추가하면서 grpord, depth 증가-->
+    <insert id="replyInsert" parameterType="com.bitacademy.wannavegan.ask.vo.AskVO">
+            INSERT INTO ask_boards(id, author, title, content, created, grono, grpord, depth)
+            VALUES (seq_ask_pk.nextval, 1, #{title}, #{content}, sysdate, #{grono}, #{grpord}+1, #{depth}+1 )
+    </insert>
+
+    <!--게시글 상세 조회-->
+    <select id="selectById" parameterType="int" resultType="com.bitacademy.wannavegan.ask.vo.AskVO">
+        SELECT ask_boards.id, ask_boards.title, users.user_id as userId, ask_boards.content, to_char(created, 'yyyy-mm-dd') as created, grono, grpord, depth
+        FROM ask_boards, users
+        WHERE ask_boards.author=users.id and ask_boards.id=#{id}
+    </select>
+
+    <!--게시글 삭제-->
+    <delete id="deleteById" parameterType="int">
+        DELETE
+        FROM ask_boards
+        WHERE id=#{id}
+    </delete>
+
+    <!--게시글 수정-->
+    <update id="update" parameterType="com.bitacademy.wannavegan.ask.vo.AskVO">
+        UPDATE ask_boards
+        SET title=#{title}, content=#{content}
+        WHERE id=#{id}
+    </update>
 </mapper>

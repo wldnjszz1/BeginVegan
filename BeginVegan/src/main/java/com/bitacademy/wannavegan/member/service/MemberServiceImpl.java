@@ -22,4 +22,25 @@ public class MemberServiceImpl implements MemberService{
         List<MemberVO> members = mapper.selectAll();
         return members;
     }
+
+    @Override
+    public void updateMember(MemberVO member) {
+        mapper.update(member);
+    }
+
+    @Override
+    public void delete(int id) {
+        mapper.delete(id);
+    }
+
+    @Override
+    public MemberVO login(MemberVO member) {
+        MemberVO loginVO = mapper.login(member);
+        return loginVO;
+    }
+
+    @Override
+    public void updateInfo(MemberVO member) {
+        mapper.updateInfo(member);
+    }
 }

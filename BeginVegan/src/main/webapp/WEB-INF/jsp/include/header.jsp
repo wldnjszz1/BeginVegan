@@ -49,12 +49,24 @@
                 <li class="nav-item px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/../../about.jsp">About</a>
                 </li>
-                <li class="nav-item px-lg-4">
+                <!-- <li class="nav-item px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/../../products.jsp">Products</a>
                 </li>
                 <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/.././store.jsp">Store</a>
+                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/../../store.jsp">Store</a>
+                </li> -->
+                <li class="nav-item px-lg-4">
+                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/askBoard">Q&A</a>
                 </li>
+                <li class="nav-item px-lg-4">
+                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/manageMember">Manage Member</a>
+                </li>
+                <c:if test="${not empty loginVO}">
+                    <div class="id" style="color: white">
+                        <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/manageMember">${loginVO.user_id}님</a>
+                    </div>
+                </c:if>
+
             </ul>
         </div>
     </div>
