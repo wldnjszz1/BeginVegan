@@ -56,6 +56,9 @@
                     <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/../../store.jsp">Store</a>
                 </li> -->
                 <li class="nav-item px-lg-4">
+                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/askBoard">Q&A</a>
+                </li>
+                <li class="nav-item px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/manageMember">Manage Member</a>
                 </li>
                 <c:if test="${not empty loginVO}">
