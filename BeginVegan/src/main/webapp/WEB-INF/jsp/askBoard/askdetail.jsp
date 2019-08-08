@@ -68,7 +68,7 @@
             </tr>
             <tr>
                 <th width="25%">내용</th>
-                <td>${ask.content }</td>
+                <td><pre>${ask.content }</pre></td>
             </tr>
             <tr>
                 <th width="25%">등록일</th>

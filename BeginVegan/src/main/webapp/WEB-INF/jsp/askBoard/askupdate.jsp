@@ -1,49 +1,77 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="${pageContext.request.contextPath}../resources/css/business-casual.css">
+         pageEncoding="UTF-8" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}../../resources/css/askform.css">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <script>
+        function checkForm() {
+            var form = document.inputForm;
+            if (!form.title.value) {
+                alert('제목은 필수항목입니다.');
+                form.title.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+
 </head>
 <body>
-<jsp:include page="../include/header.jsp"/>
-
-<section>
-    <div align="center">
-        <br>
-        <hr>
-        <h2>게시판 등록폼</h2>
-        <hr>
-        <br>
-        <form method="POST"
-              action="/askBoard/askupdate"
-              name="inputForm">
-            <input type="hidden" name="id" value="${askVO.id}">
-            <input type="hidden" name="userId" value="${askVO.userId}">
-            <input type="hidden" name="created" value="${askVO.created}">
-            <table border="1" style="width: 80%;">
-                <tr>
-                    <th width="23%">제목</th>
-                    <td><input type="text" name="title" value="${askVO.title}" size="80" autofocus="autofocus"></td>
-                </tr>
-                <tr>
-                    <th width="23%">글쓴이</th>
-                    <td>${ askVO.userId }
-                        <!-- <input type="text" name="writer" size="80"> -->
-                    </td>
-                </tr>
-                <tr>
-                    <th width="23%">내용</th>
-                    <td><input type="textarea" name="content" value="${askVO.content}" rows="5" cols="80" size="80" height="200"></td>
-                </tr>
-            </table>
-            <br>
-            <button>글 수정 </button>
-        </form>
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div align="center" class="card-header">
+                <h3>EDIT</h3>
+            </div>
+            <div class="card-body">
+                <form name="inputForm"
+                      class="form-horizontal"
+                      method="POST"
+                      action="${ pageContext.request.contextPath }/askBoard/askupdate"
+                      onsubmit="return checkForm()">
+                    <input type="hidden" name="id" value="${askVO.id}">
+                    <input type="hidden" name="userId" value="${askVO.userId}">
+                    <input type="hidden" name="created" value="${askVO.created}">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-edit"></i></span>
+                        </div>
+                        <input type="text" name="title" class="form-control" value="${askVO.title}">
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i> </span>
+                        </div>
+                        <input type="text" name="userId" class="form-control" value="${askVO.userId}" readonly="readonly">
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-edit"></i> </span>
+                        </div>
+                        <textarea style="text-align: left" name="content" class="input-group-text" cols="38">${askVO.content}</textarea>
+                    </div>
+                    <div align="center" class="form-group">
+                        <input type="submit" value="수정" class="btn login_btn">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</section>
+</div>
 </body>
-<jsp:include page="../include/footer.jsp"/>
 </html>

@@ -35,6 +35,7 @@
                 location.href = "${ pageContext.request.contextPath }/askBoard/askwrite"
             });
         });
+
     </script>
 </head>
 <body>
@@ -42,7 +43,7 @@
 <section>
     <div class="limiter">
         <div class="container-table100">
-            <div class="wrap-table100">
+            <div align = "center" class="wrap-table100">
                 <br>
                 <hr>
                 <h2>질문 답변 게시글 조회</h2>
@@ -56,7 +57,7 @@
                             <tr class="row100 head">
                                 <th width="10%" style="padding-left: 40px">번호</th>
                                 <th class="cell100 column1">제목</th>
-                                <th class="cell100 column4">작성자</th>
+                                <th class="cell100 column1">작성자</th>
                                 <th class="cell100 column5">작성일</th>
                             </tr>
                             </thead>
@@ -76,15 +77,14 @@
                                         </a>
                                     </td>
                                     <td class="cell100 column1">${ ask.userId }</td>
-                                    <td class="cell100 column1">${ ask.created }</td>
+                                    <td class="cell100 column5">${ ask.created }</td>
                                 </tr>
                             </c:forEach>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <br>
-                <button id="writeBtn">새글등록</button>
+                <button id="writeBtn" class="btn btn-primary">새글등록</button>
             </div>
         </div>
     </div>
