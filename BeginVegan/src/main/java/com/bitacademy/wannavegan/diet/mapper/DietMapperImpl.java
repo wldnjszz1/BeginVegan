@@ -1,5 +1,6 @@
 package com.bitacademy.wannavegan.diet.mapper;
 import com.bitacademy.wannavegan.diet.vo.DietVO;
+import com.bitacademy.wannavegan.diet.vo.FileVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,6 +20,11 @@ public class DietMapperImpl implements DietMapper {
         session.insert("diet.mapper.DietMapper.insert", diet);
     }
 
+
+    public void fileInsert(FileVO file) throws Exception {
+        session.insert("diet.mapper.DietMapper.fileInsert", file);
+    }
+
     public DietVO selectByID(int id) {
         DietVO diet = session.selectOne("diet.mapper.DietMapper.selectByID", id);
         return diet;
@@ -28,4 +34,12 @@ public class DietMapperImpl implements DietMapper {
     public void delete(int id) {
         session.delete("diet.mapper.DietMapper.deleteByID", id);
     }
+
+    @Override
+    public void update(DietVO diet) {
+        session.update("diet.mapper.DietMapper.updateByID", diet);
+    }
+
+
+
 }

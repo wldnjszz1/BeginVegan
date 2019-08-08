@@ -5,6 +5,7 @@
          pageEncoding="UTF-8"%>
 
 <body>
+${pageContext.request.contextPath}
   <jsp:include page="include/header.jsp"/>
   <section class="page-section clearfix">
     <div class="container">
