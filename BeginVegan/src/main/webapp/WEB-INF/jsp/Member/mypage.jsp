@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+         pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="../include/header.jsp"/>
@@ -46,21 +46,21 @@
             <div class="control-group">
               <div class="form-group floating-label-form-group controls mb-0 pb-2">
                 <label>ID</label>
-                <input class="form-control" name="user_id" id="user_id" type="text" placeholder="ID" required="required" data-validation-required-message="Please enter your name." readonly>
+                <input class="form-control" name="user_id" id="user_id" type="text" value="${loginVO.user_id}" placeholder="ID" required="required" data-validation-required-message="Please enter your id." readonly>
                 <p class="help-block text-danger"></p>
               </div>
             </div>
             <div class="control-group">
               <div class="form-group floating-label-form-group controls mb-0 pb-2">
                 <label>Email Address</label>
-                <input class="form-control" name="email" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address.">
+                <input class="form-control" name="email" id="email" type="email" value="${loginVO.email}" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address.">
                 <p class="help-block text-danger"></p>
               </div>
             </div>
             <div class="control-group">
               <div class="form-group floating-label-form-group controls mb-0 pb-2">
                 <label>Password</label>
-                <input class="form-control" name="password" id="password" type="tel" placeholder="Password" required="required" data-validation-required-message="Please enter your phone number.">
+                <input class="form-control" name="password" id="password" type="tel" value="${loginVO.password}" placeholder="Password" required="required" data-validation-required-message="Please enter your password.">
                 <p class="help-block text-danger"></p>
               </div>
             </div>

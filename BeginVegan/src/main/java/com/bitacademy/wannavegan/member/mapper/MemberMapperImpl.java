@@ -41,6 +41,12 @@ public class MemberMapperImpl implements MemberMapper {
 
     @Override
     public void updateInfo(MemberVO member) {
-        session.update("member.mapper.memberMapper.updateInfo", member);
+        session.update("member.mapper.MemberMapper.updateInfo", member);
+    }
+
+    @Override
+    public MemberVO getInfo(int id) {
+        MemberVO member = session.selectOne("member.mapper.MemberMapper.getInfo", id);
+        return member;
     }
 }

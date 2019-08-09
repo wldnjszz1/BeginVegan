@@ -3,9 +3,9 @@
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false"%>
 
 <body>
-${pageContext.request.contextPath}
   <jsp:include page="include/header.jsp"/>
   <section class="page-section clearfix">
     <div class="container">
