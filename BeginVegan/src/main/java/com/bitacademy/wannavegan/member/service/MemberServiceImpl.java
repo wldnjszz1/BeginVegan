@@ -3,6 +3,7 @@ package com.bitacademy.wannavegan.member.service;
 import com.bitacademy.wannavegan.member.mapper.MemberMapper;
 import com.bitacademy.wannavegan.member.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,12 +36,24 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public MemberVO login(MemberVO member) {
+        System.out.println("login Service의 파라미터로 들어온 멤버 "+member);
         MemberVO loginVO = mapper.login(member);
+        if (loginVO != null){
+            loginVO.setType(loginVO.getType().trim());
+        } else{
+            System.out.println("login Service가 null");
+        }
         return loginVO;
     }
 
     @Override
     public void updateInfo(MemberVO member) {
         mapper.updateInfo(member);
+    }
+
+    @Override
+    public MemberVO getInfo(int id) {
+        MemberVO member = mapper.getInfo(id);
+        return member;
     }
 }

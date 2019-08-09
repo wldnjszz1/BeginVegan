@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,30 +42,46 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item active px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="http://localhost:8080">Home
-                        <span class="sr-only">(current)</span>
+                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/">Home
                     </a>
                 </li>
-                <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/../../about.jsp">About</a>
-                </li>
-                <!-- <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/../../products.jsp">Products</a>
-                </li>
-                <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/../../store.jsp">Store</a>
-                </li> -->
-                <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/askBoard">Q&A</a>
-                </li>
+                <c:if test="${loginVO.type == 'manager'}">
                 <li class="nav-item px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/manageMember">Manage Member</a>
                 </li>
-                <c:if test="${not empty loginVO}">
-                    <div class="id" style="color: white">
-                        <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/manageMember">${loginVO.user_id}님</a>
-                    </div>
                 </c:if>
+                <!-- <c:if test="${not empty loginVO}">
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/askBoard">Q&A</a>
+                    </li>
+                    <div class="id" style="color: white">
+                        <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/mypage">${loginVO.user_id}님</a>
+                    </div>
+                    <div class="id" style="color: white">
+                        <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/logout">로그아웃</a>
+                    </div>
+                </c:if> -->
+                <c:choose>
+                    <c:when test="${loginVO.user_id == null}">
+                        <div class="id" style="color: white">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/join">회원가입</a>
+                        </div>
+                        <div class="id" style="color: white">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/login">로그인</a>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/askBoard">Q&A</a>
+                        </li>
+                        <div class="id" style="color: white">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/mypage">${loginVO.user_id}님</a>
+                        </div>
+                        <div class="id" style="color: white">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/logout">로그아웃</a>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
 
             </ul>
         </div>

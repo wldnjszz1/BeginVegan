@@ -24,7 +24,7 @@
     <update id="updateInfo" parameterType="MemberVO">
         UPDATE users
         SET password = #{password}, email = #{email}
-        WHERE id = #{id}
+        WHERE user_id = #{user_id}
     </update>
 
     <!-- TO DO -->
@@ -35,10 +35,18 @@
 
     <!-- 회원 로그인 -->
     <select id="login" parameterType="MemberVO" resultType="MemberVO">
-        select id, user_id, password, type
+        select id, user_id, password, type, email
         from users
         where user_id = #{user_id} and password = #{password}
     </select>
+
+    <!-- 수정된 유저 정보 받아오기위한 쿼리문 -->
+    <select id="getInfo" parameterType="int" resultType="MemberVO">
+        select id, user_id, password, type, email
+        from users
+        where id = #{id}
+    </select>
+
 
 
 </mapper>
