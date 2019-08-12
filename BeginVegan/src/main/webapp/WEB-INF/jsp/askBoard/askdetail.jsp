@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}../resources/css/business-casual.css">
@@ -30,14 +31,14 @@
         /*목록 버튼 클릭 이벤트*/
         $(document).ready(function () {
             $('#backBtn').click(function () {
-                location.href="${pageContext.request.contextPath}/askBoard";
+                location.href = "${pageContext.request.contextPath}/askBoard";
             });
         });
 
         /*답글 버튼 클릭 이벤트 */
         $(document).ready(function () {
             $('#replyBtn').click(function () {
-                location.href="${pageContext.request.contextPath}/askBoard/askreply/${ask.id}";
+                location.href = "${pageContext.request.contextPath}/askBoard/askreply/${ask.id}";
             });
         });
     </script>
@@ -48,6 +49,7 @@
 
 <section>
     <div align="center">
+        <input type="hidden" name="author" value="${ask.author}">
         <br>
         <hr>
         <h2>게시판 상세</h2>
@@ -68,7 +70,9 @@
             </tr>
             <tr>
                 <th width="25%">내용</th>
-                <td><pre>${ask.content }</pre></td>
+                <td>
+                    <pre>${ask.content }</pre>
+                </td>
             </tr>
             <tr>
                 <th width="25%">등록일</th>
@@ -78,12 +82,16 @@
         </table>
         <br>
 
-        <button id="updateBtn">수정</button>
-        <br>
-        <button id="delBtn">삭제</button>
-        <br>
-        <button id="replyBtn">답글</button>
-        <br>
+        <c:if test="${loginVO.id == ask.author}">
+            <button id="updateBtn">수정</button>
+            <br>
+            <button id="delBtn">삭제</button>
+            <br>
+        </c:if>
+        <c:if test="${loginVO.type == 'manager'}">
+            <button id="replyBtn">답글</button>
+            <br>
+        </c:if>
         <button id="backBtn">글 목록</button>
         <br>
         &nbsp;&nbsp;&nbsp;

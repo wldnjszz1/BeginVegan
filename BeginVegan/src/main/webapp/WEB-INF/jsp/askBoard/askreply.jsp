@@ -45,6 +45,7 @@
                       action="${ pageContext.request.contextPath }/askBoard/askreply"
                       onsubmit="return checkForm()">
                     <input type="hidden" name="id" value="${askVO.id}">
+                    <input type="hidden" name="author" value="${loginVO.id}">
                     <input type="hidden" name="userId" value="${askVO.userId}">
                     <input type="hidden" name="created" value="${askVO.created}">
                     <input type="hidden" name="grono" value="${askVO.grono}">
@@ -61,7 +62,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i> </span>
                         </div>
-                        <input type="text" name="userId" class="form-control" value="${askVO.userId}" readonly="readonly">
+                        <input type="text" name="user_id" class="form-control" value="${loginVO.user_id}" readonly="readonly">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">

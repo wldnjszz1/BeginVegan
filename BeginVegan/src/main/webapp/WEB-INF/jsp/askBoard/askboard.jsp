@@ -84,7 +84,9 @@
                         </table>
                     </div>
                 </div>
-                <button id="writeBtn" class="btn btn-primary">새글등록</button>
+                <c:if test="${loginVO != null}">
+                    <button id="writeBtn" class="btn btn-primary">새글등록</button>
+                </c:if>
             </div>
         </div>
     </div>

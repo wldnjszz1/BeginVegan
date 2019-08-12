@@ -45,6 +45,7 @@
                       method="POST"
                       action="${ pageContext.request.contextPath }/askBoard/askwrite"
                       onsubmit="return checkForm()">
+                    <input type="hidden" name="author" value="${loginVO.id}">
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-edit"></i></span>
@@ -55,7 +56,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i> </span>
                         </div>
-                        <input type="text" name="userId" class="form-control" value="${askVO.userId}" readonly="readonly">
+                        <input type="text" name="userId" class="form-control" value="${loginVO.user_id}" readonly="readonly">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
