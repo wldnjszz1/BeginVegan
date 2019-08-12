@@ -12,6 +12,7 @@ import java.io.File;
 import java.util.List;
 
 @Controller
+@SessionAttributes({"loginVO"})
 public class DietController {
     @Autowired
     private DietService service;
@@ -65,8 +66,12 @@ public class DietController {
             String sourceFileName = files.getOriginalFilename();
             File destinationFile;
 //            String fileUrl = "C:\\upload"; 나중에 서버파면 그떄 지정하기 지금은 밑에껄로 임시로
+<<<<<<< Updated upstream
 //            String fileUrl = "C:\\Users\\user\\Desktop\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";
             String fileUrl = "C:\\Users\\bit-user\\Desktop\\BeginVegan\\BeginVegan\\resources\\img";
+=======
+            String fileUrl = "/Users/jiwonkim/IdeaProjects/BeginVegan/src/main/webapp/resources/img";
+>>>>>>> Stashed changes
 
             destinationFile = new File(fileUrl, sourceFileName);
             destinationFile.getParentFile().mkdirs();

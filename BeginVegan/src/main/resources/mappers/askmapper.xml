@@ -22,7 +22,11 @@
     <!--문의 게시판 글 쓰기-->
     <insert id="insert" parameterType="com.bitacademy.wannavegan.ask.vo.AskVO">
             INSERT INTO ask_boards(id, author, title, content, created, grono)
+<<<<<<< Updated upstream
             VALUES (seq_ask_pk.nextval, #{author}, #{title}, #{content}, sysdate, seq_ask_pk.nextval )
+=======
+            VALUES (seq_ask_pk.nextval, 21, #{title}, #{content}, sysdate, seq_ask_pk.nextval )
+>>>>>>> Stashed changes
     </insert>
 
     <!-- 답글 달기1 / 기존 게시물 grpord 증가-->

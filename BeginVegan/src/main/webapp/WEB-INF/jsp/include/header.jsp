@@ -50,17 +50,6 @@
                     <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/manageMember">Manage Member</a>
                 </li>
                 </c:if>
-                <!-- <c:if test="${not empty loginVO}">
-                    <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/askBoard">Q&A</a>
-                    </li>
-                    <div class="id" style="color: white">
-                        <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/mypage">${loginVO.user_id}님</a>
-                    </div>
-                    <div class="id" style="color: white">
-                        <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/logout">로그아웃</a>
-                    </div>
-                </c:if> -->
                 <c:choose>
                     <c:when test="${loginVO.user_id == null}">
                         <div class="id" style="color: white">
@@ -71,6 +60,12 @@
                         </div>
                     </c:when>
                     <c:otherwise>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/Board">Free Board</a>
+                        </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/diet">Diet</a>
+                        </li>
                         <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/askBoard">Q&A</a>
                         </li>

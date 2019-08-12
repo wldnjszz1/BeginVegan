@@ -112,25 +112,32 @@ public class MemberController {
         return mav;
     }
 
-    @PostMapping("/mypage")
-    public ModelAndView mypageUpdate(@Valid MemberVO mem, BindingResult result, HttpServletRequest req, SessionStatus status){
-        MemberVO vo = (MemberVO) req.getSession().getAttribute("loginVO");
-        System.out.println("vo       :        " + vo);
-        int id = vo.getId();
-        ModelAndView mav = new ModelAndView();
-        if(result.hasErrors()){
-            System.out.println("오류발생");
-            mav.setViewName("Member/mypage");
-            return mav;
-        }
-        service.updateInfo(mem);
-        status.setComplete();
-        MemberVO loginVO = service.getInfo(id);
-        System.out.println("login함수를 거친 회원   :   "+loginVO);
-        mav.setViewName("redirect:/mypage");
-        mav.addObject("loginVO",loginVO);
-        System.out.println("post 방식의 마이페이지 mav   :   "+mav);
-        return mav;
+//    @PostMapping("/mypage")
+//    public ModelAndView mypageUpdate(@ModelAttribute("loginVO") MemberVO mem, BindingResult result, HttpServletRequest req, SessionStatus status){
+//        MemberVO vo = (MemberVO) req.getSession().getAttribute("loginVO");
+//        System.out.println("vo       :        " + vo);
+//        int id = vo.getId();
+//        ModelAndView mav = new ModelAndView();
+//        if(result.hasErrors()){
+//            System.out.println("오류발생");
+//            mav.setViewName("Member/mypage");
+//            return mav;
+//        }
+//        service.updateInfo(mem);
+//        status.setComplete();
+//        MemberVO loginVO = service.getInfo(id);
+//        System.out.println("login함수를 거친 회원   :   "+loginVO);
+//        mav.setViewName("Member/mypage");
+//        mav.addObject("loginVO",loginVO);
+//        System.out.println("post 방식의 마이페이지 mav   :   "+mav);
+//        return mav;
+//    }
+
+    @RequestMapping(value = "/mypage", method = RequestMethod.POST)
+    public String mypageUpdate(@ModelAttribute("loginVO") MemberVO member, SessionStatus sessionStatus, Model model) throws Exception {
+        service.updateInfo(member);
+        sessionStatus.setComplete();
+        return "redirect:/mypage";
     }
 
     @ModelAttribute("loginVO")
