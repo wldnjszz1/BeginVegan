@@ -21,6 +21,7 @@ public class DietController {
         List<DietVO> dietList = service.selectAllDiet();
         ModelAndView mav = new ModelAndView("diet/list");
         mav.addObject("dietList", dietList);
+        System.out.println("ddd");
         return mav;
     }
 
@@ -64,7 +65,8 @@ public class DietController {
             String sourceFileName = files.getOriginalFilename();
             File destinationFile;
 //            String fileUrl = "C:\\upload"; 나중에 서버파면 그떄 지정하기 지금은 밑에껄로 임시로
-            String fileUrl = "C:\\Users\\user\\Desktop\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";
+//            String fileUrl = "C:\\Users\\user\\Desktop\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";
+            String fileUrl = "C:\\Users\\bit-user\\Desktop\\BeginVegan\\BeginVegan\\resources\\img";
 
             destinationFile = new File(fileUrl, sourceFileName);
             destinationFile.getParentFile().mkdirs();
@@ -85,6 +87,7 @@ public class DietController {
             System.out.println(file);
             service.fileInsertService(file); // 파일 insert
             }
+
         return "redirect:/diet";
     }
 

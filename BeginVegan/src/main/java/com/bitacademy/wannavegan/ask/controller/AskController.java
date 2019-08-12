@@ -2,20 +2,28 @@ package com.bitacademy.wannavegan.ask.controller;
 
 import com.bitacademy.wannavegan.ask.service.AskService;
 import com.bitacademy.wannavegan.ask.vo.AskVO;
+import com.bitacademy.wannavegan.member.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.SessionScope;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
+@SessionAttributes({"loginVO"})
 @Controller
 public class AskController {
 
     @Autowired
     private AskService askService;
 
+
     /*전체 게시글 조회. 서비스에서 데이터 받아서 뿌려줌*/
-    @RequestMapping("/askBoard")
+    @GetMapping("/askBoard")
     public ModelAndView List() {
         List<AskVO> askBoardList = askService.selectAllBoard();
 
@@ -26,14 +34,14 @@ public class AskController {
     }
 
     /*새 글쓰기 폼으로 넘겨줌*/
-    @RequestMapping(value = "/askBoard/askwrite", method = RequestMethod.GET)
-    public String AskWriteForm() {
+    @GetMapping("/askBoard/askwrite")
+    public String AskWriteForm(@ModelAttribute MemberVO loginVO, Model model) {
         return "askBoard/askwrite";
     }
 
     /*입력된 데이터들을 저장하고 목록으로 돌아감*/
     @RequestMapping(value = "/askBoard/askwrite", method = RequestMethod.POST)
-    public String AskWrite(AskVO askVO) {
+    public String AskWrite(AskVO askVO)  {
         askService.insertBoard(askVO);
 
         //한번 찍어봄
