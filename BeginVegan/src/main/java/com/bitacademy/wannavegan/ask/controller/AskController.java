@@ -16,7 +16,6 @@ import java.util.List;
 
 @SessionAttributes({"loginVO"})
 @Controller
-@SessionAttributes({"loginVO"})
 public class AskController {
 
     @Autowired

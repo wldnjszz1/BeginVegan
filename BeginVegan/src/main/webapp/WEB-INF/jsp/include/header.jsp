@@ -53,6 +53,9 @@
                 <c:choose>
                     <c:when test="${loginVO.user_id == null}">
                         <div class="id" style="color: white">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/map">지도</a>
+                        </div>
+                        <div class="id" style="color: white">
                             <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/join">회원가입</a>
                         </div>
                         <div class="id" style="color: white">
