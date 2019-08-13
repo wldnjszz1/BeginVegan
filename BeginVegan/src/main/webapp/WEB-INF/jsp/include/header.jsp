@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Business Casual - Start Bootstrap Theme</title>
+    <title>BeginVegan</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}../../../resources/vendor/bootstrap/css/bootstrap.css">
@@ -28,8 +28,8 @@
 </head>
 
 <h1 class="site-heading text-center text-white d-none d-lg-block">
-    <span class="site-heading-upper text-primary mb-3">A Free Bootstrap 4 Business Theme</span>
-    <span class="site-heading-lower">Business Casual</span>
+    <span class="site-heading-upper text-primary mb-3">The vegan web community</span>
+    <span class="site-heading-lower">Begin-Vegan</span>
 </h1>
 
 <!-- Navigation -->
