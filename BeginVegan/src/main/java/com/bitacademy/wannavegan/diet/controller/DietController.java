@@ -66,8 +66,8 @@ public class DietController {
             String sourceFileName = files.getOriginalFilename();
             File destinationFile;
 //            String fileUrl = "C:\\upload"; 나중에 서버파면 그떄 지정하기 지금은 밑에껄로 임시로
-
             String fileUrl = "/Users/jiwonkim/IdeaProjects/BeginVegan/src/main/webapp/resources/img";
+
 
             destinationFile = new File(fileUrl, sourceFileName);
             destinationFile.getParentFile().mkdirs();

@@ -7,11 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.SessionScope;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @SessionAttributes({"loginVO"})
@@ -26,7 +23,6 @@ public class AskController {
     @GetMapping("/askBoard")
     public ModelAndView List() {
         List<AskVO> askBoardList = askService.selectAllBoard();
-
         ModelAndView mav = new ModelAndView("askBoard/askboard");
         mav.addObject("askBoardList", askBoardList);
 

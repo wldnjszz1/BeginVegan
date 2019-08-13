@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" contentType="text/html; charset=UTF-8" trimDirectiveWhitespaces="true"%>
 <head>
-<style type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}../resources/css/register.css">
+<%--<style type="text/css">
     :root {
         --input-padding-x: 1.5rem;
         --input-padding-y: 0.75rem;
@@ -11,11 +12,11 @@
 
     .login,
     .image {
-        min-height: 100vh;
+        min-height: 60vh;
     }
 
     .bg-image {
-        background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200');
+        background-image: url("resources/img/login.jpg");
         background-size: cover;
         background-position: center;
     }
@@ -122,10 +123,43 @@
         if("${msg}"){
             alert("${msg}")
         }
-    </script>
+    </script>--%>
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                    <!-- Background image for card set in CSS! -->
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-center">Welcome back!</h3>
+                    <form class="form-signin" method="post" action="${pageContext.request.contextPath}/join" onsubmit="return tocheckpw2()">
+                        <div class="form-label-group">
+                            <input type="text" name="user_id" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                            <label for="inputEmail">ID</label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                            <label for="inputPassword">Password</label>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+                        <div class="text-center">
+                            <a class="small" href="${pageContext.request.contextPath}/join">Join Us !</a></div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%--
 <div class="container-fluid">
     <div class="row no-gutter">
         <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
@@ -155,6 +189,6 @@
             </div>
         </div>
     </div>
-</div>
+</div>--%>
 </body>
 <jsp:include page="../include/footer.jsp"/>
