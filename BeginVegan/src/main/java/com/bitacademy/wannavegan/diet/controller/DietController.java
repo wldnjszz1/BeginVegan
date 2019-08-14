@@ -22,7 +22,6 @@ public class DietController {
         List<DietVO> dietList = service.selectAllDiet();
         ModelAndView mav = new ModelAndView("diet/list");
         mav.addObject("dietList", dietList);
-        System.out.println("ddd");
         return mav;
     }
 
@@ -66,13 +65,12 @@ public class DietController {
             String sourceFileName = files.getOriginalFilename();
             File destinationFile;
 //            String fileUrl = "C:\\upload"; 나중에 서버파면 그떄 지정하기 지금은 밑에껄로 임시로
-            String fileUrl = "/Users/jiwonkim/IdeaProjects/BeginVegan/src/main/webapp/resources/img";
-
+            String fileUrl = "C:\\Users\\user\\Desktop\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";
 
             destinationFile = new File(fileUrl, sourceFileName);
             destinationFile.getParentFile().mkdirs();
             files.transferTo(destinationFile);
- //           diet.setImage((String)fileUrl + "\\" + (String)sourceFileName); 나중에 할거
+            //           diet.setImage((String)fileUrl + "\\" + (String)sourceFileName); 나중에 할거
             diet.setImage("resources/img/" + (String)sourceFileName);
             System.out.println(diet.getImage());
             service.insertDiet(diet); // 게시글 insert
@@ -87,16 +85,16 @@ public class DietController {
             file.setFileUrl(fileUrl);
             System.out.println(file);
             service.fileInsertService(file); // 파일 insert
-            }
-
+        }
         return "redirect:/diet";
     }
 
-    @GetMapping("diet/boot")
-    public String bootTest(){
-        System.out.println("diet/boot test");
-        return "diet/boot";
+    @GetMapping("/diet/map")
+    public String mapTest(){
+        System.out.println("diet/map test");
+        return "diet/map";
     }
+
 }
 
 
