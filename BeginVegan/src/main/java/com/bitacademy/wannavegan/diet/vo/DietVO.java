@@ -2,7 +2,7 @@ package com.bitacademy.wannavegan.diet.vo;
 
 public class DietVO {
     private int id;
-    private int author;
+    private String author;
     private String content;
     private String created;
     private String image;
@@ -11,7 +11,7 @@ public class DietVO {
         super(); // 내가 추가시킨거
     }
 
-    public DietVO(int id, int author, String content, String created, String image) {
+    public DietVO(int id, String author, String content, String created, String image) {
         super(); // 내가 추가시킨거
         this.id = id;
         this.author = author;
@@ -28,11 +28,11 @@ public class DietVO {
         this.id = id;
     }
 
-    public int getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(int author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
@@ -64,7 +64,7 @@ public class DietVO {
     public String toString() {
         return "DietVO{" +
                 "id=" + id +
-                ", author=" + author +
+                ", author='" + author + '\'' +
                 ", content='" + content + '\'' +
                 ", created='" + created + '\'' +
                 ", image='" + image + '\'' +

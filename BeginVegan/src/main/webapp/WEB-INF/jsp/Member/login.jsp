@@ -137,7 +137,7 @@
                 </div>
                 <div class="card-body">
                     <h3 class="card-title text-center">Welcome back!</h3>
-                    <form class="form-signin" method="post" action="${pageContext.request.contextPath}/join" onsubmit="return tocheckpw2()">
+                    <form class="form-signin" method="post" action="${pageContext.request.contextPath}/login" onsubmit="return tocheckpw2()">
                         <div class="form-label-group">
                             <input type="text" name="user_id" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                             <label for="inputEmail">ID</label>
