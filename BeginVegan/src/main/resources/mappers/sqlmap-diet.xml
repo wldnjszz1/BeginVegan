@@ -35,9 +35,11 @@
 
     <!-- 특정번호 식단게시글 수정 -->
 
+
+
     <update id="updateByID" parameterType="com.bitacademy.wannavegan.diet.vo.DietVO">
         <![CDATA[ UPDATE diet_boards
-                  SET content = #{content}, image = #{image}
+                  SET content = #{content}
                   WHERE id = #{id} ]]>
     </update>
 
