@@ -113,7 +113,6 @@
             if(loginVO_id == dietAuthor) {
                 location.href = "${ pageContext.request.contextPath }/diet/" + dietID;
             }
-
         }
 
         $(document).ready(function(){
