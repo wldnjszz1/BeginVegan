@@ -55,7 +55,7 @@
                         <table>
                             <thead>
                             <tr class="row100 head">
-                                <th width="10%" style="padding-left: 40px">번호</th>
+                                <th width="20%" style="padding-left: 40px">번호</th>
                                 <th class="cell100 column1">제목</th>
                                 <th class="cell100 column1">작성자</th>
                                 <th class="cell100 column5">작성일</th>
@@ -70,7 +70,7 @@
 
                             <c:forEach items="${ askBoardList }" var="ask">
                                 <tr class="row100 body">
-                                    <td width="10%" style="padding-left: 40px">${ ask.id }</td>
+                                    <td width="20%" style="padding-left: 40px">${ ask.id }</td>
                                     <td class="cell100 column1">
                                         <a href="${pageContext.request.contextPath}/askBoard/${ask.id}">
                                                 ${ ask.title }

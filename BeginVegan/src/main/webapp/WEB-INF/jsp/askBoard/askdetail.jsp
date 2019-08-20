@@ -73,7 +73,7 @@
                                 <div class="post-holder mb40" >
                                     <div class="post-block pinside30 outline" style="background-color: white">
                                         <!-- post block -->
-                                        <div class="post-meta mb30" >
+                                        <div class="post-meta mb30" align="left" >
                                             <!-- post meta -->
                                             <span class="meta-comment"><i class="fa fa-bell"></i>${ask.id }</span>
                                             <span class="meta-date"><i class="fa fa-calendar"></i>${ask.created }</span>
@@ -83,10 +83,10 @@
                                         <div class="post-header mb20">
                                             <h1 class="post-title mb30">${ask.title }</h1>
                                         </div>
-                                        <div class="post-content">
+                                        <div class="post-content"  align="left" >
                                             <pre style="font-size: 17px;">${ask.content }</pre>
                                             <hr>
-                                            <div class="social-icon">
+                                            <div class="social-icon" align="right">
                                                 <a href="#" class="social-link"><i class="fa fa-share-alt"></i></a>
                                                 <a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a>
                                                 <a href="#" class="social-link"><i class="fa fa-twitter"></i></a>

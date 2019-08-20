@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="input-group form-group">
-                        <textarea rows="4" cols="50" name="content"
+                        <textarea rows="6" cols="20" name="content"
                                   class="form-control"><c:out value="${diet.content}" /></textarea>
                     </div>
 

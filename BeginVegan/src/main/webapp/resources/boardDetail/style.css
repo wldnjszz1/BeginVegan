@@ -67,7 +67,7 @@ p:last-child { margin-bottom: 0px; }
 ul, ol { margin: 0; }
 ul li, ol li { line-height: 1.9; }
 a { color: #8d9393; text-decoration: none; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
-a:focus, a:hover { text-decoration: none; color: #34d4a2; }
+a:focus, a:hover { text-decoration: none; color: #ff6400; }
 strong { font-weight: 600; }
 .listnone { list-style: none; }
 .lead { font-size: 21px; line-height: 31px; color: #0f1211; }
@@ -93,7 +93,7 @@ strong { font-weight: 600; }
 
 /*--------- btn outline --------*/
 .btn-outline { border: 2px solid #34d4a2; color: #34d4a2; background: transparent; }
-.btn-outline:hover { background-color: #91d400; border: 1px solid #e6e1e1; color: #fff; }
+.btn-outline:hover { background-color: #cad400; border: 1px solid #e6e1e1; color: #fff; }
 .btn-outline.focus, .btn-outline:focus { }
 .btn-white { background-color: #fff; color: #03af9e; }
 .btn-white:hover { background-color: transparent; border: 3px solid #fff; color: #03af9e; }
@@ -201,7 +201,7 @@ padding space
 .bg-primary { }
 .bg-default { }
 .bg-white { background-color: #fff; }
-.outline { border: 2px solid #91d400
+.outline { border: 2px solid #d46300
 }
 .section-title { }
 .content { padding-bottom: 100px; padding-top: 100px; }
@@ -321,7 +321,7 @@ a img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 .post-img { }
 .post-sticky { background: url(../images/sticky-sign.png) no-repeat; position: absolute; left: 25px; top: 0px; width: 30px; height: 30px; }
 .post-meta { font-size: 12px; line-height: 1.4; text-transform: uppercase; font-weight: 500; color: #9ea4a3; }
-.post-meta i { color: #91d400; font-size: 12px; margin-right: 7px }
+.post-meta i { color: #d44200; font-size: 14px; margin-right: 7px }
 .meta-date { color: #9ea4a3; }
 .meta-author { }
 .meta-comment { }

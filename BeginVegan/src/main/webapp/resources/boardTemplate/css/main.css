@@ -176,7 +176,7 @@ th, td {
 }
 
 .column1 {
-  width: 10%;
+  width: 30%;
   padding-left: 40px;
 }
 
@@ -240,7 +240,7 @@ th, td {
   color: #fff;
   line-height: 1.4;
 
-  background-color: #6c7ae0;
+  background-color: #e03800;
 }
 
 .table100.ver1 td {
@@ -251,7 +251,7 @@ th, td {
 }
 
 .table100.ver1 .table100-body tr:nth-child(even) {
-  background-color: #f8f6ff;
+  background-color: #fff6f8;
 }
 
 /*---------------------------------------------*/
