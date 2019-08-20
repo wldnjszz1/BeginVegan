@@ -5,6 +5,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="../resources/boardDetail/style.css">
+    <!-- animsition css -->
+    <link rel="stylesheet" type="text/css" href="../resources/boardDetail/animsition.min.css">
+    <!-- Font Awesome CSS -->
+    <link href="../resources/boardDetail/font-awesome.min.css" rel="stylesheet">
+    <!-- font css -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
 
@@ -48,56 +63,74 @@
 <jsp:include page="../include/header.jsp"/>
 
 <section>
-    <div align="center">
+    <div class="content" align="center">
         <input type="hidden" name="author" value="${ask.author}">
-        <br>
-        <hr>
-        <h2>게시판 상세</h2>
-        <hr>
-        <br>
-        <table>
-            <tr>
-                <th width="25%">번호</th>
-                <td>${ask.id}</td>
-            </tr>
-            <tr>
-                <th width="25%">제목</th>
-                <td>${ask.title }</td>
-            </tr>
-            <tr>
-                <th width="25%">작성자</th>
-                <td>${ask.userId }</td>
-            </tr>
-            <tr>
-                <th width="25%">내용</th>
-                <td>
-                    <pre>${ask.content }</pre>
-                </td>
-            </tr>
-            <tr>
-                <th width="25%">등록일</th>
-                <td>${ask.created }</td>
-            </tr>
-
-        </table>
-        <br>
-
-        <c:if test="${loginVO.id == ask.author}">
-            <button id="updateBtn">수정</button>
-            <br>
-            <button id="delBtn">삭제</button>
-            <br>
-        </c:if>
-        <c:if test="${loginVO.type == 'manager'}">
-            <button id="replyBtn">답글</button>
-            <br>
-        </c:if>
-        <button id="backBtn">글 목록</button>
-        <br>
-        &nbsp;&nbsp;&nbsp;
+        <div class="container">
+                <div class="col-md-8 col-sm-8" >
+                    <div class="content-area">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="post-holder mb40" >
+                                    <div class="post-block pinside30 outline" style="background-color: white">
+                                        <!-- post block -->
+                                        <div class="post-meta mb30" >
+                                            <!-- post meta -->
+                                            <span class="meta-comment"><i class="fa fa-bell"></i>${ask.id }</span>
+                                            <span class="meta-date"><i class="fa fa-calendar"></i>${ask.created }</span>
+                                            <span class="meta-comment"><i class="fa fa-comments"></i>${ask.userId }</span>
+                                        </div>
+                                        <!-- /.post meta -->
+                                        <div class="post-header mb20">
+                                            <h1 class="post-title mb30">${ask.title }</h1>
+                                        </div>
+                                        <div class="post-content">
+                                            <pre style="font-size: 17px;">${ask.content }</pre>
+                                            <hr>
+                                            <div class="social-icon">
+                                                <a href="#" class="social-link"><i class="fa fa-share-alt"></i></a>
+                                                <a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a>
+                                                <a href="#" class="social-link"><i class="fa fa-twitter"></i></a>
+                                                <a href="#" class="social-link"><i class="fa fa-google-plus"></i></a>
+                                                <hr>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <c:if test="${loginVO.id == ask.author}">
+                                                <button id="updateBtn" name="updateBtn" class="btn btn-outline">수정</button>
+                                                <button id="delBtn" name="delBtn" class="btn btn-outline">삭제</button>
+                                            </c:if>
+                                            <c:if test="${loginVO.type == 'manager'}">
+                                                <button id="replyBtn" class="btn btn-outline">답글</button>
+                                            </c:if>
+                                            <button id="backBtn" class="btn btn-outline">글 목록</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.post block -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
     </div>
-</section>
 
+</section>
+<!-- /.tiny-footer -->
+<!-- back to top icon -->
+<a href=" #0 " class="cd-top" title="Go to top">Top</a>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="../resources/boardDetail/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../resources/boardDetail/js/menumaker.js"></script>
+<!-- animsition -->
+<script type="text/javascript" src="../resources/boardDetail/js/animsition.js"></script>
+<script type="text/javascript" src="../resources/boardDetail/js/animsition-script.js"></script>
+<!-- sticky header -->
+<script type="text/javascript" src="../resources/boardDetail/js/jquery.sticky.js"></script>
+<script type="text/javascript" src="../resources/boardDetail/js/sticky-header.js"></script>
+<!-- Back to top script -->
+<script src="../resources/boardDetail/js/back-to-top.js" type="text/javascript"></script>
 </body>
 <jsp:include page="../include/footer.jsp"/>
 </html>
