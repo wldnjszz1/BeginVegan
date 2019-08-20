@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+    background-image: url('../img/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -16,11 +16,11 @@ html,body{
 }
 
 .card{
-    height: 370px;
+    height: 500px;
     margin-top: auto;
     margin-bottom: auto;
-    width: 400px;
-    background-color: rgba(0,0,0,0.5) !important;
+    width: 600px;
+    background-color: rgb(244, 255, 236) !important;
 }
 
 .social_icon span{
@@ -35,7 +35,7 @@ html,body{
 }
 
 .card-header h3{
-    color: white;
+    color: black;
 }
 
 .social_icon{
@@ -46,7 +46,7 @@ html,body{
 
 .input-group-prepend span{
     width: 50px;
-    background-color: #FFC312;
+    background-color: #a2e600;
     color: black;
     border:0 !important;
 }
@@ -70,8 +70,9 @@ input:focus{
 }
 
 .login_btn{
-    color: black;
-    background-color: #FFC312;
+    color: #ffffff;
+    background-color: #a2e600;
+    margin-right: 2px;
     width: 100px;
 }
 

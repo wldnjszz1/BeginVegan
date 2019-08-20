@@ -63,7 +63,9 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-edit"></i> </span>
                         </div>
-                        <textarea style="text-align: left" name="content" class="input-group-text" cols="38">${askVO.content}</textarea>
+                        <div class="input-group-prepend">
+                        <textarea  name="content" rows="9" cols="69">${askVO.content}</textarea>
+                        </div>
                     </div>
                     <div align="center" class="form-group">
                         <input type="submit" value="수정" class="btn login_btn">

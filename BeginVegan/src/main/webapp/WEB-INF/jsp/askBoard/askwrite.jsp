@@ -16,7 +16,7 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="../resources/css/askform.css">
     <script>
         function checkForm() {
             var form = document.inputForm;
@@ -50,20 +50,23 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-edit"></i></span>
                         </div>
-                        <input type="text" name="title" class="form-control" placeholder="제목을 입력하세요">
+                        <input type="text" name="title" class="form-control" placeholder="Title">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i> </span>
                         </div>
-                        <input type="text" name="userId" class="form-control" value="${loginVO.user_id}" readonly="readonly">
+                        <input type="text" name="userId" class="form-control" value="${loginVO.user_id}"
+                               readonly="readonly">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-edit"></i> </span>
                         </div>
-                        <textarea style="text-align: left" name="content" class="input-group-text"
-                                  placeholder="내용을 입력하세요" cols="38"></textarea>
+                        <div class="input-group-prepend">
+                        <textarea  name="content"
+                                  placeholder="  Content" rows="9" cols="53"></textarea>
+                        </div>
                     </div>
                     <div align="center" class="form-group">
                         <input type="submit" value="등록" class="btn login_btn">
