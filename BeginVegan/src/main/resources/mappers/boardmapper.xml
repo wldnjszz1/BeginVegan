@@ -20,7 +20,7 @@
     <!--게시판 글 쓰기-->
     <insert id="insert" parameterType="com.bitacademy.wannavegan.board.vo.BoardVO">
             INSERT INTO boards(id, author, title, content, created)
-            VALUES (seq_board_pk.nextval, 2, #{title}, #{content}, sysdate)
+            VALUES (seq_board_pk.nextval, 27, #{title}, #{content}, sysdate)
      </insert>
 
     <!--게시글 상세 조회-->

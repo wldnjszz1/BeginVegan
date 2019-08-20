@@ -27,10 +27,7 @@
 
 </head>
 
-<h1 class="site-heading text-center text-white d-none d-lg-block">
-    <span class="site-heading-upper text-primary mb-3">The vegan web community</span>
-    <span class="site-heading-lower">Begin-Vegan</span>
-</h1>
+
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">

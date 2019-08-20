@@ -69,18 +69,18 @@
     // 마커들을 배열로 만들어주기위해 선언해 주는것들
     var markers = [], infoWindows = [];
 
-    <c:forEach items="${diningList}" var="dining">
+<c:forEach items="${diningList}" var="dining">
 
         var marker = new naver.maps.Marker({
             map: map,
             title : '${dining.title}',
             position: new naver.maps.Point(${dining.mapx}, ${dining.mapy}),
             icon: {
-                url: 'asdf',
+                url: ' ',
                 size: new naver.maps.Size(24, 24),   //  size 속성은 이미지의 크기, origin 속성은 (0, 0), anchor 속성은 이미지의 중앙 하단 포인터를 기본값으로 설정합니다
                 origin: new naver.maps.Point(0, 0),
                 anchor: new naver.maps.Point(12, 24)
-            }
+        }
         });
 
     var infoWindow = new naver.maps.InfoWindow({
@@ -94,7 +94,7 @@
 </c:forEach>
 
     // 해당 마커의 인덱스를 seq라는 클로저 변수로 저장하는 이벤트 핸들러를 반환합니다.
-    function getClickHandler(map,markers,infoWindows,seq) {
+    function getClickHandler(map,markers,i동,seq) {
         return function(e) {
             var marker = markers[seq],
                 infoWindow = infoWindows[seq];
@@ -118,3 +118,4 @@
 
 </body>
 </html>
+

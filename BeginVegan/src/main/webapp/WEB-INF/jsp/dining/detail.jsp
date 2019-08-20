@@ -22,14 +22,13 @@
     <h2>링크 :<a href="${dining.link}">${dining.link}</a></h2>
     </div>
     <hr>
-    <div align="center">
+    <div >
+        <h1>리뷰</h1>
     <h1>이 장소에 평가를 남겨주세요.</h1>
         <h1>☆☆☆☆☆</h1>
     </div>
     <hr>
-    <div>
-        <h1>리뷰</h1>
-    </div>
+
 
 </body>
 </html>
