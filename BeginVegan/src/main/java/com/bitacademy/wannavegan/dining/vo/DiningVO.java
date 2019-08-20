@@ -10,6 +10,7 @@ public class DiningVO {
     private String roadAddress;
     private int mapx;
     private int mapy;
+    private float score;
 
 
     public DiningVO() {
@@ -27,6 +28,7 @@ public class DiningVO {
         this.roadAddress = roadAddress;
         this.mapx = mapx;
         this.mapy = mapy;
+        this.score = score;
     }
 
     public int getId() {
@@ -101,6 +103,10 @@ public class DiningVO {
         this.mapy = mapy;
     }
 
+    public float getScore() { return score; }
+
+    public void setScore() {  this.score = score; }
+
     @Override
     public String toString() {
         return "restaurantVO{" +
@@ -113,6 +119,7 @@ public class DiningVO {
                 ", roadAddress='" + roadAddress + '\'' +
                 ", mapx=" + mapx +
                 ", mapy=" + mapy +
+                ", score=" + score +
                 '}';
     }
 }

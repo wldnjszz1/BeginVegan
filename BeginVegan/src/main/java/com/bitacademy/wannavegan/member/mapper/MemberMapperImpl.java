@@ -49,4 +49,6 @@ public class MemberMapperImpl implements MemberMapper {
         MemberVO member = session.selectOne("member.mapper.MemberMapper.getInfo", id);
         return member;
     }
+
+
 }
