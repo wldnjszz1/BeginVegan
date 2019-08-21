@@ -1,6 +1,6 @@
 package com.bitacademy.wannavegan.dining.controller;
 import com.bitacademy.wannavegan.dining.service.DiningService;
-import com.bitacademy.wannavegan.dining.vo.CommentVO;
+import com.bitacademy.wannavegan.dining.vo.DiningCommentVO;
 import com.bitacademy.wannavegan.dining.vo.DiningVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ public class DiningController {
         List<DiningVO> diningList = service.selectAllDining();
         ModelAndView mav = new ModelAndView("dining/list");
         mav.addObject("diningList", diningList);
-        mav.addObject("commentVO", new CommentVO());
+        mav.addObject("commentVO", new DiningCommentVO());
         return mav;
     }
 

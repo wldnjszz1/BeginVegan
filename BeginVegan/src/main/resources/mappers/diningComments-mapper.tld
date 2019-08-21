@@ -8,7 +8,7 @@
         FROM review_comments
     </select>
 
-    <select id="commentList" parameterType="int" resultType="com.bitacademy.wannavegan.dining.vo.CommentVO">
+    <select id="commentList" parameterType="int" resultType="com.bitacademy.wannavegan.dining.vo.DiningCommentVO">
         SELECT
             *
         FROM review_comments
@@ -16,13 +16,13 @@
     </select>
 
 
-    <insert id="commentInsert" parameterType="com.bitacademy.wannavegan.dining.vo.CommentVO">
+    <insert id="commentInsert" parameterType="com.bitacademy.wannavegan.dining.vo.DiningCommentVO">
         INSERT INTO
         review_comments (CNO, BNO, CONTENT, WRITER, REG_DATE, score)
         VALUES(#{cno},#{bno},#{content},#{writer}, sysdate, #{score})
     </insert>
 
-    <update id="commentUpdate" parameterType="com.bitacademy.wannavegan.dining.vo.CommentVO">
+    <update id="commentUpdate" parameterType="com.bitacademy.wannavegan.dining.vo.DiningCommentVO">
         UPDATE review_comments
             SET
             score = #{score}
