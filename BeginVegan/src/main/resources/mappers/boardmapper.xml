@@ -17,10 +17,19 @@
             ORDER BY id DESC
     </select>
 
+    <select id="maxId" resultType="int">
+        SELECT max(id) FROM boards
+    </select>
+
     <!--게시판 글 쓰기-->
     <insert id="insert" parameterType="com.bitacademy.wannavegan.board.vo.BoardVO">
+
             INSERT INTO boards(id, author, title, content, created)
-            VALUES (seq_board_pk.nextval, 27, #{title}, #{content}, sysdate)
+            VALUES (seq_board_pk.nextval, 2, #{title}, #{content}, sysdate)
+
+        <selectKey resultType="java.lang.Long" order="AFTER">
+            SELECT seq_board_pk.currval FROM dual
+        </selectKey>
      </insert>
 
     <!--게시글 상세 조회-->
@@ -44,4 +53,16 @@
         WHERE id=#{id}
     </delete>
 
+    <!-- 파일 저장 -->
+    <insert id="fileInsert" parameterType="com.bitacademy.wannavegan.board.vo.FileVO">
+       INSERT INTO BOARD_FILES (FNO, BNO, FILENAME, FILEORINAME, FILEURL)
+       VALUES (SEQ_FILE_PK.nextval,#{bno},#{fileName},#{fileOriName},#{fileUrl})
+    </insert>
+
+    <!-- 파일 상세보기 -->
+    <select id="fileDetail" parameterType="int" resultType="com.bitacademy.wannavegan.board.vo.FileVO">
+        SELECT * FROM
+        BOARD_FILES
+        WHERE BNO = #{BNO}
+    </select>
 </mapper>
