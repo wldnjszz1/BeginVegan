@@ -32,7 +32,9 @@
         <form method="post"
               action="${ pageContext.request.contextPath }/Board/write"
               name="inputForm"
+              enctype="multipart/form-data"
               onsubmit="return checkForm()">
+
             <table border="1" style="width: 80%;">
                 <tr>
                     <th width="23%">제목</th>
@@ -50,6 +52,7 @@
                 </tr>
             </table>
             <br>
+            <input type="file" name="files">
             <button type="submit">등록</button>
         </form>
     </div>

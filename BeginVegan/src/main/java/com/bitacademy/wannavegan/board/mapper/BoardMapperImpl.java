@@ -2,6 +2,7 @@ package com.bitacademy.wannavegan.board.mapper;
 
 import com.bitacademy.wannavegan.board.vo.BoardVO;
 
+import com.bitacademy.wannavegan.board.vo.FileVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -23,9 +24,13 @@ public class BoardMapperImpl implements BoardMapper{
     }
 
     @Override
-    public void insert(BoardVO boardVO) {
-        session.insert("boardMapper.insert",boardVO);
+    public int insert(BoardVO boardVO) {
+        return session.insert("boardMapper.insert",boardVO);
 
+    }
+
+    public int getMaxBoardId() {
+        return session.selectOne("boardMapper.maxId");
     }
 
     @Override
@@ -42,6 +47,17 @@ public class BoardMapperImpl implements BoardMapper{
     @Override
     public void update(BoardVO boardVO) {
         session.update("boardMapper.update", boardVO);
+    }
+
+    @Override
+    public void fileInsert(FileVO file) throws Exception {
+        session.insert("boardMapper.fileInsert", file);
+    }
+
+    @Override
+    public FileVO fileDetail(int bno) throws Exception {
+        FileVO fileVO = session.selectOne("boardMapper.fileDetail", bno);
+        return fileVO;
     }
 
 

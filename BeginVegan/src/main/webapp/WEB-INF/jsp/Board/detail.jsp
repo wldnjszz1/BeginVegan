@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+                pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}../resources/css/business-casual.css">
 <!DOCTYPE html>
 <html>
@@ -49,6 +49,10 @@
                 <td>${board.user_id }</td>
             </tr>
             <tr>
+                <th width="25%">첨부파일</th>
+                <td><a href="/fileDown/${files.bno}">${files.fileOriName}</td>
+            </tr>
+            <tr>
                 <th width="25%">내용</th>
                 <td>${board.content }</td>
             </tr>
@@ -58,7 +62,7 @@
             </tr>
         </table>
         <br>
-            <button id="updateBtn">수정</button>
+        <button id="updateBtn">수정</button>
         <button id="delBtn">삭제</button>
         &nbsp;&nbsp;&nbsp;
     </div>
