@@ -31,6 +31,11 @@ public class MemberController {
         return "index";
     }
 
+    @GetMapping({"/about"})
+    public String about() {
+        return "about";
+    }
+
     @GetMapping({"/join"})
     public String joinForm(Model model){
         MemberVO member = new MemberVO();
