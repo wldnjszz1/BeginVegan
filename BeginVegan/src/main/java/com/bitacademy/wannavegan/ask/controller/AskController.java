@@ -26,6 +26,7 @@ public class AskController {
         ModelAndView mav = new ModelAndView("askBoard/askboard");
         mav.addObject("askBoardList", askBoardList);
 
+        System.out.println(mav);
         return mav;
     }
 

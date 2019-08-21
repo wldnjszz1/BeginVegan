@@ -67,11 +67,15 @@
                     <div class="table100-body js-pscroll">
                         <table>
                             <tbody>
-
                             <c:forEach items="${ askBoardList }" var="ask">
                                 <tr class="row100 body">
                                     <td width="20%" style="padding-left: 40px">${ ask.id }</td>
                                     <td class="cell100 column1">
+                                        <c:if test="${ask.depth != 1}">
+                                            <c:forEach begin="2" end="${ask.depth}">
+                                                &nbsp;&nbsp;&nbsp; </c:forEach>
+                                            <img src="../resources/img/arrow.png" width="20px" height="20px">
+                                        </c:if>
                                         <a href="${pageContext.request.contextPath}/askBoard/${ask.id}">
                                                 ${ ask.title }
                                         </a>
