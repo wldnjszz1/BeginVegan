@@ -56,22 +56,23 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-edit"></i></span>
                         </div>
-                        <input type="text" name="title" class="form-control" value="[RE]${askVO.title}">
+                        <input type="text" name="title" class="form-control" value="${askVO.title}">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i> </span>
                         </div>
-                        <input type="text" name="user_id" class="form-control" value="${loginVO.user_id}" readonly="readonly">
+                        <input type="text" name="user_id" class="form-control" value="${loginVO.user_id}" readonly="readonly" autofocus="autofocus">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-edit"></i> </span>
                         </div>
-                        <textarea style="text-align: left" name="content" class="input-group-text" cols="38" autofocus="autofocus">
-${askVO.content}
-***********************
+                        <div class="input-group-prepend">
+                            <textarea  name="content" rows="9" cols="69">${askVO.content}
+******************************************************
 </textarea>
+                        </div>
                     </div>
                     <div align="center" class="form-group">
                         <input type="submit" value="답글 등록" class="btn login_btn">
