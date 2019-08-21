@@ -193,7 +193,8 @@ p {
   .product-item .product-item-description {
     position: relative;
     z-index: 1;
-    margin-top: -3rem;
+    margin-top: -1rem;
+    margin-left: 5rem;
     max-width: 50vw;
   }
 }
