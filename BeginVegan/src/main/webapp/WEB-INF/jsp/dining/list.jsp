@@ -7,6 +7,9 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=83bfuniegk&submodules=geocoder"></script>
+
+    <link rel="stylesheet" href="//cdn.rawgit.com/young-ha/webfont-archive/master/css/Godo.css">
+
 </head>
 
 <body>
@@ -52,7 +55,7 @@
         var tm128 = naver.maps.TransCoord.fromUTMKToTM128(utmk);
 
         map.setCenter(tm128); // 얻은 좌표를 지도의 중심으로 설정합니다.
-        infowindow.setContent('<div style="padding:20px;">' + "가고싶은곳 클릭" +'</div>'); // 현재위치 나타내기
+        infowindow.setContent('<div class="your-style2" style="padding:10px; font-size: 15px;">' + "가고싶은곳 클릭" +'</div>'); // 현재위치 나타내기
         infowindow.open(map, tm128);
     }
     function onErrorGeolocation() {
@@ -89,7 +92,7 @@
         });
 
     var infoWindow = new naver.maps.InfoWindow({
-        content: '<div style="width:115px;text-align:center;padding:10px;"><strong>'+
+        content: '<div class="your-style2" style="width:115px;text-align:center;padding:10px; font-size:15px;"><strong>'+
                  '<a href="${pageContext.request.contextPath}/dining/${dining.id}">${dining.title}</a>' + '</strong></div>'
     });
 
