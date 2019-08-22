@@ -2,6 +2,7 @@ package com.bitacademy.wannavegan.board.service;
 
 import com.bitacademy.wannavegan.board.mapper.BoardMapper;
 import com.bitacademy.wannavegan.board.vo.BoardVO;
+import com.bitacademy.wannavegan.board.vo.FileVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,10 +25,14 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public void insertBoard(BoardVO boardVO) {
-        boardMapper.insert(boardVO);
+    public int insertBoard(BoardVO boardVO) {
+        return boardMapper.insert(boardVO);
     }
 
+    @Override
+    public int getMaxBoardId() {
+        return boardMapper.getMaxBoardId();
+    }
     @Override
     public BoardVO selectByIdBoard(int id) {
         BoardVO boardId = boardMapper.selectById(id);
@@ -43,6 +48,16 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void updateByIdBoard(BoardVO boardVO) {
         boardMapper.update(boardVO);
+    }
+
+    @Override
+    public void fileInsertService(FileVO file) throws Exception {
+        boardMapper.fileInsert(file);
+    }
+
+    @Override
+    public FileVO fileDetailService(int bno) throws Exception {
+        return boardMapper.fileDetail(bno);
     }
 
 

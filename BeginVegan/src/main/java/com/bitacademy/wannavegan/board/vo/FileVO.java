@@ -1,10 +1,10 @@
-package com.bitacademy.wannavegan.diet.vo;
+package com.bitacademy.wannavegan.board.vo;
 
 public class FileVO {
     private int fno;
     private int bno;
-    private String fileName;     //저장할 파일
-    private String fileOriName;  //실제 파일
+    private String fileName;
+    private String fileOriName;
     private String fileUrl;
 
     public int getFno() {
@@ -45,16 +45,5 @@ public class FileVO {
 
     public void setFileUrl(String fileUrl) {
         this.fileUrl = fileUrl;
-    }
-
-    @Override
-    public String toString() {
-        return "FileVO{" +
-                "fno=" + fno +
-                ", bno=" + bno +
-                ", fileName='" + fileName + '\'' +
-                ", fileOriName='" + fileOriName + '\'' +
-                ", fileUrl='" + fileUrl + '\'' +
-                '}';
     }
 }
