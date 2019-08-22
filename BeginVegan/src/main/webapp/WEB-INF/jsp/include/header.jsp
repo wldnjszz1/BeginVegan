@@ -49,19 +49,11 @@
                 </c:if>
                 <c:choose>
                     <c:when test="${loginVO.user_id == null}">
-                        <div class="id" style="color: white">
-                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/map">지도</a>
-                        </div>
-                        <div class="id" style="color: white">
-                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/join">회원가입</a>
-                        </div>
-                        <div class="id" style="color: white">
-                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/login">로그인</a>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
                         <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/Board">Free Board</a>
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/Board">Free</a>
+                        </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/dining">Map</a>
                         </li>
                         <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/diet">Diet</a>
@@ -69,12 +61,32 @@
                         <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/askBoard">Q&A</a>
                         </li>
-                        <div class="id" style="color: white">
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/join">회원가입</a>
+                        </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/login">로그인</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/Board">Free</a>
+                        </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/diet">Diet</a>
+                        </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/dining">Map</a>
+                        </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/askBoard">Q&A</a>
+                        </li>
+                        <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/mypage">${loginVO.user_id}님</a>
-                        </div>
-                        <div class="id" style="color: white">
+                        </li>
+                        <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="${pageContext.request.contextPath}/logout">로그아웃</a>
-                        </div>
+                        </li>
                     </c:otherwise>
                 </c:choose>
 
