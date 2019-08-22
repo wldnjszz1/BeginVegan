@@ -10,7 +10,9 @@
   <h1 class="site-heading text-center text-white d-none d-lg-block">
     <span class="site-heading-lower">Begin-Vegan</span>
   </h1>
-  <section class="page-section clearfix">
+
+
+  <section class="indexSection">
     <div class="container">
       <div class="intro">
         <div class="intro-text left-0 text-center bg-faded p-5 rounded">
@@ -31,7 +33,6 @@
       </div>
     </div>
   </section>
-
 
 
 </body>

@@ -88,18 +88,51 @@
 
         }
 
+        *{
+            padding:0;
+            margin:0;
+        }
+
+        section{
+            padding: 50px 0;
+            background-image : url("${ pageContext.request.contextPath }/resources/img/a.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;  /* background-size: auto | length | cover | contain | initial | inherit*/
+            background-size: contain;
+            background-position: center;
+        }
+
+        .gallery-title{
+            font-size: 10rem;
+            color: #ffffff;
+            font-weight: 900;
+            font-weight: bold;
+            margin-bottom: 50px;
+            <!--font-style : oblique;-->
+        }
+
+
+        .gallery-content{
+            font-size: 18px;
+            color: #010106;
+            font-weight: 500;
+            margin-bottom: 30px;
+
+        }
+
+
+        #ddd{
+        <!--background-color : white;-->
+
+        }
+
+
     </style>
 </head>
 
 
 <body>
-    <div align="center">
-    <h1>${dining.title}</h1>
-    <h2>전화번호 : ${dining.telephone}</h2><h2>카테고리 : ${dining.category}</h2>
-    <h2>길주소 : ${dining.roadAddress}</h2>
-    <h2>링크 :<a href="${dining.link}">${dining.link}</a></h2>
-    </div>
-    <hr>
+<section class="portfolio" id="portfolio">
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -111,6 +144,24 @@
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1" id="login">
                 <div class="page-header">
+
+                    <div class="container-fluid">
+                        <div align="center">
+                            <h1 class="gallery-title">${dining.title}</h1>
+                        </div>
+                        <div class="row">
+                            <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12"  id="ddd">
+                                <h1 class="gallery-content"><a href="${dining.link}"><b>${dining.link}</b></a></h1>
+                                <h1 class="gallery-content"><b>${dining.telephone}</b></h1>
+                                <h1 class="gallery-content"><b>${dining.category}</b></h1>
+                                <h1 class="gallery-content"><b>서울특별시 중구 남대문로 81 롯데백화점 본점 지하1층</b></h1>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
                     <h3 class="reviews">Leave your comment</h3>
                     <div class="logout">
                         <button class="btn btn-default btn-circle text-uppercase" type="button" onclick="$('#login').hide(); $('#logout').show()">
@@ -203,6 +254,7 @@
             </div>
         </div>
     </div>
+</section>
 </body>
 </html>
 
