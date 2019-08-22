@@ -24,6 +24,11 @@ public class DiningController {
         return mav;
     }
 
+    @GetMapping("/dining/hihi")
+    public String lista() {
+        return "dining/hihi";
+    }
+
     @RequestMapping(value = "/dining/{id}", method = RequestMethod.GET)
     public ModelAndView detail(@PathVariable("id") int id){
         DiningVO dining = service.detailDiningByID(id);

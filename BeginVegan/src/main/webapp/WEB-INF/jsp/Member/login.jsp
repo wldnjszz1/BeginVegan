@@ -191,4 +191,3 @@
     </div>
 </div>--%>
 </body>
-<jsp:include page="../include/footer.jsp"/>

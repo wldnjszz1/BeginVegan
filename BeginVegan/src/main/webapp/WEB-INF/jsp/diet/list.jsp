@@ -140,7 +140,6 @@
     </script>
 </head>
 
-
 <body>
 <section class="portfolio" id="portfolio">
     <div class="container-fluid">
@@ -172,6 +171,7 @@
         </div>
     </div>
 </section>
+
 </body>
 </html>
 

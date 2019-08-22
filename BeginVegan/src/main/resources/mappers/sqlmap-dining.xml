@@ -12,7 +12,7 @@
 
     <!-- 특정번호 식단게시글 조회 -->
     <select id="selectByID" parameterType="int" resultType="com.bitacademy.wannavegan.dining.vo.DiningVO">
-        <![CDATA[ SELECT id, title, link, category, telephone, address, roadAddress, mapx, mapy, score
+        <![CDATA[ SELECT id, title, link, category, telephone, address, roadAddress, mapx, mapy
                   FROM VEGANINFOS
                   WHERE id = #{id}]]>
     </select>
