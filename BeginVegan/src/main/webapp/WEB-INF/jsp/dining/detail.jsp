@@ -158,18 +158,9 @@
                                 <h1 class="gallery-content"><b>${dining.telephone}</b></h1>
                                 <h1 class="gallery-content"><b>${dining.category}</b></h1>
                                 <h1 class="gallery-content"><b>서울특별시 중구 남대문로 81 롯데백화점 본점 지하1층</b></h1>
+                                <h1 class="gallery-content"><b>${dining.score}</b></h1>
                             </div>
                         </div>
-                    </div>
-
-
-
-
-                    <h3 class="reviews">Leave your comment</h3>
-                    <div class="logout">
-                        <button class="btn btn-default btn-circle text-uppercase" type="button" onclick="$('#login').hide(); $('#logout').show()">
-                            <span class="glyphicon glyphicon-off"></span> Login
-                        </button>
                     </div>
                 </div>
 
