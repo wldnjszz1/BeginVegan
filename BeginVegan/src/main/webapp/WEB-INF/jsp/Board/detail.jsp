@@ -47,6 +47,7 @@
             });
         });
     </script>
+
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
@@ -104,45 +105,26 @@
         </div>
     </div>
 
-    <%--<div align="center">
-        <br>
-        <hr>
-        <h2>게시판 상세</h2>
-        <hr>
-        <br>
-        <table>
-            <tr>
-                <th width="25%">번호</th>
-                <td>${board.id}</td>
-            </tr>
-            <tr>
-                <th width="25%">제목</th>
-                <td>${board.title }</td>
-            </tr>
-            <tr>
-                <th width="25%">작성자</th>
-                <td>${board.user_id }</td>
-            </tr>
-            <tr>
-                <th width="25%">첨부파일</th>
-                <td><a href="/fileDown/${files.bno}">${files.fileOriName}</td>
-            </tr>
-            <tr>
-                <th width="25%">내용</th>
-                <td>${board.content }</td>
-            </tr>
-            <tr>
-                <th width="25%">등록일</th>
-                <td>${board.created }</td>
-            </tr>
-        </table>
-        <br>
-        <button id="updateBtn">수정</button>
-        <button id="delBtn">삭제</button>
-        &nbsp;&nbsp;&nbsp;
-    </div>--%>
 </section>
+<div class="container">
+    <label for="content">comment</label>
+    <form name="commentInsertForm">
+        <div class="input-group">
+            <input type="hidden" name="bno" value="${board.id}"/>
+            <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
+            <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" name="commentInsertBtn">등록</button>
+               </span>
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <div class="commentList"></div>
+</div>
 
 </body>
+
+<%@ include file="../Board/comment.jsp" %>
 <jsp:include page="../include/footer.jsp"/>
 </html>

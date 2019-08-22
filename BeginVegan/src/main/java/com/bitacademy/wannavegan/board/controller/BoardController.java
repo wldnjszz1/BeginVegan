@@ -57,8 +57,8 @@ public class BoardController {
             String sourceFileName = files.getOriginalFilename();
             File destinationFile;
 
-            /*String fileUrl = "C:\\Users\\jikon\\Documents\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";*/
-            String fileUrl = "C:\\Users\\bit-user\\Desktop\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";
+            String fileUrl = "C:\\Users\\jikon\\Documents\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";
+
 
             destinationFile = new File(fileUrl, sourceFileName);
             destinationFile.getParentFile().mkdirs();
@@ -118,7 +118,7 @@ public class BoardController {
     @RequestMapping("/fileDown/{bno}")
     private void fileDown(@PathVariable int bno, HttpServletResponse response, HttpServletRequest request) throws Exception{
         request.setCharacterEncoding("UTF-8");
-        FileVO fileVO =boardService.fileDetailService(bno);
+        FileVO fileVO = boardService.fileDetailService(bno);
 
         try{
             String fileUrl = fileVO.getFileUrl();
@@ -177,6 +177,11 @@ public class BoardController {
         } catch (Exception e) {
             System.out.println("ERROR : " + e.getMessage());
         }
+
+    }
+
+    @RequestMapping(value="/test", method=RequestMethod.GET)
+    public void ajaxTest(){
 
     }
 
