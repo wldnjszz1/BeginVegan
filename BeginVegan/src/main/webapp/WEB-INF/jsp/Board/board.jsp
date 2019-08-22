@@ -42,7 +42,7 @@
 <section>
     <div class="limiter">
         <div class="container-table100">
-            <div class="wrap-table100">
+            <div align = "center" class="wrap-table100">
                 <br>
                 <hr>
                 <h2>자유 게시판 조회</h2>
@@ -54,7 +54,7 @@
                         <table>
                             <thead>
                             <tr class="row100 head">
-                                <th width="10%" style="padding-left: 40px">번호</th>
+                                <th width="20%" style="padding-left: 40px">번호</th>
                                 <th class="cell100 column1">제목</th>
                                 <th class="cell100 column1">작성자</th>
                                 <th class="cell100 column5">작성일</th>
@@ -69,7 +69,7 @@
 
                             <c:forEach items="${ BoardList }" var="board">
                                 <tr class="row100 body">
-                                    <td width="10%" style="padding-left: 40px">${ board.id }</td>
+                                    <td width="20%" style="padding-left: 40px">${ board.id }</td>
                                     <td class="cell100 column1">
                                         <a href="${pageContext.request.contextPath}/Board/${board.id}">
                                                 ${ board.title }
@@ -83,8 +83,9 @@
                         </table>
                     </div>
                 </div>
-                <br>
-                <button id="writeBtn">새글등록</button>
+                <c:if test="${loginVO != null}">
+                    <button id="writeBtn" class="btn btn-primary">새글등록</button>
+                </c:if>
             </div>
         </div>
     </div>

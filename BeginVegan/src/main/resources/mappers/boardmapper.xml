@@ -11,7 +11,7 @@
 
     <!--게시판 전체 게시글 조회-->
     <select id="selectAll" resultMap="BoardList">
-            SELECT boards.id, boards.title, users.user_id, to_char(created, 'yyyy-mm-dd') as created
+            SELECT boards.id, boards.author, boards.title, users.user_id, to_char(created, 'yyyy-mm-dd') as created
             FROM boards, users
             WHERE boards.author=users.id
             ORDER BY id DESC
@@ -25,7 +25,7 @@
     <insert id="insert" parameterType="com.bitacademy.wannavegan.board.vo.BoardVO">
 
             INSERT INTO boards(id, author, title, content, created)
-            VALUES (seq_board_pk.nextval, 2, #{title}, #{content}, sysdate)
+            VALUES (seq_board_pk.nextval, #{author}, #{title}, #{content}, sysdate)
 
         <selectKey resultType="java.lang.Long" order="AFTER">
             SELECT seq_board_pk.currval FROM dual
@@ -34,7 +34,7 @@
 
     <!--게시글 상세 조회-->
     <select id="selectById" parameterType="int" resultType="com.bitacademy.wannavegan.board.vo.BoardVO">
-        SELECT boards.id, boards.title, users.user_id as userId, boards.content, to_char(created, 'yyyy-mm-dd') as created
+        SELECT boards.id, boards.author, boards.title, users.user_id, boards.content, to_char(created, 'yyyy-mm-dd') as created
         FROM boards, users
         WHERE boards.author=users.id and boards.id=#{id}
     </select>
