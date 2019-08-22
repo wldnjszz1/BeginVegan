@@ -19,7 +19,7 @@
     <insert id="commentInsert" parameterType="com.bitacademy.wannavegan.dining.vo.DiningCommentVO">
         INSERT INTO
         review_comments (CNO, BNO, CONTENT, WRITER, REG_DATE, score)
-        VALUES(#{cno},#{bno},#{content},#{writer}, sysdate, #{score})
+        VALUES(SEQ_revcmts_PK.nextval, #{bno}, #{content}, #{writer}, sysdate, #{score})
     </insert>
 
     <update id="commentUpdate" parameterType="com.bitacademy.wannavegan.dining.vo.DiningCommentVO">

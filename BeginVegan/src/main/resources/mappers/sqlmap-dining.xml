@@ -18,11 +18,11 @@
     </select>
     
     <!-- 별점 받아오기 -->
-    <!-- <update id="updateScore" parameterType="hashmap">
+    <update id="updateScore" parameterType="hashmap">
         update veganinfos
         set score = #{score}
         where id = #{id}
-    </update> -->
+    </update>
 
 </mapper>
 

@@ -3,9 +3,12 @@ package com.bitacademy.wannavegan.dining.controller;
 import com.bitacademy.wannavegan.dining.service.DiningCommentService;
 import com.bitacademy.wannavegan.dining.vo.DiningCommentVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -19,15 +22,19 @@ public class DiningCommentController {
     @RequestMapping(value = "/list", method = RequestMethod.GET) //댓글 리스트
     @ResponseBody
     private List<DiningCommentVO> commentList(@RequestParam int bno) throws Exception{
-        return service.list(bno);
+        HashMap<String, Object> hashMap = service.list(bno);
+        List<DiningCommentVO> comments = (List) hashMap.get("commentList");
+        return comments;
     }
 
-    @RequestMapping("/insert") //댓글 작성
-    @ResponseBody
-    public void commentInsert(@ModelAttribute DiningCommentVO vo, HttpSession session) throws Exception {
-        String userId = (String) session.getAttribute("loginVO");
-        vo.setWriter(userId);
+    @RequestMapping(value = "/insert", method = RequestMethod.POST) //댓글 작성
+    @ResponseStatus(value= HttpStatus.OK)
+    public String commentInsert(@ModelAttribute DiningCommentVO vo, HttpSession session) throws Exception {
+//        String userId = (String) session.getAttribute("loginVO");
+//        vo.setWriter(userId);
+        String number =  Integer.toString(vo.getBno());
         service.create(vo);
+        return "redirect:/dining/"+number;
     }
 
     @RequestMapping("/update") //댓글 수정
