@@ -7,5 +7,5 @@ import java.util.List;
 public interface DiningMapper {
     public List<DiningVO> selectAll();
     public DiningVO selectByID(int id);
-    // public void updateScore(HashMap<String, Object> map);
+    public void updateScore(HashMap<String, Object> map);
 }
