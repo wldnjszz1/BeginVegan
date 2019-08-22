@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
                 pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}../resources/css/business-casual.css">
+<link rel="stylesheet" href="//cdn.rawgit.com/young-ha/webfont-archive/master/css/Godo.css">
+<link rel="stylesheet" href="//cdn.rawgit.com/young-ha/webfont-archive/master/css/NanumGothic.css">
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,13 +73,13 @@
                                     </div>
                                     <!-- /.post meta -->
                                     <div class="post-header mb20">
-                                        <h1 class="post-title mb30">${board.title }</h1>
+                                        <h1 class="post-title mb30 your-style2"><font size=6px;">${board.title }</font></h1>
                                     </div>
                                     <div class="post-content" align="right">
                                         <a href="/fileDown/${files.bno}">${files.fileOriName}</a>
                                     </div>
                                     <div class="post-content"  align="left" >
-                                        <pre style="font-size: 17px;">${board.content }</pre>
+                                        <pre class="your-style3" style="font-size: 17px;">${board.content }</pre>
                                     </div>
                                         <hr>
                                         <div class="social-icon" align="right">
@@ -103,44 +105,6 @@
             </div>
         </div>
     </div>
-
-    <%--<div align="center">
-        <br>
-        <hr>
-        <h2>게시판 상세</h2>
-        <hr>
-        <br>
-        <table>
-            <tr>
-                <th width="25%">번호</th>
-                <td>${board.id}</td>
-            </tr>
-            <tr>
-                <th width="25%">제목</th>
-                <td>${board.title }</td>
-            </tr>
-            <tr>
-                <th width="25%">작성자</th>
-                <td>${board.user_id }</td>
-            </tr>
-            <tr>
-                <th width="25%">첨부파일</th>
-                <td><a href="/fileDown/${files.bno}">${files.fileOriName}</td>
-            </tr>
-            <tr>
-                <th width="25%">내용</th>
-                <td>${board.content }</td>
-            </tr>
-            <tr>
-                <th width="25%">등록일</th>
-                <td>${board.created }</td>
-            </tr>
-        </table>
-        <br>
-        <button id="updateBtn">수정</button>
-        <button id="delBtn">삭제</button>
-        &nbsp;&nbsp;&nbsp;
-    </div>--%>
 </section>
 
 </body>

@@ -2,6 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}../resources/css/business-casual.css">
+<link rel="stylesheet" href="//cdn.rawgit.com/young-ha/webfont-archive/master/css/Godo.css">
+<link rel="stylesheet" href="//cdn.rawgit.com/young-ha/webfont-archive/master/css/NanumGothic.css">
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,10 +84,10 @@
                                         </div>
                                         <!-- /.post meta -->
                                         <div class="post-header mb20">
-                                            <h1 class="post-title mb30">${ask.title }</h1>
+                                            <h1 class="post-title mb30 your-style2"><font size="6px;">${ask.title }</font></h1>
                                         </div>
                                         <div class="post-content"  align="left" >
-                                            <pre style="font-size: 17px;">${ask.content }</pre>
+                                            <pre class="your-style3"><font size="4px;"> ${ask.content }</font></pre>
                                             <hr>
                                             <div class="social-icon" align="right">
                                                 <a href="#" class="social-link"><i class="fa fa-share-alt"></i></a>

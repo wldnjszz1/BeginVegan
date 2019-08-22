@@ -4,6 +4,33 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-business-casual/blob/master/LICENSE)
  */
 
+.your-style {
+  font-family: 'NanumSquare';
+  font-size: 20px;
+  font-style: normal;
+}
+.your-style2{
+  font-family: 'Godo';
+  font-size: 20px;
+  font-style: normal;
+}
+.your-style3{
+  font-family: 'NanumGothic';
+  font-size: 20px;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hankc';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/hani/Hankc/Hankc.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/hani/Hankc/Hankc.woff') format('woff');
+}
+
+.hankc * {
+  font-family: 'Hankc', serif;
+}
+
 body {
   font-family: 'Lora';
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(39, 47, 0, 0.65))), url("../img/bg.jpg");

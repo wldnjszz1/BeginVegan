@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}../resources/css/business-casual.css">
+<link rel="stylesheet" href="//cdn.rawgit.com/young-ha/webfont-archive/master/css/Godo.css">
 <!--===============================================================================================-->
 <link rel="icon" type="image/png" href="resources/boardTemplate/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
@@ -20,7 +21,6 @@
 <link rel="stylesheet" type="text/css" href="resources/boardTemplate/css/util.css">
 <link rel="stylesheet" type="text/css" href="resources/boardTemplate/css/main.css">
 <!--===============================================================================================-->
-
 
 <!DOCTYPE html>
 <html>
@@ -46,7 +46,7 @@
             <div align = "center" class="wrap-table100">
                 <br>
                 <hr>
-                <h2>질문 답변 게시글 조회</h2>
+                <h1 class="your-style2"><font size="7px;">질문 답변 게시글 조회</font></h1>
                 <hr>
                 <br>
 
