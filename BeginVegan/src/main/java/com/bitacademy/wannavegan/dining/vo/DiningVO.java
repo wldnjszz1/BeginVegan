@@ -10,7 +10,7 @@ public class DiningVO {
     private String roadAddress;
     private int mapx;
     private int mapy;
-    private float score;
+    private double score;
 
 
     public DiningVO() {
@@ -103,9 +103,9 @@ public class DiningVO {
         this.mapy = mapy;
     }
 
-    public float getScore() { return score; }
+    public double getScore() { return score; }
 
-    public void setScore() {  this.score = score; }
+    public void setScore(double score) {  this.score = score; }
 
     @Override
     public String toString() {

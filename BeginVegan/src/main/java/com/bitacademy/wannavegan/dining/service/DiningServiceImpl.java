@@ -4,6 +4,7 @@ import com.bitacademy.wannavegan.dining.vo.DiningVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -22,5 +23,10 @@ public class DiningServiceImpl implements DiningService {
     public DiningVO detailDiningByID(int id) {
         DiningVO dining = diningMapper.selectByID(id);
         return dining;
+    }
+
+    @Override
+    public void updateScore(HashMap<String, Object> map) {
+        diningMapper.updateScore(map);
     }
 }

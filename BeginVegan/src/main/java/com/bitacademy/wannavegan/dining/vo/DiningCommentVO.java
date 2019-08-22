@@ -81,4 +81,5 @@ public class DiningCommentVO {
                 ", score=" + score +
                 '}';
     }
+
 }
