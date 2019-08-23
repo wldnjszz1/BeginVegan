@@ -487,145 +487,18 @@
     function deleteComment(no) {
         if(confirm("정말 삭제하시겠습니까?")==true) {
             $.ajax({
-
-                url : '${pageContext.request.contextPath}/dining/comments/list',
-                type : 'get',
-                data : {'bno':bno},
-                success : function(data){
-                    var output ='';
-                    var num10 = 10;
-                    for(var i in data) {
-                        var obj  = data[i];
-                        output += '<br>';
-                        output += '<br>';
-                        output += '<div class="tab-content">';
-                        output += '<div class="tab-pane active" id="comments-login">';
-                        output += '<ul class="media-list">';
-                        output += '<li class="media">';
-                        output += '<div class="media-body">';
-                        output += '<div class="well well-lg">';
-                        output += '<h4 id="writer" class="media-heading text-uppercase reviews writer">'+obj.writer+'</h4>';
-                        output += '<ul class="media-date text-uppercase reviews list-inline">';
-                        if(obj.score == 5.0){
-                            output +=
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>';
-                        }
-                        else if(obj.score >= 4.5){
-                            output +=
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-half-o fa-2x" style="color:orange"></i>';
-                        }
-                        else if(obj.score >= 4.0){
-                            output +=
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
-                        }
-                        else if(obj.score >= 3.5){
-                            output +=
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-half-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
-                        }
-                        else if(obj.score >= 3.0){
-                            output +=
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
-                        }
-                        else if(obj.score >= 2.5){
-                            output +=
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-half-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
-                        }
-                        else if(obj.score >= 2.0){
-                            output +=
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
-                        }
-                        else if(obj.score >= 1.5){
-                            output +=
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-half-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
-                        }
-                        else if(obj.score >= 1.0){
-                            output +=
-                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
-                        }
-                        else if(obj.score >= 0.5){
-                            output +=
-                            '<i class="fa fa-star-half-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
-                        }
-                        else{
-                            output +=
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
-                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
-                        }
-                        output += ' (' + obj.score + ') ';
-
-                        output += '<br><li class="dd">'+obj.reg_date+'</li>';
-                        output += '</ul>';
-                        output += '<p class="media-comment">'+obj.content+'</p>';
-                        output += '</div>';
-                        output += '</div>';
-                        output += '</li>';
-                        output += '</ul>';
-                        output += '</div>';
-                        output += '</div>';
-
-                        if("${requestScope.loginVO.user_id}" == obj.writer) {
-                            output += "<button type='button' id='btnDelete' onclick='deleteComment("+obj.cno+")'>삭제</button>";
-                            output += "<button type='button' id='btnUpdate' onclick='editComment("+obj.cno+",\""+obj.content+"\")'>수정</button>";
-                        }
-                    }
-
-                    $("#commentList").html(output);
-
                 url : "${pageContext.request.contextPath}/dining/comments/delete/" +no,
                 type : "post",
                 success : function(data) {
                     alert("삭제 완료!");
                     commentList();
-
                 }
             });
         } else {
             return;
         }
     }
+
 
     function fixComment(no) {
         var content = $("#cttcontent").val().trim();
