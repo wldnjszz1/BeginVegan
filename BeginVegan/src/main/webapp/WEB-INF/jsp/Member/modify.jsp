@@ -549,5 +549,4 @@
 <!--===============================================================================================-->
 <script src="../../../resources/boardTemplate/js/main.js"></script>
 </body>
-<jsp:include page="../include/footer.jsp"/>
 </html>

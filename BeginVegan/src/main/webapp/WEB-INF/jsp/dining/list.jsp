@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=83bfuniegk&submodules=geocoder"></script>
 
@@ -17,7 +18,9 @@
 <jsp:include page="../include/header.jsp"/>
 </header>
 <section>
-<br><br><br>
+<br>
+<h1 align="center" style="color:white; size:8rem;"><i class="fa fa-arrow-circle-o-down" style="color:white"></i><b> 클릭하세요 </b><i class="fa fa-arrow-circle-o-down" style="color:white"></i></h1>
+<br>
 <div id="map"style="width:50%;height:500px;margin:auto"></div>
 </section>
 

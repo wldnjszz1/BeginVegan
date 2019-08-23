@@ -119,7 +119,7 @@ p {
 }
 
 #mainNav {
-  background-color: rgba(1, 1, 3, 0.53);
+  background-color: rgba(3, 3, 23, 0.53);
   font-family: 'Raleway';
 }
 
@@ -270,7 +270,7 @@ p {
 }
 
 .footer {
-  background-color: rgba(1, 1, 6, 0.9);
+  background-color: grey;
 }
 
 .text-primary {

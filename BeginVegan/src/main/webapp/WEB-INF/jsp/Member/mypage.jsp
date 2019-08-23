@@ -91,5 +91,4 @@
   <script src="../../../resources/mypageTemplate/js/freelancer.min.js"></script>
 
 </body>
-<jsp:include page="../include/footer.jsp"/>
 </html>
