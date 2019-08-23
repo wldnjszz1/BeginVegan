@@ -291,6 +291,38 @@
 </body>
 <script>
 
+    function editComment(no, content){
+        var date = $('#cttdate').text();
+        var content = $('#cttcontent').text();
+        var writer = $('#cttwriter').text();
+        var score = $('#cttscore').text();
+        var editForm ='';
+        editForm += '<br>';
+        editForm += '<br>';
+        editForm += '<div class="tab-content">';
+        editForm += '<div class="tab-pane active" id="comments-login">';
+        editForm += '<ul class="media-list">';
+        editForm += '<li class="media">';
+        editForm += '<div class="media-body">';
+        editForm += '<div class="well well-lg">';
+        editForm += '<h4 id="cttwriter" class="media-heading text-uppercase reviews writer">' + writer + '</h4>';
+        editForm += '<ul class="media-date text-uppercase reviews list-inline">';
+        editForm += '<li id="cttscore" class="dd">' + score + '</li>';
+        editForm += '<li id="cttdate" class="dd">' + date + '</li>';
+        editForm += '</ul>';
+        editForm += '<p id="cttcontent" class="media-comment">' + content + '</p>';
+        editForm += '</div>';
+        editForm += '</div>';
+        editForm += '</li>';
+        editForm += '</ul>';
+        editForm += '</div>';
+        editForm += '</div>';
+        editForm += "<td><input id='btn' type='button' onclick='fixComment("+no+")' value='수정'>";
+        editForm += "<input id='btn' type='button' onclick='commentList()' value='취소'></td>";
+
+        $('#commentList').html(editForm);
+    }
+
     //댓글 목록
     function commentList() {
         var bno = "${requestScope.dining.id}";
@@ -311,12 +343,12 @@
                     output += '<li class="media">';
                     output += '<div class="media-body">';
                     output += '<div class="well well-lg">';
-                    output += '<h4 id="writer" class="media-heading text-uppercase reviews writer">' + obj.writer + '</h4>';
+                    output += '<h4 id="cttwriter" class="media-heading text-uppercase reviews writer">' + obj.writer + '</h4>';
                     output += '<ul class="media-date text-uppercase reviews list-inline">';
-                    output += '<li class="dd">' + obj.score + '</li>';
-                    output += '<li class="dd">' + obj.reg_date + '</li>';
+                    output += '<li id="cttscore" class="dd">' + obj.score + '</li>';
+                    output += '<li id="cttdate" class="dd">' + obj.reg_date + '</li>';
                     output += '</ul>';
-                    output += '<p class="media-comment">' + obj.content + '</p>';
+                    output += '<p id="cttcontent" class="media-comment">' + obj.content + '</p>';
                     output += '</div>';
                     output += '</div>';
                     output += '</li>';
@@ -366,9 +398,8 @@
         }
     }
 
-    //등록 버튼 눌렀을 때
-    $("#submitComment").click(function () {
 
+    function updateComment() {
         var url = "${pageContext.request.contextPath}/dining/comments/insert";
 
         var score = document.forms['commentForm'].rating2.value;
@@ -401,7 +432,13 @@
                 }
             }
         }
+    }
+
+    //등록 버튼 눌렀을 때
+    $("#submitComment").click(function () {
+        updateComment();
     });
+
 
     $(document).ready(function () {
         commentList(); //페이지 로딩시 댓글 목록 출력
@@ -421,6 +458,31 @@
             return;
         }
     }
+
+    function fixComment(no) {
+        var content = $("#addComment").val().trim();
+        var score = document.forms['commentForm'].rating2.value;
+        if (content ==="") {
+            alert("댓글을 입력하세요");
+            $('#comment'+no+' #content').focus();
+        }else {
+            $.ajax({
+                url : "${pageContext.request.contextPath}/dining/comments/update",
+                type: "post",
+                data : {
+                    'content' : content,
+                    'cno' : no,
+                    'score' : score,
+                },
+                success : function(data) {
+                    commentList();
+                },
+                error:function(request,status,error){
+                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
+            });
+        }
+    }
+
 
 
 </script>

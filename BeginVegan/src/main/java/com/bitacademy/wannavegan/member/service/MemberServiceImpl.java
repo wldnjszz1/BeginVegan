@@ -36,7 +36,6 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public MemberVO login(MemberVO member) {
-        System.out.println("login Service의 파라미터로 들어온 멤버 "+member);
         MemberVO loginVO = mapper.login(member);
         if (loginVO != null){
             loginVO.setType(loginVO.getType().trim());
