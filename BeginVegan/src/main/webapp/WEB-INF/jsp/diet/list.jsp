@@ -127,7 +127,7 @@
 
                 <c:if test="${loginVO.user_id == null}">
                 alert("로그인 하셔야 이용 가능합니다.")
-                location.href = "${ pageContext.request.contextPath }/login";
+
                 </c:if>
 
                 <c:if test="${loginVO.user_id != null}">
