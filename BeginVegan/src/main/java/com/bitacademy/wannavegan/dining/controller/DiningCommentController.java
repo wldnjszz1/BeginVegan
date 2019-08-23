@@ -39,14 +39,14 @@ public class DiningCommentController {
 
     @RequestMapping("/update") //댓글 수정
     @ResponseBody
-    private void commentUpdate(@RequestParam int cno, @RequestParam String content, @RequestParam int score) throws Exception{
+    private void commentUpdate(@ModelAttribute DiningCommentVO vo/*@RequestParam int cno, @RequestParam String content, @RequestParam int score*/) throws Exception{
+        System.out.println(vo);
+//        DiningCommentVO comment = new DiningCommentVO();
+//        comment.setCno(cno);
+//        comment.setContent(content);
+//        comment.setScore(score);
 
-        DiningCommentVO comment = new DiningCommentVO();
-        comment.setCno(cno);
-        comment.setContent(content);
-        comment.setScore(score);
-
-        service.update(comment);
+        service.update(vo);
     }
 
     @RequestMapping("/delete/{cno}") //댓글 삭제

@@ -297,6 +297,7 @@
         var writer = $('#cttwriter').text();
         var score = $('#cttscore').text();
         var editForm ='';
+        editForm += '<form action="#" method="post" class="inputForm" id="fixForm" role="form">';
         editForm += '<br>';
         editForm += '<br>';
         editForm += '<div class="tab-content">';
@@ -307,10 +308,38 @@
         editForm += '<div class="well well-lg">';
         editForm += '<h4 id="cttwriter" class="media-heading text-uppercase reviews writer">' + writer + '</h4>';
         editForm += '<ul class="media-date text-uppercase reviews list-inline">';
-        editForm += '<li id="cttscore" class="dd">' + score + '</li>';
+        editForm += '<div class="half-stars-example" id="half-stars-example">';
+        editForm += '<div class="rating-group">';
+        editForm += '<input class="rating__input rating__input--none" checked name="rating2" id="rating2-0" value="0" type="radio">';
+        editForm += '<label aria-label="0 stars" class="rating__label" for="rating2-0">&nbsp;</label>';
+        editForm += '<label aria-label="0.5 stars" class="rating__label rating__label--half" for="rating2-05"><i class="rating__icon rating__icon--star fa fa-star-half"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-05" value="0.5" type="radio">';
+        editForm += '<label aria-label="1 star" class="rating__label" for="rating2-10"><i class="rating__icon rating__icon--star fa fa-star"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-10" value="1" type="radio">';
+        editForm += '<label aria-label="1.5 stars" class="rating__label rating__label--half" for="rating2-15"><i class="rating__icon rating__icon--star fa fa-star-half"></i></label>';
+        editForm += ' <input class="rating__input" name="rating2" id="rating2-15" value="1.5" type="radio">';
+        editForm += '<label aria-label="2 stars" class="rating__label" for="rating2-20"><i class="rating__icon rating__icon--star fa fa-star"></i></label>';
+        editForm += ' <input class="rating__input" name="rating2" id="rating2-20" value="2" type="radio">';
+        editForm += '<label aria-label="2.5 stars" class="rating__label rating__label--half" for="rating2-25"><i class="rating__icon rating__icon--star fa fa-star-half"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-25" value="2.5" type="radio" checked>';
+        editForm += '<label aria-label="3 stars" class="rating__label" for="rating2-30"><i class="rating__icon rating__icon--star fa fa-star"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-30" value="3" type="radio">';
+        editForm += '<label aria-label="3.5 stars" class="rating__label rating__label--half" for="rating2-35"><i class="rating__icon rating__icon--star fa fa-star-half"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-35" value="3.5" type="radio">';
+        editForm += '<label aria-label="4 stars" class="rating__label" for="rating2-40"><i class="rating__icon rating__icon--star fa fa-star"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-40" value="4" type="radio">';
+        editForm += ' <label aria-label="4.5 stars" class="rating__label rating__label--half" for="rating2-45"><i class="rating__icon rating__icon--star fa fa-star-half"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-45" value="4.5" type="radio">';
+        editForm += ' <label aria-label="5 stars" class="rating__label" for="rating2-50"><i class="rating__icon rating__icon--star fa fa-star"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-50" value="5" type="radio">';
+        editForm += '</div>';
+        editForm += '</div>';
+        editForm += '</form>';
+        // editForm += '<li id="cttscore" class="dd">' + score + '</li>';
         editForm += '<li id="cttdate" class="dd">' + date + '</li>';
         editForm += '</ul>';
-        editForm += '<p id="cttcontent" class="media-comment">' + content + '</p>';
+        // editForm += '<p id="cttcontent" class="media-comment">' + content + '</p>';
+        editForm += '<textarea class="form-control" name="cttcontent" id="cttcontent" rows="5">'+content+'</textarea>';
         editForm += '</div>';
         editForm += '</div>';
         editForm += '</li>';
@@ -460,8 +489,8 @@
     }
 
     function fixComment(no) {
-        var content = $("#addComment").val().trim();
-        var score = document.forms['commentForm'].rating2.value;
+        var content = $("#cttcontent").val().trim();
+        var score = document.forms['fixForm'].rating2.value;
         if (content ==="") {
             alert("댓글을 입력하세요");
             $('#comment'+no+' #content').focus();
