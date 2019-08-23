@@ -1,32 +1,41 @@
 package com.bitacademy.wannavegan.board.vo;
 
+
 public class CommentVO{
-
-    private int id;
+    private int cno;
+    private int bno;
     private int author;
-    private int board_id;
     private String content;
-    private String created;
+    private String writer;
+    private String reg_date;
 
-    public CommentVO() {
-
-    }
-
-    public CommentVO(int id, int author, int board_id, String content, String created) {
-        this.id = id;
+    public CommentVO(int cno, int bno, int author, String content, String writer, String reg_date) {
+        this.cno = cno;
+        this.bno = bno;
         this.author = author;
-        this.board_id = board_id;
         this.content = content;
-        this.created = created;
+        this.writer = writer;
+        this.reg_date = reg_date;
     }
 
+    public CommentVO(){
 
-    public int getId() {
-        return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getCno() {
+        return cno;
+    }
+
+    public void setCno(int cno) {
+        this.cno = cno;
+    }
+
+    public int getBno() {
+        return bno;
+    }
+
+    public void setBno(int bno) {
+        this.bno = bno;
     }
 
     public int getAuthor() {
@@ -37,14 +46,6 @@ public class CommentVO{
         this.author = author;
     }
 
-    public int getBoard_id() {
-        return board_id;
-    }
-
-    public void setBoard_id(int board_id) {
-        this.board_id = board_id;
-    }
-
     public String getContent() {
         return content;
     }
@@ -53,22 +54,31 @@ public class CommentVO{
         this.content = content;
     }
 
-    public String getCreated() {
-        return created;
+    public String getWriter() {
+        return writer;
     }
 
-    public void setCreated(String created) {
-        this.created = created;
+    public void setWriter(String writer) {
+        this.writer = writer;
+    }
+
+    public String getReg_date() {
+        return reg_date;
+    }
+
+    public void setReg_date(String reg_date) {
+        this.reg_date = reg_date;
     }
 
     @Override
     public String toString() {
         return "CommentVO{" +
-                "id=" + id +
+                "cno=" + cno +
+                ", bno=" + bno +
                 ", author=" + author +
-                ", board_id=" + board_id +
                 ", content='" + content + '\'' +
-                ", created='" + created + '\'' +
+                ", writer='" + writer + '\'' +
+                ", reg_date='" + reg_date + '\'' +
                 '}';
     }
 }
