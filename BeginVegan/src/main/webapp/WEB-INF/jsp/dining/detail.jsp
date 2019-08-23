@@ -291,6 +291,67 @@
 </body>
 <script>
 
+    function editComment(no, content){
+        var date = $('#cttdate').text();
+        var content = $('#cttcontent').text();
+        var writer = $('#cttwriter').text();
+        var score = $('#cttscore').text();
+        var editForm ='';
+        editForm += '<form action="#" method="post" class="inputForm" id="fixForm" role="form">';
+        editForm += '<br>';
+        editForm += '<br>';
+        editForm += '<div class="tab-content">';
+        editForm += '<div class="tab-pane active" id="comments-login">';
+        editForm += '<ul class="media-list">';
+        editForm += '<li class="media">';
+        editForm += '<div class="media-body">';
+        editForm += '<div class="well well-lg">';
+        editForm += '<h4 id="cttwriter" class="media-heading text-uppercase reviews writer">' + writer + '</h4>';
+        editForm += '<ul class="media-date text-uppercase reviews list-inline">';
+        editForm += '<div class="half-stars-example" id="half-stars-example">';
+        editForm += '<div class="rating-group">';
+        editForm += '<input class="rating__input rating__input--none" checked name="rating2" id="rating2-0" value="0" type="radio">';
+        editForm += '<label aria-label="0 stars" class="rating__label" for="rating2-0">&nbsp;</label>';
+        editForm += '<label aria-label="0.5 stars" class="rating__label rating__label--half" for="rating2-05"><i class="rating__icon rating__icon--star fa fa-star-half"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-05" value="0.5" type="radio">';
+        editForm += '<label aria-label="1 star" class="rating__label" for="rating2-10"><i class="rating__icon rating__icon--star fa fa-star"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-10" value="1" type="radio">';
+        editForm += '<label aria-label="1.5 stars" class="rating__label rating__label--half" for="rating2-15"><i class="rating__icon rating__icon--star fa fa-star-half"></i></label>';
+        editForm += ' <input class="rating__input" name="rating2" id="rating2-15" value="1.5" type="radio">';
+        editForm += '<label aria-label="2 stars" class="rating__label" for="rating2-20"><i class="rating__icon rating__icon--star fa fa-star"></i></label>';
+        editForm += ' <input class="rating__input" name="rating2" id="rating2-20" value="2" type="radio">';
+        editForm += '<label aria-label="2.5 stars" class="rating__label rating__label--half" for="rating2-25"><i class="rating__icon rating__icon--star fa fa-star-half"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-25" value="2.5" type="radio" checked>';
+        editForm += '<label aria-label="3 stars" class="rating__label" for="rating2-30"><i class="rating__icon rating__icon--star fa fa-star"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-30" value="3" type="radio">';
+        editForm += '<label aria-label="3.5 stars" class="rating__label rating__label--half" for="rating2-35"><i class="rating__icon rating__icon--star fa fa-star-half"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-35" value="3.5" type="radio">';
+        editForm += '<label aria-label="4 stars" class="rating__label" for="rating2-40"><i class="rating__icon rating__icon--star fa fa-star"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-40" value="4" type="radio">';
+        editForm += ' <label aria-label="4.5 stars" class="rating__label rating__label--half" for="rating2-45"><i class="rating__icon rating__icon--star fa fa-star-half"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-45" value="4.5" type="radio">';
+        editForm += ' <label aria-label="5 stars" class="rating__label" for="rating2-50"><i class="rating__icon rating__icon--star fa fa-star"></i></label>';
+        editForm += '<input class="rating__input" name="rating2" id="rating2-50" value="5" type="radio">';
+        editForm += '</div>';
+        editForm += '</div>';
+        editForm += '</form>';
+        // editForm += '<li id="cttscore" class="dd">' + score + '</li>';
+        editForm += '<li id="cttdate" class="dd">' + date + '</li>';
+        editForm += '</ul>';
+        // editForm += '<p id="cttcontent" class="media-comment">' + content + '</p>';
+        editForm += '<textarea class="form-control" name="cttcontent" id="cttcontent" rows="5">'+content+'</textarea>';
+        editForm += '</div>';
+        editForm += '</div>';
+        editForm += '</li>';
+        editForm += '</ul>';
+        editForm += '</div>';
+        editForm += '</div>';
+        editForm += "<td><input id='btn' type='button' onclick='fixComment("+no+")' value='수정'>";
+        editForm += "<input id='btn' type='button' onclick='commentList()' value='취소'></td>";
+
+        $('#commentList').html(editForm);
+    }
+
     //댓글 목록
     function commentList() {
         var bno = "${requestScope.dining.id}";
@@ -311,12 +372,12 @@
                     output += '<li class="media">';
                     output += '<div class="media-body">';
                     output += '<div class="well well-lg">';
-                    output += '<h4 id="writer" class="media-heading text-uppercase reviews writer">' + obj.writer + '</h4>';
+                    output += '<h4 id="cttwriter" class="media-heading text-uppercase reviews writer">' + obj.writer + '</h4>';
                     output += '<ul class="media-date text-uppercase reviews list-inline">';
-                    output += '<li class="dd">' + obj.score + '</li>';
-                    output += '<li class="dd">' + obj.reg_date + '</li>';
+                    output += '<li id="cttscore" class="dd">' + obj.score + '</li>';
+                    output += '<li id="cttdate" class="dd">' + obj.reg_date + '</li>';
                     output += '</ul>';
-                    output += '<p class="media-comment">' + obj.content + '</p>';
+                    output += '<p id="cttcontent" class="media-comment">' + obj.content + '</p>';
                     output += '</div>';
                     output += '</div>';
                     output += '</li>';
@@ -335,10 +396,39 @@
         });
     }
 
+    function sendData() {
+        var url = "${pageContext.request.contextPath}/dining/comments/insert";
+        var content = $("#addComment").val().trim();
+        var score = document.forms['commentForm'].rating2.value;
+        var sendInfo = {
+            bno: "${requestScope.dining.id}",
+            content: $('#addComment').val(),
+            writer: "${requestScope.loginVO.user_id}",
+            score: score
+        };
+        if (content === "") {
+            alert("내용을 입력하세요");
+            $("#addComment").focus();
+        } else {
+            $.ajax({
+                headers: {
+                    'X-HTTP-Method-Override': 'POST'
+                },
+                type: "POST",
+                url: url,
+                data: sendInfo,
+                success: function (data) {
+                    if (data == 1) {
+                        $('[name=addComment]').val('');
+                    }
+                    commentList(); //페이지 로딩시 댓글 목록 출력
+                }
+            });
+        }
+    }
 
-    //등록 버튼 눌렀을 때
-    $("#submitComment").click(function () {
 
+    function updateComment() {
         var url = "${pageContext.request.contextPath}/dining/comments/insert";
 
         var score = document.forms['commentForm'].rating2.value;
@@ -357,42 +447,72 @@
 
         if (writer == "") {
             alert("로그인이 필요합니다");
+            location.href = "${ pageContext.request.contextPath }/login";
         } else {
             var i = 0;
             var values = document.getElementsByClassName("writer");
-            while (i < values.length) {
+            for (var i =0; i<values.length; i++){
                 var commentWriter = values[i].innerText;
-                if (commentWriter.toLowerCase() == writer) {
+                if (commentWriter.toLowerCase() != writer && i == (values.length-1)){
+                    sendData();
+                }else{
                     alert("이미 리뷰를 작성하셨습니다");
                     break;
                 }
-                i++;
-            }
-            if (content === "") {
-                alert("내용을 입력하세요");
-                $("#addComment").focus();
-            } else {
-                $.ajax({
-                    headers: {
-                        'X-HTTP-Method-Override': 'POST'
-                    },
-                    type: "POST",
-                    url: url,
-                    data: sendInfo,
-                    success: function (data) {
-                        if (data == 1) {
-                            $('[name=addComment]').val('');
-                        }
-                        commentList(); //페이지 로딩시 댓글 목록 출력
-                    }
-                });
             }
         }
+    }
+
+    //등록 버튼 눌렀을 때
+    $("#submitComment").click(function () {
+        updateComment();
     });
+
 
     $(document).ready(function () {
         commentList(); //페이지 로딩시 댓글 목록 출력
     });
+
+    function deleteComment(no) {
+        if(confirm("정말 삭제하시겠습니까?")==true) {
+            $.ajax({
+                url : "${pageContext.request.contextPath}/dining/comments/delete/" +no,
+                type : "post",
+                success : function(data) {
+                    alert("삭제 완료!");
+                    commentList();
+                }
+            });
+        } else {
+            return;
+        }
+    }
+
+    function fixComment(no) {
+        var content = $("#cttcontent").val().trim();
+        var score = document.forms['fixForm'].rating2.value;
+        if (content ==="") {
+            alert("댓글을 입력하세요");
+            $('#comment'+no+' #content').focus();
+        }else {
+            $.ajax({
+                url : "${pageContext.request.contextPath}/dining/comments/update",
+                type: "post",
+                data : {
+                    'content' : content,
+                    'cno' : no,
+                    'score' : score,
+                },
+                success : function(data) {
+                    commentList();
+                },
+                error:function(request,status,error){
+                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
+            });
+        }
+    }
+
+
 
 </script>
 </html>

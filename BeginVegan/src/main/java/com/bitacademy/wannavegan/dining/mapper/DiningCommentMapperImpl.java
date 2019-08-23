@@ -34,7 +34,8 @@ public class DiningCommentMapperImpl implements DiningCommentMapper {
 
     @Override
     public void commentUpdate(DiningCommentVO comment) throws Exception {
-        session.update("diningComments.mapper.CommentsMapper.commentUpdate");
+        System.out.println("comment mapper의 "+comment);
+        session.update("diningComments.mapper.CommentsMapper.commentUpdate", comment);
     }
 
     @Override
