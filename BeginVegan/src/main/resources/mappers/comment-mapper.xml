@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comment.mapper.CommentMapper">
+
+    <select id="commentCount" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM board_comment
+    </select>
+
+    <select id="commentList" parameterType="int" resultType="com.bitacademy.wannavegan.board.vo.CommentVO">
+        SELECT
+            *
+        FROM board_comment, boards
+        where board_comment.bno = boards.id and BNO =#{bno}
+        order by REG_DATE desc
+    </select>
+
+
+    <insert id="commentInsert" parameterType="com.bitacademy.wannavegan.board.vo.CommentVO">
+        INSERT INTO
+        board_comment (CNO, BNO, author, CONTENT, WRITER, REG_DATE)
+        VALUES(SEQ_COMMENTS_PK.nextval,#{bno}, #{author}, #{content}, #{writer}, sysdate)
+    </insert>
+
+    <update id="commentUpdate" parameterType="com.bitacademy.wannavegan.board.vo.CommentVO">
+        UPDATE board_comment
+            SET
+            CONTENT = #{content}
+        WHERE CNO = #{cno}
+    </update>
+
+    <delete id="commentDelete" parameterType="int">
+        DELETE FROM board_comment WHERE CNO = #{cno}
+    </delete>
+
+</mapper>
