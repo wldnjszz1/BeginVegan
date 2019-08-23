@@ -25,7 +25,7 @@
     <update id="commentUpdate" parameterType="com.bitacademy.wannavegan.dining.vo.DiningCommentVO">
         UPDATE review_comments
             SET
-            score = #{score}
+            score = #{score},
             CONTENT = #{content}
         WHERE CNO = #{cno}
     </update>

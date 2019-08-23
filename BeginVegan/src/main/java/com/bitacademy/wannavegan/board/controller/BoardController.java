@@ -1,7 +1,9 @@
 package com.bitacademy.wannavegan.board.controller;
 
 import com.bitacademy.wannavegan.board.service.BoardService;
+import com.bitacademy.wannavegan.board.service.CommentService;
 import com.bitacademy.wannavegan.board.vo.BoardVO;
+import com.bitacademy.wannavegan.board.vo.CommentVO;
 import com.bitacademy.wannavegan.board.vo.FileVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -25,6 +28,11 @@ public class BoardController {
 
     @Autowired
     private BoardService boardService;
+    private CommentService commentService;
+
+    public BoardController(CommentService commentService) {
+        this.commentService = commentService;
+    }
 
     @RequestMapping("/Board")
     public ModelAndView list(){
@@ -32,7 +40,7 @@ public class BoardController {
 
         ModelAndView mav = new ModelAndView("Board/board");
         mav.addObject("BoardList", BoardList);
-
+        mav.addObject("commentVO", new CommentVO());
         return mav;
     }
 
@@ -57,8 +65,8 @@ public class BoardController {
             String sourceFileName = files.getOriginalFilename();
             File destinationFile;
 
-            /*String fileUrl = "C:\\Users\\jikon\\Documents\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";*/
-            String fileUrl = "C:\\Users\\bit-user\\Desktop\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";
+            String fileUrl = "C:\\Users\\jikon\\Documents\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";
+
 
             destinationFile = new File(fileUrl, sourceFileName);
             destinationFile.getParentFile().mkdirs();
@@ -84,6 +92,7 @@ public class BoardController {
         mav.addObject("board", boardId);
         mav.addObject("files",boardService.fileDetailService(id));
 
+        //System.out.println(mav);
         return mav;
     }
 
@@ -118,7 +127,7 @@ public class BoardController {
     @RequestMapping("/fileDown/{bno}")
     private void fileDown(@PathVariable int bno, HttpServletResponse response, HttpServletRequest request) throws Exception{
         request.setCharacterEncoding("UTF-8");
-        FileVO fileVO =boardService.fileDetailService(bno);
+        FileVO fileVO = boardService.fileDetailService(bno);
 
         try{
             String fileUrl = fileVO.getFileUrl();
@@ -180,6 +189,5 @@ public class BoardController {
 
     }
 
+
 }
-
-

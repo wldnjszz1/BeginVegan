@@ -117,13 +117,13 @@
             color: #777;
         }
     }
-</style>
+</style>--%>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
         if("${msg}"){
             alert("${msg}")
         }
-    </script>--%>
+    </script>
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
