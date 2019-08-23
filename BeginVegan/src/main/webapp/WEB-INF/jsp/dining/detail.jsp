@@ -443,7 +443,6 @@
             writer: "${requestScope.loginVO.user_id}",
             score: score
         };
-
         console.log(JSON.stringify(sendInfo));
 
         var content = $("#addComment").val().trim();
@@ -455,13 +454,21 @@
         } else {
             var i = 0;
             var values = document.getElementsByClassName("writer");
-            for (var i =0; i<values.length; i++){
-                var commentWriter = values[i].innerText;
-                if (commentWriter.toLowerCase() != writer && i == (values.length-1)){
-                    sendData();
-                }else{
-                    alert("이미 리뷰를 작성하셨습니다");
-                    break;
+            console.log(values.length);
+            if (values.length == 0){
+                sendData();
+            }else {
+                for (var i = 0; i < values.length; i++) {
+                    var commentWriter = values[i].innerText;
+                    console.log(commentWriter);
+                    console.log(i);
+                    if (commentWriter.toLowerCase() != writer && i == (values.length - 1)) {
+                        console.log(commentWriter.toLowerCase());
+                        sendData();
+                    } else {
+                        alert("이미 리뷰를 작성하셨습니다");
+                        break;
+                    }
                 }
             }
         }
