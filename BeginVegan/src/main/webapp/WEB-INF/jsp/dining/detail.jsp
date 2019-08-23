@@ -160,62 +160,88 @@
         <div class="container-fluid">
             <div align="center">
                 <h1 class="gallery-title">${dining.title}</h1>
-                    <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12"  id="ddd">
                         <h1 class="gallery-content"><a href="${dining.link}"><b>${dining.link}</b></a></h1>
                         <h1 class="gallery-content"><b>${dining.roadAddress}</b></h1>
                         <h1 class="gallery-content"><b>${dining.telephone}</b></h1>
                         <h1 class="gallery-content"><b>${dining.category}</b></h1>
-                        <!-- 올림입니다 -->
+                        <!-- 내림입니다 -->
                         <c:choose>
-                            <c:when test="${dining.score > 4.5}">
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                            <c:when test="${dining.score  == 5.0}">
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
                             </c:when>
-                            <c:when test="${dining.score > 4.0}">
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star-half-o fa-5x" aria-hidden="true" style="color:orange"></i>
+                            <c:when test="${dining.score >= 4.5}">
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
                             </c:when>
-                            <c:when test="${dining.score > 3.5}">
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                            <c:when test="${dining.score >= 4.0}">
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
                             </c:when>
-                            <c:when test="${dining.score > 3.0}">
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star-half-o fa-5x" aria-hidden="true" style="color:orange"></i>
+                            <c:when test="${dining.score >= 3.5}">
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
                             </c:when>
-                            <c:when test="${dining.score > 2.5}">
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                            <c:when test="${dining.score >= 3.0}">
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
                             </c:when>
-                            <c:when test="${dining.score > 2.0}">
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star-half-o fa-5x" aria-hidden="true" style="color:orange"></i>
+                            <c:when test="${dining.score >= 2.5}">
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
                             </c:when>
-                            <c:when test="${dining.score > 1.5}">
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                            <c:when test="${dining.score >= 2.0}">
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
                             </c:when>
-                            <c:when test="${dining.score > 1.0}">
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
-                                <i class="fa fa-star-half-o fa-5x" aria-hidden="true" style="color:orange"></i>
+                            <c:when test="${dining.score >= 1.5}">
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
                             </c:when>
-                            <c:when test="${dining.score > 0.5}">
-                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                            <c:when test="${dining.score >= 1.0}">
+                                <i class="fa fa-star fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                            </c:when>
+                            <c:when test="${dining.score >= 0.5}">
+                                <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
                             </c:when>
                             <c:otherwise>
-                                <i class="fa fa-star-half-o fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
                             </c:otherwise>
                         </c:choose>
                     </div>
