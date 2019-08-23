@@ -19,9 +19,7 @@
 <section>
 <div id="map" style="width:50%;height:500px;margin:auto;"></div>
 </section>
-<footer>
-<jsp:include page="../include/footer.jsp"/>
-</footer>
+
 <script>
 
     // 현재위치 만들어주기
@@ -55,7 +53,9 @@
         var tm128 = naver.maps.TransCoord.fromUTMKToTM128(utmk);
 
         map.setCenter(tm128); // 얻은 좌표를 지도의 중심으로 설정합니다.
-        infowindow.setContent('<div class="your-style2" style="padding:10px; font-size: 15px;">' + "가고싶은곳 클릭" +'</div>'); // 현재위치 나타내기
+
+        infowindow.setContent(' '); // 현재위치 나타내기
+
         infowindow.open(map, tm128);
     }
     function onErrorGeolocation() {

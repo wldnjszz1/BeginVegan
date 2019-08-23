@@ -93,13 +93,26 @@
             margin:0;
         }
 
-        section{
-            padding: 50px 0;
+        body{
+
+
+        }
+
+        .jebal{
             background-image : url("${ pageContext.request.contextPath }/resources/img/a.jpg");
+            padding: 50px 0;
             background-repeat: no-repeat;
             background-size: cover;  /* background-size: auto | length | cover | contain | initial | inherit*/
-            background-size: contain;
             background-position: center;
+        }
+
+        .page-header{
+
+
+
+
+
+
         }
 
         .gallery-title{
@@ -142,27 +155,79 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
+<div class="jebal">
+    <div class="page-header">
+        <div class="container-fluid">
+            <div align="center">
+                <h1 class="gallery-title">${dining.title}</h1>
+                    <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12"  id="ddd">
+                        <h1 class="gallery-content"><a href="${dining.link}"><b>${dining.link}</b></a></h1>
+                        <h1 class="gallery-content"><b>${dining.roadAddress}</b></h1>
+                        <h1 class="gallery-content"><b>${dining.telephone}</b></h1>
+                        <h1 class="gallery-content"><b>${dining.category}</b></h1>
+                        <!-- 올림입니다 -->
+                        <c:choose>
+                            <c:when test="${dining.score > 4.5}">
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                            </c:when>
+                            <c:when test="${dining.score > 4.0}">
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star-half-o fa-5x" aria-hidden="true" style="color:orange"></i>
+                            </c:when>
+                            <c:when test="${dining.score > 3.5}">
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                            </c:when>
+                            <c:when test="${dining.score > 3.0}">
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star-half-o fa-5x" aria-hidden="true" style="color:orange"></i>
+                            </c:when>
+                            <c:when test="${dining.score > 2.5}">
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                            </c:when>
+                            <c:when test="${dining.score > 2.0}">
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star-half-o fa-5x" aria-hidden="true" style="color:orange"></i>
+                            </c:when>
+                            <c:when test="${dining.score > 1.5}">
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                            </c:when>
+                            <c:when test="${dining.score > 1.0}">
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                                <i class="fa fa-star-half-o fa-5x" aria-hidden="true" style="color:orange"></i>
+                            </c:when>
+                            <c:when test="${dining.score > 0.5}">
+                                <i class="fa fa-star fa-5x" aria-hidden="true" style="color:orange"></i>
+                            </c:when>
+                            <c:otherwise>
+                                <i class="fa fa-star-half-o fa-5x" aria-hidden="true" style="color:orange"></i>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <div class="container">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1" id="login">
-                <div class="page-header">
 
-                    <div class="container-fluid">
-                        <div align="center">
-                            <h1 class="gallery-title">${dining.title}</h1>
-                        </div>
-                        <div class="row">
-                            <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12"  id="ddd">
-                                <h1 class="gallery-content"><a href="${dining.link}"><b>${dining.link}</b></a></h1>
-                                <h1 class="gallery-content"><b>${dining.telephone}</b></h1>
-                                <h1 class="gallery-content"><b>${dining.category}</b></h1>
-                                <h1 class="gallery-content"><b>서울특별시 중구 남대문로 81 롯데백화점 본점 지하1층</b></h1>
-                                <h1 class="gallery-content"><b>${dining.score}</b></h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="comment-tabs">
                     <ul class="nav nav-tabs" role="tablist">
