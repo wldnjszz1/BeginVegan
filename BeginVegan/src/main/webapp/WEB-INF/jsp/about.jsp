@@ -103,11 +103,11 @@
 <footer class="footer text-faded text-center py-5">
   <div class="container">
     <div class="text-center center-block">
-      <p class="txt-railway" style="font-size:2rem;">만든이 : 김지원 , 이정현 , 이지홍 , 김동현</p>
       <a href="https://github.com/wldnjszz1/BeginVegan" style="color: white"><i class="fa fa-github-square fa-5x"></i></a>
       <a href="https://www.google.com" style="color: white"><i id="social-gp" class="fa fa-google-plus-square fa-5x social"></i></a>
       <a href="https://www.facebook.com" style="color: white"><i id="social-fb" class="fa fa-facebook-square fa-5x social"></i></a>
       <a href="https://www.google.com" style="color: white"><i id="social-em" class="fa fa-envelope-square fa-5x social"></i></a>
+      <p class="txt-railway" style="font-size:1rem;">Made by : Jiwon , Jeonghyun , Jihong , Donghyun</p>
     </div>
   </div>
 </footer>
