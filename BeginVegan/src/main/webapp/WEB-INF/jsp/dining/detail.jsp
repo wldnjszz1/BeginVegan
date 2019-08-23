@@ -335,6 +335,36 @@
         });
     }
 
+    function sendData() {
+        var url = "${pageContext.request.contextPath}/dining/comments/insert";
+        var content = $("#addComment").val().trim();
+        var score = document.forms['commentForm'].rating2.value;
+        var sendInfo = {
+            bno: "${requestScope.dining.id}",
+            content: $('#addComment').val(),
+            writer: "${requestScope.loginVO.user_id}",
+            score: score
+        };
+        if (content === "") {
+            alert("내용을 입력하세요");
+            $("#addComment").focus();
+        } else {
+            $.ajax({
+                headers: {
+                    'X-HTTP-Method-Override': 'POST'
+                },
+                type: "POST",
+                url: url,
+                data: sendInfo,
+                success: function (data) {
+                    if (data == 1) {
+                        $('[name=addComment]').val('');
+                    }
+                    commentList(); //페이지 로딩시 댓글 목록 출력
+                }
+            });
+        }
+    }
 
     //등록 버튼 눌렀을 때
     $("#submitComment").click(function () {
@@ -357,35 +387,18 @@
 
         if (writer == "") {
             alert("로그인이 필요합니다");
+            location.href = "${ pageContext.request.contextPath }/login";
         } else {
             var i = 0;
             var values = document.getElementsByClassName("writer");
-            while (i < values.length) {
+            for (var i =0; i<values.length; i++){
                 var commentWriter = values[i].innerText;
-                if (commentWriter.toLowerCase() == writer) {
+                if (commentWriter.toLowerCase() != writer && i == (values.length-1)){
+                    sendData();
+                }else{
                     alert("이미 리뷰를 작성하셨습니다");
                     break;
                 }
-                i++;
-            }
-            if (content === "") {
-                alert("내용을 입력하세요");
-                $("#addComment").focus();
-            } else {
-                $.ajax({
-                    headers: {
-                        'X-HTTP-Method-Override': 'POST'
-                    },
-                    type: "POST",
-                    url: url,
-                    data: sendInfo,
-                    success: function (data) {
-                        if (data == 1) {
-                            $('[name=addComment]').val('');
-                        }
-                        commentList(); //페이지 로딩시 댓글 목록 출력
-                    }
-                });
             }
         }
     });
@@ -393,6 +406,7 @@
     $(document).ready(function () {
         commentList(); //페이지 로딩시 댓글 목록 출력
     });
+
 
 </script>
 </html>
