@@ -135,5 +135,4 @@
 <!-- Back to top script -->
 <script src="../resources/boardDetail/js/back-to-top.js" type="text/javascript"></script>
 </body>
-<jsp:include page="../include/footer.jsp"/>
 </html>

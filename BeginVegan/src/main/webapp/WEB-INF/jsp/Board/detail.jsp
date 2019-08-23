@@ -108,5 +108,4 @@
 </section>
 
 </body>
-<jsp:include page="../include/footer.jsp"/>
 </html>

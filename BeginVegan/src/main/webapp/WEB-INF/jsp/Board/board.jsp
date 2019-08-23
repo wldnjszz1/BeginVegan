@@ -40,7 +40,9 @@
     </script>
 </head>
 <body>
-<jsp:include page="../include/header.jsp"/>
+<header>
+    <jsp:include page="../include/header.jsp"/>
+</header>
 <section>
     <div class="limiter">
         <div class="container-table100">
@@ -118,5 +120,4 @@
 
 
 </body>
-<jsp:include page="../include/footer.jsp"/>
 </html>
