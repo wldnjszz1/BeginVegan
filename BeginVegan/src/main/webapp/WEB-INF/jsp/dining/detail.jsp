@@ -407,6 +407,21 @@
         commentList(); //페이지 로딩시 댓글 목록 출력
     });
 
+    function deleteComment(no) {
+        if(confirm("정말 삭제하시겠습니까?")==true) {
+            $.ajax({
+                url : "${pageContext.request.contextPath}/dining/comments/delete/" +no,
+                type : "post",
+                success : function(data) {
+                    alert("삭제 완료!");
+                    commentList();
+                }
+            });
+        } else {
+            return;
+        }
+    }
+
 
 </script>
 </html>
