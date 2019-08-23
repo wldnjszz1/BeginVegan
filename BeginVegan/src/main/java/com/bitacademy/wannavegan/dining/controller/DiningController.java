@@ -1,4 +1,5 @@
 package com.bitacademy.wannavegan.dining.controller;
+import com.bitacademy.wannavegan.dining.service.DiningCommentService;
 import com.bitacademy.wannavegan.dining.service.DiningService;
 import com.bitacademy.wannavegan.dining.vo.DiningCommentVO;
 import com.bitacademy.wannavegan.dining.vo.DiningVO;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -14,6 +16,11 @@ import java.util.List;
 public class DiningController {
     @Autowired
     private DiningService service;
+    private DiningCommentService commentService;
+
+    public DiningController(DiningCommentService commentService) {
+        this.commentService = commentService;
+    }
 
     @GetMapping("/dining")
     public ModelAndView list() {
@@ -30,8 +37,15 @@ public class DiningController {
     }
 
     @RequestMapping(value = "/dining/{id}", method = RequestMethod.GET)
-    public ModelAndView detail(@PathVariable("id") int id){
+    public ModelAndView detail(@PathVariable("id") int id) throws Exception {
         DiningVO dining = service.detailDiningByID(id);
+        HashMap<String,Object> hashMap = commentService.list(id);
+        double avg = (double) hashMap.get("avg");
+        dining.setScore(avg);
+        HashMap<String,Object> us = new HashMap<>();
+        us.put("id", id);
+        us.put("score", avg);
+        service.updateScore(us);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("dining/detail");
         mav.addObject("dining", dining);

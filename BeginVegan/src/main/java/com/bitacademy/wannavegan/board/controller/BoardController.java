@@ -1,7 +1,9 @@
 package com.bitacademy.wannavegan.board.controller;
 
 import com.bitacademy.wannavegan.board.service.BoardService;
+import com.bitacademy.wannavegan.board.service.CommentService;
 import com.bitacademy.wannavegan.board.vo.BoardVO;
+import com.bitacademy.wannavegan.board.vo.CommentVO;
 import com.bitacademy.wannavegan.board.vo.FileVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,8 @@ public class BoardController {
 
     @Autowired
     private BoardService boardService;
+    @Autowired
+    private CommentService service;
 
     @RequestMapping("/Board")
     public ModelAndView list(){
@@ -180,10 +184,6 @@ public class BoardController {
 
     }
 
-    @RequestMapping(value="/test", method=RequestMethod.GET)
-    public void ajaxTest(){
-
-    }
 
 }
 

@@ -5,101 +5,137 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Review</title>
-
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/css">
-        .half-stars-example {
 
-        /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
-        .rating-group {
-            display: inline-flex;
+
+    /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
+    #half-stars-example .rating-group {
+        display: inline-flex;
+    }
+
+    /* make hover effect work properly in IE */
+    #half-stars-example .rating__icon {
+        pointer-events: none;
+    }
+
+    /* hide radio inputs */
+    #half-stars-example .rating__input {
+        position: absolute !important;
+        left: -9999px !important;
+    }
+
+    /* set icon padding and size */
+    #half-stars-example .rating__label {
+        cursor: pointer;
+        /* if you change the left/right padding, update the margin-right property of .rating__label--half as well. */
+        padding: 0 0.1em;
+        font-size: 2rem;
+    }
+
+    /* add padding and positioning to half star labels */
+    #half-stars-example .rating__label--half {
+        padding-right: 0;
+        margin-right: -0.6em;
+        z-index: 2;
+    }
+
+    /* set default star color */
+    #half-stars-example .rating__icon--star {
+        color: orange;
+    }
+
+    /* set color of none icon when unchecked */
+    #half-stars-example .rating__icon--none {
+        color: #eee;
+    }
+
+    /* if none icon is checked, make it red */
+    #half-stars-example .rating__input--none:checked + .rating__label .rating__icon--none {
+        color: red;
+    }
+
+    /* if any input is checked, make its following siblings grey */
+    #half-stars-example .rating__input:checked ~ .rating__label .rating__icon--star {
+        color: #ddd;
+    }
+
+    /* make all stars orange on rating group hover */
+    #half-stars-example .rating-group:hover .rating__label .rating__icon--star,
+    #half-stars-example .rating-group:hover .rating__label--half .rating__icon--star {
+        color: orange;
+    }
+
+    /* make hovered input's following siblings grey on hover */
+    #half-stars-example .rating__input:hover ~ .rating__label .rating__icon--star,
+    #half-stars-example .rating__input:hover ~ .rating__label--half .rating__icon--star {
+        color: #ddd;
+    }
+
+    /* make none icon grey on rating group hover */
+    #half-stars-example .rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
+        color: #eee;
+    }
+
+    /* make none icon red on hover */
+    #half-stars-example .rating__input--none:hover + .rating__label .rating__icon--none {
+        color: red;
+    }
+
+
+        *{
+            padding:0;
+            margin:0;
         }
 
-        /* make hover effect work properly in IE */
-        .rating__icon {
-            pointer-events: none;
+        section{
+            padding: 50px 0;
+            background-image : url("${ pageContext.request.contextPath }/resources/img/a.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;  /* background-size: auto | length | cover | contain | initial | inherit*/
+            background-size: contain;
+            background-position: center;
         }
 
-        /* hide radio inputs */
-        .rating__input {
-            position: absolute !important;
-            left: -9999px !important;
+        .gallery-title{
+            font-size: 10rem;
+            color: #ffffff;
+            font-weight: 900;
+            font-weight: bold;
+            margin-bottom: 50px;
+            <!--font-style : oblique;-->
         }
 
-        /* set icon padding and size */
-        .rating__label {
-            cursor: pointer;
-            /* if you change the left/right padding, update the margin-right property of .rating__label--half as well. */
-            padding: 0 0.1em;
-            font-size: 2rem;
-        }
 
-        /* add padding and positioning to half star labels */
-        .rating__label--half {
-            padding-right: 0;
-            margin-right: -0.6em;
-            z-index: 2;
-        }
-
-        /* set default star color */
-        .rating__icon--star {
-            color: orange;
-        }
-
-        .rating__icon--none {
-            color: #eee;
-        }
-
-        /* if none icon is checked, make it red */
-        .rating__input--none:checked + .rating__label .rating__icon--none {
-            color: red;
-        }
-
-        /* if any input is checked, make its following siblings grey */
-        .rating__input:checked ~ .rating__label .rating__icon--star {
-            color: #ddd;
-        }
-
-        /* make all stars orange on rating group hover */
-        .rating-group:hover .rating__label .rating__icon--star,
-        .rating-group:hover .rating__label--half .rating__icon--star {
-            color: orange;
-        }
-
-        /* make hovered input's following siblings grey on hover */
-        .rating__input:hover ~ .rating__label .rating__icon--star,
-        .rating__input:hover ~ .rating__label--half .rating__icon--star {
-            color: #ddd;
-        }
-
-        /* make none icon grey on rating group hover */
-        .rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
-            color: #eee;
-        }
-
-        /* make none icon red on hover */
-        .rating__input--none:hover + .rating__label .rating__icon--none {
-            color: red;
-        }
+        .gallery-content{
+            font-size: 18px;
+            color: #010106;
+            font-weight: 500;
+            margin-bottom: 30px;
 
         }
+
+
+        #ddd{
+        <!--background-color : white;-->
+
+        }
+
 
     </style>
+
+
 </head>
 
 
 <body>
-    <div align="center">
-    <h1>${dining.title}</h1>
-    <h2>전화번호 : ${dining.telephone}</h2><h2>카테고리 : ${dining.category}</h2>
-    <h2>길주소 : ${dining.roadAddress}</h2>
-    <h2>링크 :<a href="${dining.link}">${dining.link}</a></h2>
-    </div>
-    <hr>
+<section class="portfolio" id="portfolio">
+
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -111,46 +147,39 @@
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1" id="login">
                 <div class="page-header">
-                    <h3 class="reviews">Leave your comment</h3>
-                    <div class="logout">
-                        <button class="btn btn-default btn-circle text-uppercase" type="button" onclick="$('#login').hide(); $('#logout').show()">
-                            <span class="glyphicon glyphicon-off"></span> Login
-                        </button>
+
+                    <div class="container-fluid">
+                        <div align="center">
+                            <h1 class="gallery-title">${dining.title}</h1>
+                        </div>
+                        <div class="row">
+                            <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12"  id="ddd">
+                                <h1 class="gallery-content"><a href="${dining.link}"><b>${dining.link}</b></a></h1>
+                                <h1 class="gallery-content"><b>${dining.telephone}</b></h1>
+                                <h1 class="gallery-content"><b>${dining.category}</b></h1>
+                                <h1 class="gallery-content"><b>서울특별시 중구 남대문로 81 롯데백화점 본점 지하1층</b></h1>
+                                <h1 class="gallery-content"><b>${dining.score}</b></h1>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="comment-tabs">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="active"><a href="#comments-login" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
-                        <li><a href="#add-comment-disabled" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Add comment</h4></a></li>
                     </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="comments-login">
-                            <ul class="media-list">
-                                <li class="media">
-                                    <div class="media-body">
-                                        <div class="well well-lg">
-                                            <h4 class="media-heading text-uppercase reviews">Marco</h4>
-                                            <ul class="media-date text-uppercase reviews list-inline">
-                                                <li class="dd">22</li>
-                                                <li class="mm">09</li>
-                                                <li class="aaaa">2014</li>
-                                            </ul>
-                                            <p class="media-comment">
-                                                Great snippet! Thanks for sharing.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="container">
+                        <div id="commentList"></div>
+                    </div>
+                    <hr>
                         <div class="tab-pane" id="add-comment-disabled">
-                            <div class="alert alert-info alert-dismissible" role="alert">
+                            <!-- <div class="alert alert-info alert-dismissible" role="alert">
                                 <button type="button" class="close" data-dismiss="alert">
                                     <span aria-hidden="true">×</span><span class="sr-only">Close</span>
                                 </button>
                                 <strong>Hey!</strong> If you already have an account <a href="#" class="alert-link">Login</a> now to make the comments you want. If you do not have an account yet you're welcome to <a href="#" class="alert-link"> create an account.</a>
-                            </div>
-                            <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
+                            </div> -->
+                            <form action="#" method="post" class="inputForm" id="commentForm" role="form">
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">Comment</label>
                                     <div class="col-sm-10">
@@ -193,7 +222,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
-                                        <button class="btn btn-success btn-circle text-uppercase disabled" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Summit comment</button>
+                                        <button class="btn btn-success btn-circle text-uppercase" type="button" id="submitComment"><span class="glyphicon glyphicon-send"></span> Summit comment</button>
                                     </div>
                                 </div>
                             </form>
@@ -203,7 +232,105 @@
             </div>
         </div>
     </div>
+</section>
 </body>
+<script>
+
+    $("#submitComment").click(function(){
+
+        var url="${pageContext.request.contextPath}/dining/comments/insert";
+
+        var score = document.forms['commentForm'].rating2.value;
+
+        var sendInfo = {
+            bno: "${requestScope.dining.id}",
+            content: $('#addComment').val(),
+            writer: "${requestScope.loginVO.user_id}",
+            score: score
+        };
+
+        console.log(JSON.stringify(sendInfo));
+
+        var content = $("#addComment").val().trim();
+        var writer = "${requestScope.loginVO.user_id}";
+
+        if(writer == "") {
+            alert("로그인이 필요합니다");
+        }else {
+            var i = 0;
+            var values = document.getElementsByClassName("writer");
+            while (i < values.length) {
+                var commentWriter = values[i].innerText;
+                if (commentWriter.toLowerCase() == writer) {
+                    alert("이미 리뷰를 작성하셨습니다");
+                    break;
+                }
+                i++;
+            }
+            if (content === "") {
+                alert("내용을 입력하세요");
+                $("#addComment").focus();
+            } else {
+                $.ajax({
+                    headers: {
+                        'X-HTTP-Method-Override': 'POST'
+                    },
+                    type: "POST",
+                    url: url,
+                    data: sendInfo
+                });
+            }
+            }
+    });
+
+
+    $(document).ready(function(){
+
+        var bno = "${requestScope.dining.id}";
+
+        (function commentList(){
+            $.ajax({
+                url : '${pageContext.request.contextPath}/dining/comments/list',
+                type : 'get',
+                data : {'bno':bno},
+                success : function(data){
+                    var output ='';
+                    for(var i in data) {
+                        var obj  = data[i];
+                        output += '<br>';
+                        output += '<br>';
+                        output += '<div class="tab-content">';
+                        output += '<div class="tab-pane active" id="comments-login">';
+                        output += '<ul class="media-list">';
+                        output += '<li class="media">';
+                        output += '<div class="media-body">';
+                        output += '<div class="well well-lg">';
+                        output += '<h4 id="writer" class="media-heading text-uppercase reviews writer">'+obj.writer+'</h4>';
+                        output += '<ul class="media-date text-uppercase reviews list-inline">';
+                        output += '<li class="dd">'+obj.score+'</li>';
+                        output += '<li class="dd">'+obj.reg_date+'</li>';
+                        output += '</ul>';
+                        output += '<p class="media-comment">'+obj.content+'</p>';
+                        output += '</div>';
+                        output += '</div>';
+                        output += '</li>';
+                        output += '</ul>';
+                        output += '</div>';
+                        output += '</div>';
+
+                        if("${requestScope.loginVO.user_id}" == obj.writer) {
+                            output += "<button type='button' id='btnDelete' onclick='deleteComment("+obj.cno+")'>삭제</button>";
+                            output += "<button type='button' id='btnUpdate' onclick='editComment("+obj.cno+",\""+obj.content+"\")'>수정</button>";
+                        }
+                    }
+
+                    $("#commentList").html(output);
+                }
+            });
+        })();
+    });
+
+</script>
 </html>
 
 

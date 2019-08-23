@@ -5,6 +5,7 @@ import com.bitacademy.wannavegan.board.vo.CommentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -12,12 +13,14 @@ public class CommentServiceImpl implements CommentService {
 
     @Autowired
     private CommentMapper mapper;
-    private CommentVO vo;
 
     @Override
-    public List<CommentVO> list(int id) throws Exception {
-        List<CommentVO> commentList = mapper.commentList(id);
-        return commentList;
+    public HashMap<String,Object> list(int bno) throws Exception {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        List<CommentVO> commentList = mapper.commentList(bno);
+        hashMap.put("commentList", commentList);
+
+        return hashMap;
     }
 
     @Override
@@ -34,4 +37,6 @@ public class CommentServiceImpl implements CommentService {
     public void delete(int cno) throws Exception{
         mapper.commentDelete(cno);
     }
+
+
 }

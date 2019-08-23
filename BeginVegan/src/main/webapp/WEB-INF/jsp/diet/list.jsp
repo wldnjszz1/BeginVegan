@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -146,10 +148,12 @@
         <div class="row">
             <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h1 class="gallery-title">DIET GELLARY</h1>
+
             </div>
 
             <div align="center">
                 <button class="filter-button" >글쓰기</button>
+
                 <button class="jibro" >홈으로</button>
             </div><br/>
 

@@ -1,25 +1,25 @@
 package com.bitacademy.wannavegan.board.vo;
 
-public class CommentVO{
 
+public class CommentVO{
     private int cno;
-    private int id;
+    private int bno;
     private int author;
     private String content;
     private String writer;
     private String reg_date;
 
-    public CommentVO(){
-
-    }
-
-    public CommentVO(int cno, int id, int author, String content, String writer, String reg_date) {
+    public CommentVO(int cno, int bno, int author, String content, String writer, String reg_date) {
         this.cno = cno;
-        this.id = id;
+        this.bno = bno;
         this.author = author;
         this.content = content;
         this.writer = writer;
         this.reg_date = reg_date;
+    }
+
+    public CommentVO(){
+
     }
 
     public int getCno() {
@@ -30,12 +30,12 @@ public class CommentVO{
         this.cno = cno;
     }
 
-    public int getId() {
-        return id;
+    public int getBno() {
+        return bno;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setBno(int bno) {
+        this.bno = bno;
     }
 
     public int getAuthor() {
@@ -74,7 +74,7 @@ public class CommentVO{
     public String toString() {
         return "CommentVO{" +
                 "cno=" + cno +
-                ", id=" + id +
+                ", bno=" + bno +
                 ", author=" + author +
                 ", content='" + content + '\'' +
                 ", writer='" + writer + '\'' +

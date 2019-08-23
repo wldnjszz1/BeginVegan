@@ -27,7 +27,9 @@ public class DiningCommentMapperImpl implements DiningCommentMapper {
 
     @Override
     public void commentInsert(DiningCommentVO comment) throws Exception {
-        session.insert("diningComments.mapper.CommentsMapper.commentInsert");
+        System.out.println(comment);
+        session.insert("diningComments.mapper.CommentsMapper.commentInsert", comment);
+
     }
 
     @Override

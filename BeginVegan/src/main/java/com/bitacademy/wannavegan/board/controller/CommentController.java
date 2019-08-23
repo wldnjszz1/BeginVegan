@@ -4,14 +4,17 @@ import com.bitacademy.wannavegan.board.service.CommentService;
 import com.bitacademy.wannavegan.board.vo.CommentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
 
+
+
 @RestController
-@RequestMapping(value="/comment")
+@RequestMapping(value="/board/comments")
+@SessionAttributes({"loginVO"})
 public class CommentController {
 
     @Autowired
@@ -20,13 +23,17 @@ public class CommentController {
     @RequestMapping(value = "/list", method = RequestMethod.GET) //댓글 리스트
     @ResponseBody
     private List<CommentVO> commentList(@RequestParam int bno) throws Exception{
-        return service.list(bno);
+        HashMap<String, Object> hashMap = service.list(bno);
+        List<CommentVO> comments = (List) hashMap.get("commentList");
+        return comments;
     }
 
-    @RequestMapping("/insert") //댓글 작성
-    @ResponseBody
-    public void commentInsert(@ModelAttribute CommentVO vo, HttpSession session) throws Exception {
+    @RequestMapping(value = "/insert", method = RequestMethod.POST) //댓글 작성
+    @ResponseStatus(value= HttpStatus.OK)
+    public String commentInsert(@ModelAttribute CommentVO vo, HttpSession session) throws Exception {
+        String number =  Integer.toString(vo.getBno());
         service.create(vo);
+        return "redirect:/board/"+number;
     }
 
     @RequestMapping("/update") //댓글 수정
@@ -46,4 +53,5 @@ public class CommentController {
 
         service.delete(cno);
     }
+
 }

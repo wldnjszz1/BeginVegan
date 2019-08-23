@@ -5,32 +5,32 @@
     <select id="commentCount" resultType="int">
         SELECT
             COUNT(*)
-        FROM board_comment2
+        FROM board_comment
     </select>
 
     <select id="commentList" parameterType="int" resultType="com.bitacademy.wannavegan.board.vo.CommentVO">
         SELECT
             *
-        FROM board_comment2
-        where id =#{id} order by cno desc
+        FROM board_comment
+        where BNO =#{BNO} order by REG_DATE desc
     </select>
 
 
     <insert id="commentInsert" parameterType="com.bitacademy.wannavegan.board.vo.CommentVO">
         INSERT INTO
-        board_comment2 (CNO, id, author, CONTENT, WRITER, REG_DATE)
-        VALUES(SEQ_COMMENTS_PK.nextval,#{id}, #{author}, '내용1','usr1', sysdate)
+        board_comment (CNO, BNO, author, CONTENT, WRITER, REG_DATE)
+        VALUES(SEQ_COMMENTS_PK.nextval,#{BNO}, #{author}, #{content},#{writer}, sysdate)
     </insert>
 
     <update id="commentUpdate" parameterType="com.bitacademy.wannavegan.board.vo.CommentVO">
-        UPDATE board_comment2
+        UPDATE board_comment
             SET
             CONTENT = #{content}
         WHERE CNO = #{cno}
     </update>
 
     <delete id="commentDelete" parameterType="int">
-        DELETE FROM board_comment2 WHERE CNO = #{cno}
+        DELETE FROM board_comment WHERE CNO = #{cno}
     </delete>
 
 </mapper>

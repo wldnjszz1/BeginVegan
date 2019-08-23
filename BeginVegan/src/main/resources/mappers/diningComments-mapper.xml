@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="diningComments.mapper.CommentsMapper">
+
+    <select id="commentCount" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM review_comments
+    </select>
+
+    <select id="commentList" parameterType="int" resultType="com.bitacademy.wannavegan.dining.vo.DiningCommentVO">
+        SELECT
+            *
+        FROM review_comments
+        where bno =#{bno} order by reg_date desc
+    </select>
+
+
+    <insert id="commentInsert" parameterType="com.bitacademy.wannavegan.dining.vo.DiningCommentVO">
+        INSERT INTO
+        review_comments (CNO, BNO, CONTENT, WRITER, REG_DATE, score)
+        VALUES(SEQ_revcmts_PK.nextval, #{bno}, #{content}, #{writer}, sysdate, #{score})
+    </insert>
+
+    <update id="commentUpdate" parameterType="com.bitacademy.wannavegan.dining.vo.DiningCommentVO">
+        UPDATE review_comments
+            SET
+            score = #{score}
+            CONTENT = #{content}
+        WHERE CNO = #{cno}
+    </update>
+
+    <delete id="commentDelete" parameterType="int">
+        DELETE FROM review_comments WHERE CNO = #{cno}
+    </delete>
+
+</mapper>

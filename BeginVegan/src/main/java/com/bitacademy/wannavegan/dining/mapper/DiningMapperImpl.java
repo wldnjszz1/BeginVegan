@@ -23,8 +23,8 @@ public class DiningMapperImpl implements DiningMapper{
         return dining;
     }
 
-//    @Override
-//    public void updateScore(HashMap<String, Object> map) {
-//        session.update("dining.mapper.DiningMapper.updateScore", map);
-//    }
+    @Override
+    public void updateScore(HashMap<String, Object> map) {
+        session.update("dining.mapper.DiningMapper.updateScore", map);
+    }
 }

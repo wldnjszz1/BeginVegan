@@ -20,8 +20,8 @@ public class CommentMapperImpl implements CommentMapper {
     }
 
     @Override
-    public List<CommentVO> commentList(int id) throws Exception {
-        List<CommentVO> commentList = session.selectList("comment.mapper.CommentMapper.commentList", id);
+    public List<CommentVO> commentList(int bno) throws Exception {
+        List<CommentVO> commentList = session.selectList("comment.mapper.CommentMapper.commentList", bno);
         return commentList;
     }
 
@@ -32,7 +32,7 @@ public class CommentMapperImpl implements CommentMapper {
 
     @Override
     public void commentUpdate(CommentVO comment) throws Exception {
-        session.update("comment.mapper.CommentMapper.commentUpdate", comment);
+        session.update("comment.mapper.CommentMapper.commentUpdate");
     }
 
     @Override

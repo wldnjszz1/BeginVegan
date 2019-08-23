@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
                 pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}../resources/css/business-casual.css">
 <!DOCTYPE html>
 <html>
@@ -46,6 +47,8 @@
                 location.href = "${pageContext.request.contextPath}/Board";
             });
         });
+
+
     </script>
 
 </head>
@@ -94,7 +97,9 @@
                                             <button id="delBtn" name="delBtn" class="btn btn-outline">삭제</button>
                                         </c:if>
                                         <button id="backBtn" class="btn btn-outline">글 목록</button>
+
                                     </div>
+
                                 </div>
                                 <!-- /.post block -->
                             </div>
@@ -104,27 +109,133 @@
             </div>
         </div>
     </div>
-
-</section>
-<div class="container">
-    <label for="content">comment</label>
-    <form name="commentInsertForm">
-        <div class="input-group">
-            <input type="hidden" name="bno" value="${board.id}"/>
-            <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
-            <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" name="commentInsertBtn">등록</button>
-               </span>
+    <div class="comment-tabs">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#comments-login" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
+        </ul>
+        <div class="container">
+            <div id="commentList"></div>
         </div>
-    </form>
-</div>
-
-<div class="container">
-    <div class="commentList"></div>
-</div>
-
+        <hr>
+        <div class="tab-pane" id="add-comment-disabled">
+            <!-- <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <strong>Hey!</strong> If you already have an account <a href="#" class="alert-link">Login</a> now to make the comments you want. If you do not have an account yet you're welcome to <a href="#" class="alert-link"> create an account.</a>
+            </div> -->
+            <form action="#" method="post" class="inputForm" id="commentForm" role="form">
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button class="btn btn-success btn-circle text-uppercase" type="button" id="submitComment"><span class="glyphicon glyphicon-send"></span> Summit comment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</section>
 </body>
+<script>
 
-<%@ include file="../Board/comment.jsp" %>
+    $("#submitComment").click(function(){
+
+        var url="${pageContext.request.contextPath}/board/comments/insert";
+
+        var sendInfo = {
+            bno: "${requestScope.board.id}",
+            content: $('#addComment').val(),
+            writer: "${requestScope.loginVO.user_id}",
+        };
+
+        console.log(JSON.stringify(sendInfo));
+
+        var content = $("#addComment").val().trim();
+        var writer = "${requestScope.loginVO.user_id}";
+
+        if(writer == "") {
+            alert("로그인이 필요합니다");
+        }else {
+            var i = 0;
+            var values = document.getElementsByClassName("writer");
+            while (i < values.length) {
+                var commentWriter = values[i].innerText;
+                if (commentWriter.toLowerCase() == writer) {
+                    alert("이미 댓글을 작성하셨습니다");
+                    break;
+                }
+                i++;
+            }
+            if (content === "") {
+                alert("내용을 입력하세요");
+                $("#addComment").focus();
+            } else {
+                $.ajax({
+                    headers: {
+                        'X-HTTP-Method-Override': 'POST'
+                    },
+                    type: "POST",
+                    url: url,
+                    data: sendInfo
+                });
+            }
+        }
+    });
+
+
+    $(document).ready(function(){
+
+        var bno = "${requestScope.dining.id}";
+
+        (function commentList(){
+            $.ajax({
+                url : '${pageContext.request.contextPath}/board/comments/list',
+                type : 'get',
+                data : {'bno':bno},
+                success : function(data){
+                    var output ='';
+                    for(var i in data) {
+                        var obj  = data[i];
+                        output += '<br>';
+                        output += '<br>';
+                        output += '<div class="tab-content">';
+                        output += '<div class="tab-pane active" id="comments-login">';
+                        output += '<ul class="media-list">';
+                        output += '<li class="media">';
+                        output += '<div class="media-body">';
+                        output += '<div class="well well-lg">';
+                        output += '<h4 id="writer" class="media-heading text-uppercase reviews writer">'+obj.writer+'</h4>';
+                        output += '<ul class="media-date text-uppercase reviews list-inline">';
+                        output += '<li class="dd">'+obj.reg_date+'</li>';
+                        output += '</ul>';
+                        output += '<p class="media-comment">'+obj.content+'</p>';
+                        output += '</div>';
+                        output += '</div>';
+                        output += '</li>';
+                        output += '</ul>';
+                        output += '</div>';
+                        output += '</div>';
+
+                        if("${requestScope.loginVO.user_id}" == obj.writer) {
+                            output += "<button type='button' id='btnDelete' onclick='deleteComment("+obj.cno+")'>삭제</button>";
+                            output += "<button type='button' id='btnUpdate' onclick='editComment("+obj.cno+",\""+obj.content+"\")'>수정</button>";
+                        }
+                    }
+
+                    $("#commentList").html(output);
+                }
+            });
+        })();
+    });
+
+</script>
 <jsp:include page="../include/footer.jsp"/>
 </html>
