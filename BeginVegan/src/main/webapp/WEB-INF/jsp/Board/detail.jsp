@@ -152,6 +152,7 @@
     </div>
 </section>
 </body>
+
 <script>
 
     //댓글 목록
@@ -245,5 +246,5 @@
     });
 
 </script>
-<jsp:include page="../include/footer.jsp"/>
+
 </html>

@@ -17,7 +17,8 @@
 <jsp:include page="../include/header.jsp"/>
 </header>
 <section>
-<div id="map" style="width:50%;height:500px;margin:auto;"></div>
+<br><br><br>
+<div id="map"style="width:50%;height:500px;margin:auto"></div>
 </section>
 
 <script>

@@ -5,6 +5,49 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}../resources/css/business-casual.css">
 <link rel="stylesheet" href="//cdn.rawgit.com/young-ha/webfont-archive/master/css/NanumSquare.css">
+<!-- Include Font Awesome Stylesheet in Header -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- // -->
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<style>
+  .social:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+  }
+  .social {
+    -webkit-transform: scale(0.8);
+    /* Browser Variations: */
+
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+  }
+
+  /*
+      Multicoloured Hover Variations
+  */
+
+  #social-fb:hover {
+    color: #ffffff;
+  }
+  #social-tw:hover {
+    color: #4099FF;
+  }
+  #social-gp:hover {
+    color: #d34836;
+  }
+  #social-em:hover {
+    color: #f39c12;
+  }
+
+  .txt-railway{
+    color: #ffffff;
+  }
+</style>
 
 
 <body>
@@ -57,11 +100,21 @@
     </div>
   </section>
 
+<footer class="footer text-faded text-center py-5">
+  <div class="container">
+    <div class="text-center center-block">
+      <p class="txt-railway" style="font-size:2rem;">만든이 : 김지원 , 이정현 , 이지홍 , 김동현</p>
+      <a href="https://github.com/wldnjszz1/BeginVegan" style="color: white"><i class="fa fa-github-square fa-5x"></i></a>
+      <a href="https://www.google.com" style="color: white"><i id="social-gp" class="fa fa-google-plus-square fa-5x social"></i></a>
+      <a href="https://www.facebook.com" style="color: white"><i id="social-fb" class="fa fa-facebook-square fa-5x social"></i></a>
+      <a href="https://www.google.com" style="color: white"><i id="social-em" class="fa fa-envelope-square fa-5x social"></i></a>
+    </div>
+  </div>
+</footer>
 
 </div>
 
 </body>
 
-<jsp:include page="include/footer.jsp"/>
 
 </html>

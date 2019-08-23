@@ -89,14 +89,14 @@
         }
         .gallery-title{
             font-size: 10rem;
-            color: #ffffff;
+            color: #010106;
             font-weight: 900;
             font-weight: bold;
             margin-bottom: 50px;
         <!--font-style : oblique;-->
         }
         .gallery-content{
-            font-size: 18px;
+            font-size: 25px;
             color: #010106;
             font-weight: 500;
             margin-bottom: 30px;
@@ -123,92 +123,96 @@
         <div class="container-fluid">
             <div align="center">
                 <h1 class="gallery-title">${dining.title}</h1>
-                        <h1 class="gallery-content"><a href="${dining.link}"><b>${dining.link}</b></a></h1>
-                        <h1 class="gallery-content"><b>${dining.roadAddress}</b></h1>
-                        <h1 class="gallery-content"><b>${dining.telephone}</b></h1>
-                        <h1 class="gallery-content"><b>${dining.category}</b></h1>
-                        <!-- 내림입니다 -->
-                        <c:choose>
-                            <c:when test="${dining.score  == 5.0}">
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                            </c:when>
-                            <c:when test="${dining.score >= 4.5}">
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
-                            </c:when>
-                            <c:when test="${dining.score >= 4.0}">
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                            </c:when>
-                            <c:when test="${dining.score >= 3.5}">
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                            </c:when>
-                            <c:when test="${dining.score >= 3.0}">
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                            </c:when>
-                            <c:when test="${dining.score >= 2.5}">
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                            </c:when>
-                            <c:when test="${dining.score >= 2.0}">
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                            </c:when>
-                            <c:when test="${dining.score >= 1.5}">
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                            </c:when>
-                            <c:when test="${dining.score >= 1.0}">
-                                <i class="fa fa-star fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                            </c:when>
-                            <c:when test="${dining.score >= 0.5}">
-                                <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                            </c:when>
-                            <c:otherwise>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                                <i class="fa fa-star-o fa-5x" style="color:orange"></i>
-                            </c:otherwise>
-                        </c:choose>
                     </div>
             </div>
+            <div align="" style="margin-left:500px">
+                <h1 class="gallery-content"><a href="${dining.link}"><b><i class="fa fa fa fa-twitter fa-2x"></i> ${dining.link}</b></a></h1>
+                <h1 class="gallery-content"><b><i class="fa fa-mobile-phone fa-2x"></i> ${dining.telephone}</b></h1>
+                <h1 class="gallery-content"><b><i class="fa fa-apple fa-2x"></i> ${dining.category}</b></h1>
+                <h1 class="gallery-content"><b><i class="fa fa fa-road fa-2x"></i> ${dining.roadAddress}</b></h1>
+                <!-- 내림입니다 -->
+                <c:choose>
+                    <c:when test="${dining.score  == 5.0}">
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                    </c:when>
+                    <c:when test="${dining.score >= 4.5}">
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
+                    </c:when>
+                    <c:when test="${dining.score >= 4.0}">
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                    </c:when>
+                    <c:when test="${dining.score >= 3.5}">
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                    </c:when>
+                    <c:when test="${dining.score >= 3.0}">
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                    </c:when>
+                    <c:when test="${dining.score >= 2.5}">
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                    </c:when>
+                    <c:when test="${dining.score >= 2.0}">
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                    </c:when>
+                    <c:when test="${dining.score >= 1.5}">
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                    </c:when>
+                    <c:when test="${dining.score >= 1.0}">
+                        <i class="fa fa-star fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                    </c:when>
+                    <c:when test="${dining.score >= 0.5}">
+                        <i class="fa fa-star-half-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                    </c:when>
+                    <c:otherwise>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                        <i class="fa fa-star-o fa-5x" style="color:orange"></i>
+                    </c:otherwise>
+
+                </c:choose>
+                <i class="gallery-content" style="font-size:5rem;"><b>(${dining.score})</b></i>
+            </div>
+
         </div>
     </div>
 </div>
@@ -476,11 +480,139 @@
     function deleteComment(no) {
         if(confirm("정말 삭제하시겠습니까?")==true) {
             $.ajax({
+
+                url : '${pageContext.request.contextPath}/dining/comments/list',
+                type : 'get',
+                data : {'bno':bno},
+                success : function(data){
+                    var output ='';
+                    var num10 = 10;
+                    for(var i in data) {
+                        var obj  = data[i];
+                        output += '<br>';
+                        output += '<br>';
+                        output += '<div class="tab-content">';
+                        output += '<div class="tab-pane active" id="comments-login">';
+                        output += '<ul class="media-list">';
+                        output += '<li class="media">';
+                        output += '<div class="media-body">';
+                        output += '<div class="well well-lg">';
+                        output += '<h4 id="writer" class="media-heading text-uppercase reviews writer">'+obj.writer+'</h4>';
+                        output += '<ul class="media-date text-uppercase reviews list-inline">';
+                        if(obj.score == 5.0){
+                            output +=
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>';
+                        }
+                        else if(obj.score >= 4.5){
+                            output +=
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-half-o fa-2x" style="color:orange"></i>';
+                        }
+                        else if(obj.score >= 4.0){
+                            output +=
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
+                        }
+                        else if(obj.score >= 3.5){
+                            output +=
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-half-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
+                        }
+                        else if(obj.score >= 3.0){
+                            output +=
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
+                        }
+                        else if(obj.score >= 2.5){
+                            output +=
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-half-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
+                        }
+                        else if(obj.score >= 2.0){
+                            output +=
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
+                        }
+                        else if(obj.score >= 1.5){
+                            output +=
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-half-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
+                        }
+                        else if(obj.score >= 1.0){
+                            output +=
+                            '<i class="fa fa-star fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
+                        }
+                        else if(obj.score >= 0.5){
+                            output +=
+                            '<i class="fa fa-star-half-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
+                        }
+                        else{
+                            output +=
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
+                            '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
+                        }
+                        output += ' (' + obj.score + ') ';
+
+                        output += '<br><li class="dd">'+obj.reg_date+'</li>';
+                        output += '</ul>';
+                        output += '<p class="media-comment">'+obj.content+'</p>';
+                        output += '</div>';
+                        output += '</div>';
+                        output += '</li>';
+                        output += '</ul>';
+                        output += '</div>';
+                        output += '</div>';
+
+                        if("${requestScope.loginVO.user_id}" == obj.writer) {
+                            output += "<button type='button' id='btnDelete' onclick='deleteComment("+obj.cno+")'>삭제</button>";
+                            output += "<button type='button' id='btnUpdate' onclick='editComment("+obj.cno+",\""+obj.content+"\")'>수정</button>";
+                        }
+                    }
+
+                    $("#commentList").html(output);
+
                 url : "${pageContext.request.contextPath}/dining/comments/delete/" +no,
                 type : "post",
                 success : function(data) {
                     alert("삭제 완료!");
                     commentList();
+
                 }
             });
         } else {
