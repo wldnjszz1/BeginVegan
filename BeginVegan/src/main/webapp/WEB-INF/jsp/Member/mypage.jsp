@@ -23,10 +23,11 @@
 </head>
 
   <!-- Contact Section -->
-  <div class="page-section" style="background-color: white">
-    <div class="container">
+  <div class="page-section" >
+    <div class="container" style="background-color: white; margin:auto; "><br>
 
       <!-- Contact Section Heading -->
+      <br><br><br><br><br>
       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Edit Profile</h2>
 
       <!-- Icon Divider -->
@@ -68,6 +69,7 @@
             <div id="success"></div>
             <div class="form-group">
               <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Edit</button>
+              <br><br><br><br><br><br>
             </div>
           </form>
         </div>

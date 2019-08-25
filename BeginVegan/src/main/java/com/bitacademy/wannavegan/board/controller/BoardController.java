@@ -65,8 +65,8 @@ public class BoardController {
             String sourceFileName = files.getOriginalFilename();
             File destinationFile;
 
-            String fileUrl = "C:\\Users\\jikon\\Documents\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";
-
+//            String fileUrl = "C:\\Users\\jikon\\Documents\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";
+            String fileUrl = "C:\\Users\\user\\Desktop\\BeginVegan\\BeginVegan\\src\\main\\webapp\\resources\\img";
 
             destinationFile = new File(fileUrl, sourceFileName);
             destinationFile.getParentFile().mkdirs();
