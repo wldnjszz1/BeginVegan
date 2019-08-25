@@ -110,7 +110,7 @@
 
 
 <body>
-<section class="portfolio" id="portfolio">
+<div class="portfolio" id="portfolio">
 
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -216,8 +216,8 @@
     </div>
     </div>
     </div>
-
-    <div class="container">
+    <div style="background-color:#FFE5CB;">
+    <div class="container" style="background-color: #FFE5CB; margin:auto;">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1" id="login">
 
@@ -226,7 +226,7 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="active"><a href="#comments-login" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
                     </ul>
-                    <div class="container">
+                    <div class="">
                         <div id="commentList"></div>
                     </div>
                     <hr>
@@ -290,6 +290,7 @@
         </div>
     </div>
     </div>
+</div>
 </section>
 </body>
 <script>
@@ -375,7 +376,7 @@
                     output += '<li class="media">';
                     output += '<div class="media-body">';
                     output += '<div class="well well-lg">';
-                    output += '<h4 id="cttwriter" class="media-heading text-uppercase reviews writer">' + obj.writer + '</h4>';
+
                     output += '<ul class="media-date text-uppercase reviews list-inline">';
 
                     if(obj.score == 5.0){
@@ -466,10 +467,11 @@
                             '<i class="fa fa-star-o fa-2x" style="color:orange"></i>'+
                             '<i class="fa fa-star-o fa-2x" style="color:orange"></i>';
                     }
+                    /*
                     output += ' (' + obj.score + ') <br>';
+                    */
 
-
-
+                    output += '<h4 id="cttwriter" class="media-heading text-uppercase reviews writer">' + obj.writer + '</h4>';
                     output += '<li id="cttdate" class="dd">' + obj.reg_date + '</li>';
                     output += '</ul>';
                     output += '<p id="cttcontent" class="media-comment">' + obj.content + '</p>';
