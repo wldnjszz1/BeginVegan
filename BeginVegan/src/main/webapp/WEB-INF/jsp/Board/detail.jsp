@@ -2,7 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}../resources/css/business-casual.css">
+<link rel="stylesheet" href="//cdn.rawgit.com/young-ha/webfont-archive/master/css/Godo.css">
+<link rel="stylesheet" href="//cdn.rawgit.com/young-ha/webfont-archive/master/css/NanumGothic.css">
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +34,17 @@
             $('#delBtn').click(function () {
                 if (confirm("${board.id}번 게시물을 삭제하시겠습니까?")) {
                     // 동기식 삭제
+
+                    //var name_by_id = $('#commentList').attr('id');
+
+
+  //                 var commentList=$('#commentList').attr('id');
+
+/*                  if(commentList){
+                        alert("댓글이 달린 게시물은 삭제 할 수 없습니다.");
+                        return ;
+                    }
+*/
                     location.href = "${ pageContext.request.contextPath }/Board/delete/${board.id}";
                 }
             });
@@ -77,13 +92,14 @@
                                     </div>
                                     <!-- /.post meta -->
                                     <div class="post-header mb20">
-                                        <h1 class="post-title mb30">${board.title }</h1>
+                                        <h1 class="post-title mb30 your-style2"><font size="6px;">${board.title }</font>
+                                        </h1>
                                     </div>
                                     <div class="post-content" align="right">
                                         <a href="/fileDown/${files.bno}">${files.fileOriName}</a>
                                     </div>
                                     <div class="post-content" align="left">
-                                        <pre style="font-size: 17px;">${board.content }</pre>
+                                        <pre class="your-style3"><font size="4px;"> ${board.content }</font></pre>
                                     </div>
                                     <hr>
                                     <div class="social-icon" align="right">
@@ -102,58 +118,84 @@
 
                                     </div>
 
+                                    <form action="#" method="post" class="inputForm" id="commentForm"
+                                          role="form">
+                                        <div class="comment-tabs">
+                                            <ul class="nav nav-tabs" role="tablist">
+                                                <li class="active"><a href="#comments-login" role="tab"
+                                                                      data-toggle="tab">
+                                                    <h4 class="reviews text-capitalize">Comments</h4></a></li>
+                                            </ul>
+                                            <div class="" align="left">
+                                                <div class="dd" id="commentList"></div>
+                                            </div>
+                                            <hr>
+                                            <div class="tab-pane" id="add-comment-disabled">
+                                                <input type="hidden" name="author" value="${loginVO.id}">
+                                                <input type="hidden" name="bno" value="${board.id}">
+                                                <input type="hidden" name="writer" value="${loginVO.user_id}">
+                                                <div class="form-group">
+                                                    <div class="col-sm-10">
+                                                        <textarea class="form-control" name="addComment" id="addComment"
+                                                                  rows="3"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-2 col-sm-10">
+                                                        <button class="btn btn-success btn-circle text-uppercase"
+                                                                type="button" id="submitComment"><span
+                                                                class="glyphicon glyphicon-send"></span> Summit comment
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                <!-- /.post block -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
+        <!-- /.post block -->
     </div>
-    <div class="comment-tabs">
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="active"><a href="#comments-login" role="tab" data-toggle="tab"><h4
-                    class="reviews text-capitalize">Comments</h4></a></li>
-        </ul>
-        <div class="container">
-            <div id="commentList"></div>
-        </div>
-        <hr>
-        <div class="tab-pane" id="add-comment-disabled">
-            <!-- <div class="alert alert-info alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert">
-                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
-                </button>
-                <strong>Hey!</strong> If you already have an account <a href="#" class="alert-link">Login</a> now to make the comments you want. If you do not have an account yet you're welcome to <a href="#" class="alert-link"> create an account.</a>
-            </div> -->
-            <form action="#" method="post" class="inputForm" id="commentForm" role="form">
-                <input type="hidden" name="author" value="${loginVO.id}">
-                <input type="hidden" name="bno" value="${board.id}">
-                <input type="hidden" name="writer" value="${loginVO.user_id}">
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button class="btn btn-success btn-circle text-uppercase" type="button" id="submitComment"><span
-                                class="glyphicon glyphicon-send"></span> Summit comment
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+
 </section>
 </body>
-
 <script>
+
+    function editComment(cno, content, reg_date) {
+        var writer = $('#cttwriter').text();
+        var editForm = '';
+        editForm += '<form action="#" method="post" class="inputForm" id="fixForm" role="form">';
+        editForm += '<br>';
+        editForm += '<br>';
+        editForm += '<div class="tab-content" id="cno'+cno+'">';
+        editForm += '<div class="tab-pane active" id="comments-login">';
+        editForm += '<ul class="media-list">';
+        editForm += '<li class="media">';
+        editForm += '<div class="media-body">';
+        editForm += '<div class="well well-lg">';
+        editForm += '<h6 class="media-heading text-uppercase reviews writer" name="cttwriter" id="cttwriter">' + writer + '</h6>';
+        editForm += '<ul class="media-date text-uppercase reviews list-inline">';
+        editForm += '</form>';
+        editForm += '<li name="cttdate" id="cttdate" class="dd">' + reg_date + '</li>';
+        editForm += '</ul>';
+        editForm += '<textarea class="form-control"name="cttcontent" id="cttcontent" rows="3">' + content + '</textarea>';
+        editForm += '</div>';
+        editForm += '</div>';
+        editForm += '</li>';
+        editForm += '</ul>';
+        editForm += '</div>';
+        editForm += '</div>';
+        editForm += "<td><input id='btn' type='button' onclick='fixComment(" + cno + ")' value='수정'>";
+        editForm += "<input id='btn' type='button' onclick='commentList()' value='취소'></td>";
+
+        $("#cno"+cno).replaceWith(editForm);
+        $("#commentList").html(editForm);
+    }
 
     //댓글 목록
     function commentList() {
@@ -175,11 +217,12 @@
                     output += '<li class="media">';
                     output += '<div class="media-body">';
                     output += '<div class="well well-lg">';
-                    output += '<h4 id="writer" class="media-heading text-uppercase reviews writer">' + obj.writer + '</h4>';
+                    output += '<h6 id="cttwriter" class="media-heading text-uppercase reviews writer">' + obj.writer + '</h6>';
                     output += '<ul class="media-date text-uppercase reviews list-inline">';
-                    output += '<li class="dd">' + obj.reg_date + '</li>';
+                    output += '<li id="cttdate" class="dd">' + obj.reg_date + '</li>';
                     output += '</ul>';
-                    output += '<p class="media-comment">' + obj.content + '</p>';
+                    output += '<hr>';
+                    output += '<p id="cttcontent" name="cttcontent" class="media-comment">' + obj.content + '</p>';
                     output += '</div>';
                     output += '</div>';
                     output += '</li>';
@@ -188,8 +231,10 @@
                     output += '</div>';
 
                     if ("${requestScope.loginVO.user_id}" == obj.writer) {
-                        output += "<button type='button' id='btnDelete' onclick='deleteComment(" + obj.cno + ")'>삭제</button>";
-                        output += "<button type='button' id='btnUpdate' onclick='editComment(" + obj.cno + ",\"" + obj.content + "\")'>수정</button>";
+                        output += '<div align="right">';
+                        output += "<button class='btn btn-outline' type='button' id='btnDelete' onclick='deleteComment(" + obj.cno + ")'>삭제</button>";
+                        output += "<button class='btn btn-outline' type='button' id='btnUpdate' onclick='editComment("+ obj.cno + ",\"" + obj.content + "\"," +"\"" + obj.reg_date +"\")'>수정</button>";
+                        output += '</div>';
                     }
                 }
 
@@ -245,6 +290,51 @@
         commentList(); //페이지 로딩시 댓글 목록 출력
     });
 
+    function deleteComment(no) {
+        if (confirm("정말 삭제하시겠습니까?") == true) {
+            $.ajax({
+                url: "${pageContext.request.contextPath}/board/comments/delete/" + no,
+                type: "post",
+                success: function (data) {
+                    alert("삭제 완료!");
+                    commentList();
+                }
+            });
+        } else {
+            return;
+        }
+    }
+
+    function fixComment(cno) {
+        var content = $("#cttcontent").val().trim();
+        if (content === "") {
+            alert("댓글을 입력하세요");
+            $('#comment' + no + ' #content').focus();
+        } else {
+            $.ajax({
+                url: "${pageContext.request.contextPath}/board/comments/update",
+                type: "post",
+                data: {
+                    'cno': cno,
+                    'content': content,
+                },
+                success: function (data) {
+                    commentList();
+                },
+                error: function (request, status, error) {
+                    alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+                }
+            });
+        }
+    }
+
 </script>
+
+<style type="text/css">
+    #btnDelete, #btnUpdate {
+        text-align: right;
+    }
+
+</style>
 
 </html>

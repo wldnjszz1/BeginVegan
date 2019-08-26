@@ -11,6 +11,7 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 
+import static java.lang.System.console;
 
 
 @RestController
@@ -36,19 +37,21 @@ public class CommentController {
         String number =  Integer.toString(vo.getBno());
         service.create(vo);
 
-        //System.out.println(vo);
+        System.out.println(vo);
         return "redirect:/board/"+number;
     }
 
     @RequestMapping("/update") //댓글 수정
     @ResponseBody
-    private void commentUpdate(@RequestParam int cno, @RequestParam String content) throws Exception{
+    private void commentUpdate(@ModelAttribute CommentVO vo , @RequestParam int cno, @RequestParam String content) throws Exception{
+
+        System.out.println(vo);
 
         CommentVO comment = new CommentVO();
+
         comment.setCno(cno);
         comment.setContent(content);
-
-        service.update(comment);
+        service.update(vo);
     }
 
     @RequestMapping("/delete/{cno}") //댓글 삭제

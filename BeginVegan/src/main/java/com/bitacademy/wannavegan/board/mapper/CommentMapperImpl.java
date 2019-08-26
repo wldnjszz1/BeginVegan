@@ -32,7 +32,7 @@ public class CommentMapperImpl implements CommentMapper {
 
     @Override
     public void commentUpdate(CommentVO comment) throws Exception {
-        session.update("comment.mapper.CommentMapper.commentUpdate");
+        session.update("comment.mapper.CommentMapper.commentUpdate", comment);
     }
 
     @Override
