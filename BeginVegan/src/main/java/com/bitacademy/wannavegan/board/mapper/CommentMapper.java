@@ -11,8 +11,6 @@ public interface CommentMapper {
     // 댓글 목록
     public List<CommentVO> commentList(int bno) throws Exception;
 
-
-
     // 댓글 작성
     public void commentInsert(CommentVO comment) throws Exception;
 
