@@ -47,11 +47,9 @@
     <div class="limiter">
         <div class="container-table100">
             <div align = "center" class="wrap-table100">
-                <br>
-                <hr>
+                <br><hr>
                 <h1 class="your-style2"><font size="7px;">자유 게시판 조회</font></h1>
-                <hr>
-                <br>
+                <hr><br>
 
                 <div class="table100 ver1 m-b-110">
                     <div class="table100-head">
@@ -73,9 +71,9 @@
 
                             <c:forEach items="${ BoardList }" var="board">
                                 <tr class="row100 body">
-                                    <td width="20%" style="padding-left: 40px">${ board.id }</td>
+                                    <td width="20%" style="padding-left: 40px" >${ board.id }</td>
                                     <td class="cell100 column1">
-                                        <a href="${pageContext.request.contextPath}/Board/${board.id}">
+                                        <a href="${pageContext.request.contextPath}/Board/${board.id}" style="color: grey;">
                                                 ${ board.title }
                                         </a>
                                     </td>
@@ -87,8 +85,9 @@
                         </table>
                     </div>
                 </div>
+
                 <c:if test="${loginVO != null}">
-                    <button id="writeBtn" class="btn btn-primary">새글등록</button>
+                    <button id="writeBtn" class="btn btn-outline-success" style="width:8rem; height:3rem;">새글등록</button>
                 </c:if>
             </div>
         </div>

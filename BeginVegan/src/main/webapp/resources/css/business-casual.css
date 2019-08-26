@@ -133,7 +133,7 @@ p {
 }
 
 #mainNav .navbar-nav .nav-item.active .nav-link {
-  color: #40a700;
+  color: white;
 }
 
 @media (min-width: 992px) {
