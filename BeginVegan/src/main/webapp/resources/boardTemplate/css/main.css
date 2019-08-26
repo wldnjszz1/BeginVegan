@@ -240,7 +240,7 @@ th, td {
   color: #fff;
   line-height: 1.4;
 
-  background-color: #e03800;
+  background-color: lime;
 }
 
 .table100.ver1 td {
@@ -250,7 +250,7 @@ th, td {
   line-height: 1.4;
 }
 
-.table100.ver1 .table100-body tr:nth-child(even) {
+.table100.ver1 .table100-body tr:nth-child() { /* even 뺌 */
   background-color: #fff6f8;
 }
 
@@ -293,9 +293,8 @@ th, td {
 .table100.ver2 th {
   font-family: Lato-Bold;
   font-size: 18px;
-  color: #fa4251;
   line-height: 1.4;
-
+  color: #fa4251;
   background-color: transparent;
 }
 
